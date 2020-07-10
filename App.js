@@ -6,5 +6,7 @@ import StopWatch from "./example/2-stopwatch/StopWatch";
 import InstagramFeed from "./example/3-instagram-feed/InstagramFeed";
 
 export default function App() {
-  return <InstagramFeed />;
+  return <TheLight />;
+  // return <StopWatch />;
+  // return <InstagramFeed />;
 }
