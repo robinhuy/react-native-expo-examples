@@ -17,7 +17,7 @@ const addZeroBefore = (time) => {
   return "" + time;
 };
 
-const StopWatch: () => React$Node = () => {
+export default function StopWatch() {
   const [time, setTime] = useState(0);
   const [isRunning, setRunning] = useState(false);
   const [timer, setTimer] = useState(null);
@@ -135,7 +135,7 @@ const StopWatch: () => React$Node = () => {
       </View>
     </SafeAreaView>
   );
-};
+}
 
 const CENTER_STYLE = {
   justifyContent: "center",
@@ -187,5 +187,3 @@ const styles = StyleSheet.create({
   },
   resultItemText: { color: "#fff" },
 });
-
-export default StopWatch;

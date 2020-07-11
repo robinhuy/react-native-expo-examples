@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { StyleSheet, SafeAreaView, Text, Image, Switch } from "react-native";
-
+import { StatusBar } from "expo-status-bar";
 import bulbOff from "../../assets/the-light-images/bulb-off.jpg";
 import bulbOn from "../../assets/the-light-images/bulb-on.jpg";
-import { StatusBar } from "expo-status-bar";
 
-const TheLight: () => React$Node = () => {
+export default function TheLight() {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
@@ -31,7 +30,7 @@ const TheLight: () => React$Node = () => {
       />
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -52,5 +51,3 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
-
-export default TheLight;
