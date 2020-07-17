@@ -19,7 +19,23 @@ Modify code in `App.js`, each example is a component.
 
 ## Examples preview
 
-### BMI Calculator
+### 1. The Light
 
-![bmi-calculator-preview](https://user-images.githubusercontent.com/12640832/87665506-3fa22e00-c791-11ea-99c1-510bb7e059e0.gif) 
+<img src="https://user-images.githubusercontent.com/12640832/87749392-c3582b00-c822-11ea-8cea-7a1814907e83.gif" width="250" />
+
+### 2. Login Page
+
+<img src="https://user-images.githubusercontent.com/12640832/87749739-b4be4380-c823-11ea-90bf-8a6e66af2495.png" width="250" />   <img src="https://user-images.githubusercontent.com/12640832/87783634-14861000-c85f-11ea-92cb-ff99ee1f46da.png" width="250" />
+
+### 3. Instagram Feed
+
+<img src="https://user-images.githubusercontent.com/12640832/87748778-0a452100-c821-11ea-8a8c-6ea7b780c60a.png" width="250" />
+
+### 4. Stop Watch
+
+<img src="https://user-images.githubusercontent.com/12640832/87749278-7d02cc00-c822-11ea-9b6a-b19e83f38841.gif" width="250" />
+
+### 5. BMI Calculator
+
+<img src="https://user-images.githubusercontent.com/12640832/87665506-3fa22e00-c791-11ea-99c1-510bb7e059e0.gif" width="250" />
 

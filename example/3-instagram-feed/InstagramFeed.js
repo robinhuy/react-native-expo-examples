@@ -53,6 +53,7 @@ export default function Instagram() {
           }
         }}
         keyExtractor={(item) => item.id.toString()}
+        showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>
   );
