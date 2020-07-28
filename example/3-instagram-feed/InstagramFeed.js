@@ -39,6 +39,7 @@ export default function Instagram() {
         </TouchableOpacity>
       </View>
 
+      {/* https://reactnative.dev/docs/flatlist */}
       <FlatList
         data={data.feeds}
         renderItem={({ item, index }) => {

@@ -24,6 +24,7 @@ export default function MomoLogin() {
         </View>
 
         <View style={styles.form}>
+          {/* https://docs.expo.io/guides/icons/ */}
           <FontAwesome5 name="lock" style={styles.iconLock} />
 
           <TextInput
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     top: 22,
     left: 22,
-    zIndex: 10
+    zIndex: 10,
   },
   inputPassword: {
     height: 60,

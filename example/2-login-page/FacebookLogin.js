@@ -13,6 +13,8 @@ import { StatusBar } from "expo-status-bar";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Image } from "react-native";
 import FacebookBannerImage from "../../assets/login-page-images/facebook-banner.jpg";
+
+// https://reactnative.dev/docs/dimensions
 const screenWidth = Dimensions.get("window").width;
 const bannerHeight = (screenWidth / 75) * 46;
 
@@ -24,7 +26,9 @@ export default function FacebookLogin() {
       <Image source={FacebookBannerImage} style={styles.banner} />
 
       <SafeAreaView style={styles.container}>
+        {/* https://reactnative.dev/docs/view */}
         <View style={styles.content}>
+          {/* https://reactnative.dev/docs/textinput */}
           <TextInput
             style={[styles.input, styles.inputUsername]}
             placeholder="Số điện thoại hoặc email"
@@ -38,6 +42,7 @@ export default function FacebookLogin() {
             placeholderTextColor="#cdcdcf"
           />
 
+          {/* https://reactnative.dev/docs/touchableopacity */}
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Đăng nhập</Text>
           </TouchableOpacity>

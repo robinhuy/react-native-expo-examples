@@ -120,6 +120,7 @@ export default function StopWatch() {
       </View>
 
       <View style={styles.result}>
+        {/* https://reactnative.dev/docs/scrollview */}
         <ScrollView>
           <View style={styles.resultItem} />
 

@@ -26,6 +26,7 @@ export default function ResultModal({
   bmiInterpretation,
 }) {
   return (
+    // https://reactnative.dev/docs/modal
     <Modal animationType="slide" transparent={true} visible={modalVisible}>
       <SafeAreaView style={styles.container}>
         <Text style={styles.headerText}>Your Result</Text>

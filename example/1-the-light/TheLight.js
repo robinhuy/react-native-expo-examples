@@ -5,13 +5,17 @@ import bulbOff from "../../assets/the-light-images/bulb-off.jpg";
 import bulbOn from "../../assets/the-light-images/bulb-on.jpg";
 
 export default function TheLight() {
+  // https://reactjs.org/docs/hooks-reference.html#usestate
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   return (
+    // https://reactnative.dev/docs/safeareaview
     <SafeAreaView style={styles.container}>
+      {/* https://reactnative.dev/docs/statusbar */}
       <StatusBar style="light" />
 
+      {/* https://reactnative.dev/docs/text */}
       <Text style={styles.title}>The Light</Text>
 
       {/* https://reactnative.dev/docs/image */}
