@@ -1,9 +1,8 @@
 const data = {
+  profile: {
+    avatar: require("../../assets/instagram-feed-images/avatar.png"),
+  },
   stories: [
-    {
-      id: 0,
-      avatar: require("../../assets/instagram-feed-images/avatar.png"),
-    },
     {
       id: 1,
       avatar: require("../../assets/instagram-feed-images/avatar1.jpg"),
@@ -23,7 +22,7 @@ const data = {
       isSeen: true,
     },
   ],
-  feeds: [
+  articles: [
     {
       id: 1,
       avatar: require("../../assets/instagram-feed-images/avatar1.jpg"),

@@ -1,10 +1,9 @@
 import React from "react";
 import {
-  ViewStyle,
   StyleSheet,
+  ViewStyle,
   View,
   Text,
-  FlatList,
   Image,
   TouchableOpacity,
 } from "react-native";

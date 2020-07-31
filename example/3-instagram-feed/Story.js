@@ -9,44 +9,36 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-export default function Story({ stories }) {
+export default function Story({ avatar, name, isCreateStory = false, isSeen }) {
   return (
-    <FlatList
-      data={stories}
-      renderItem={({ item, index }) => (
-        <TouchableOpacity style={styles.user}>
-          <View>
-            <View
-              style={[
-                styles.avatarBorder,
-                {
-                  borderColor:
-                    index === 0
-                      ? "transparent"
-                      : item.isSeen
-                      ? "rgba(0,0,0,.0975)"
-                      : "#c73191",
-                },
-              ]}
-            >
-              <Image source={item.avatar} style={styles.avatar} />
+    <TouchableOpacity style={styles.user}>
+      <View>
+        <View
+          style={[
+            styles.avatarBorder,
+            {
+              borderColor: isCreateStory
+                ? "transparent"
+                : isSeen
+                ? "rgba(0,0,0,.0975)"
+                : "#c73191",
+            },
+          ]}
+        >
+          <Image source={avatar} style={styles.avatar} />
 
-              {index === 0 && (
-                <View style={styles.plusIcon}>
-                  <Feather name="plus" size={14} color="#fff" />
-                </View>
-              )}
+          {isCreateStory && (
+            <View style={styles.plusIcon}>
+              <Feather name="plus" size={14} color="#fff" />
             </View>
+          )}
+        </View>
 
-            <Text numberOfLines={1} style={styles.name}>
-              {index === 0 ? "Tin của bạn" : item.name}
-            </Text>
-          </View>
-        </TouchableOpacity>
-      )}
-      keyExtractor={(item) => item.id.toString()}
-      horizontal={true}
-    />
+        <Text numberOfLines={1} style={styles.name}>
+          {name}
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 

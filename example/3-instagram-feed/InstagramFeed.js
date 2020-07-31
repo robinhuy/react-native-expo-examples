@@ -1,9 +1,9 @@
 import React from "react";
 import {
+  StyleSheet,
   SafeAreaView,
   View,
   Image,
-  StyleSheet,
   ScrollView,
   Text,
   ViewStyle,
@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Feather } from "@expo/vector-icons";
-import Story from "./Story";
+import Stories from "./Stories";
 import Article from "./Article";
 
 import data from "./data";
@@ -21,8 +21,6 @@ const INSTAGRAM_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png";
 
 export default function Instagram() {
-  data.feeds.unshift({ id: 0 });
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar style="dark" />
@@ -41,13 +39,17 @@ export default function Instagram() {
 
       {/* https://reactnative.dev/docs/flatlist */}
       <FlatList
-        data={data.feeds}
+        data={data.articles}
         renderItem={({ item, index }) => {
           if (index === 0) {
             return (
-              <View style={styles.stories}>
-                <Story stories={data.stories} />
-              </View>
+              <>
+                <View style={styles.stories}>
+                  <Stories stories={data.stories} profile={data.profile} />
+                </View>
+
+                <Article item={item} />
+              </>
             );
           } else {
             return <Article item={item} />;

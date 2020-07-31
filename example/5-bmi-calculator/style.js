@@ -13,7 +13,7 @@ export const TEXT_LABEL: TextStyle = {
 
 export const TEXT_VALUE: TextStyle = {
   ...TEXT,
-  fontFamily: "Helvetica Neue",
+  // fontFamily: "Helvetica Neue",
   fontSize: 35,
   lineHeight: 55,
   fontWeight: "bold",
