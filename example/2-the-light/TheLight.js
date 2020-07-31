@@ -22,7 +22,6 @@ export default function TheLight() {
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   return (
-    // https://reactnative.dev/docs/safeareaview
     <SafeAreaView style={styles.container}>
       {/* https://reactnative.dev/docs/statusbar */}
       <StatusBar style="light" />
@@ -48,7 +47,6 @@ export default function TheLight() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 15,
     backgroundColor: "black",
     paddingTop: Constants.statusBarHeight,
   },
