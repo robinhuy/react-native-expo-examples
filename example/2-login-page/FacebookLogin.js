@@ -14,7 +14,6 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Image } from "react-native";
 import FacebookBannerImage from "../../assets/login-page-images/facebook-banner.jpg";
 
-// https://reactnative.dev/docs/dimensions
 const screenWidth = Dimensions.get("window").width;
 const bannerHeight = (screenWidth / 75) * 46;
 

@@ -10,7 +10,7 @@ export default function App() {
   // return <TheLight />;
   // return <MomoLogin />;
   // return <FacebookLogin />;
-  return <InstagramFeed />;
+  // return <InstagramFeed />;
   // return <StopWatch />;
   return <BMICalculator />;
 }

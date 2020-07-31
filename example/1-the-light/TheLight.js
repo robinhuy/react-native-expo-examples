@@ -1,8 +1,20 @@
 import React, { useState } from "react";
-import { StyleSheet, SafeAreaView, Text, Image, Switch } from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  Image,
+  Switch,
+  Platform,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
 import bulbOff from "../../assets/the-light-images/bulb-off.jpg";
 import bulbOn from "../../assets/the-light-images/bulb-on.jpg";
+
+// https://reactnative.dev/docs/dimensions
+const screenHeight = Dimensions.get("window").height;
 
 export default function TheLight() {
   // https://reactjs.org/docs/hooks-reference.html#usestate
@@ -15,9 +27,6 @@ export default function TheLight() {
       {/* https://reactnative.dev/docs/statusbar */}
       <StatusBar style="light" />
 
-      {/* https://reactnative.dev/docs/text */}
-      <Text style={styles.title}>The Light</Text>
-
       {/* https://reactnative.dev/docs/image */}
       <Image
         fadeDuration={0}
@@ -28,9 +37,10 @@ export default function TheLight() {
       {/* https://reactnative.dev/docs/switch */}
       <Switch
         trackColor={{ false: "#fff", true: "#52d964" }}
+        thumbColor={isEnabled ? "#fff" : "#fff"}
         onValueChange={toggleSwitch}
         value={isEnabled}
-        style={{ alignSelf: "center" }}
+        style={styles.switch}
       />
     </SafeAreaView>
   );
@@ -40,18 +50,16 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     backgroundColor: "black",
-  },
-  title: {
-    textAlign: "center",
-    fontSize: 20,
-    fontWeight: "bold",
-    lineHeight: 40,
-    marginBottom: 10,
+    paddingTop: Constants.statusBarHeight,
   },
   image: {
     maxWidth: "100%",
-    maxHeight: 500,
+    maxHeight: screenHeight - 180,
     resizeMode: "contain",
     marginBottom: 20,
+  },
+  switch: {
+    alignSelf: "center",
+    transform: Platform.OS === "ios" ? [] : [{ scale: 1.5 }],
   },
 });

@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
 
 const addZeroBefore = (time) => {
   if (time < 10) {
@@ -146,6 +147,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
+    paddingTop: Constants.statusBarHeight,
   },
   display: {
     flex: 3,
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 70,
     fontWeight: "200",
-    fontFamily: "Helvetica Neue",
+    // fontFamily: "Helvetica Neue",
   },
   control: {
     height: 70,

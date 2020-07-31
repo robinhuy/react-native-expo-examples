@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
 import { Feather } from "@expo/vector-icons";
 import Stories from "./Stories";
 import Article from "./Article";
@@ -22,7 +23,7 @@ const INSTAGRAM_LOGO =
 
 export default function Instagram() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="dark" />
 
       <View style={styles.header}>
@@ -68,6 +69,10 @@ const BORDER_BOTTOM: ViewStyle = {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: Constants.statusBarHeight,
+  },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",

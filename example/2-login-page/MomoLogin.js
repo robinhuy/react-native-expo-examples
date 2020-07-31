@@ -9,6 +9,7 @@ import {
   TextInput,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function MomoLogin() {
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#b0006d",
+    paddingTop: Constants.statusBarHeight,
   },
   content: {
     paddingHorizontal: 30,

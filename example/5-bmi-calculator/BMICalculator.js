@@ -6,8 +6,10 @@ import {
   Text,
   TouchableOpacity,
   Modal,
+  Platform,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
 import { CENTER, TEXT, BUTTON, BUTTON_TEXT } from "./style";
 import GenderSelection from "./GenderSelection";
 import HeightSelection from "./HeightSelection";
@@ -97,6 +99,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#1d2236",
+    paddingTop: Constants.statusBarHeight,
   },
   content: {
     flex: 1,
@@ -125,7 +128,7 @@ const styles = StyleSheet.create({
   calculateButton: {
     ...BUTTON,
     marginTop: 10,
-    marginBottom: 0,
+    marginBottom: Platform.OS === 'ios' ? 0 : 15,
   },
   calculateButtonText: {
     ...BUTTON_TEXT,
