@@ -1,4 +1,4 @@
-import { ViewStyle, TextStyle } from "react-native";
+import { ViewStyle, TextStyle, Platform } from "react-native";
 
 export const TEXT: TextStyle = {
   color: "#fff",
@@ -13,7 +13,7 @@ export const TEXT_LABEL: TextStyle = {
 
 export const TEXT_VALUE: TextStyle = {
   ...TEXT,
-  // fontFamily: "Helvetica Neue",
+  fontFamily: Platform.OS === "ios" ? "Helvetica Neue" : null,
   fontSize: 35,
   lineHeight: 55,
   fontWeight: "bold",

@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   recalculateButton: {
     ...BUTTON,
     marginTop: 10,
-    marginBottom: 0,
+    marginBottom: Platform.OS === "ios" ? 0 : 15,
   },
   recalculateButtonText: {
     ...BUTTON_TEXT,

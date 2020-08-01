@@ -10,8 +10,12 @@ export default function HelloReactNative() {
         Hello <Text style={styles.highlightText1}>World</Text>
       </Text>
 
-      <Text style={[styles.heading, { color: "#616166" }]}>
+      <Text style={styles.heading}>
         Hello <Text style={styles.highlightText2}>World</Text>
+      </Text>
+
+      <Text style={[styles.heading, { color: "#59595d" }]}>
+        Hello <Text style={styles.highlightText3}>World</Text>
       </Text>
     </SafeAreaView>
   );
@@ -30,10 +34,15 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
   },
   highlightText1: {
-    color: "red",
+    color: "#e74c3c",
   },
   highlightText2: {
+    fontStyle: "italic",
+    textDecorationLine: "underline",
+    color: "#2980b9",
+  },
+  highlightText3: {
     color: "#fff",
-    backgroundColor: "#616166",
+    backgroundColor: "#59595d",
   },
 });
