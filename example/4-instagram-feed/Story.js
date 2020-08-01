@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  FlatList,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 export default function Story({ avatar, name, isCreateStory = false, isSeen }) {

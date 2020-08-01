@@ -39,24 +39,24 @@ export default function Control({
   );
 }
 
-const CENTER_STYLE = {
+const CENTER = {
   justifyContent: "center",
   alignItems: "center",
 };
 
 const styles = StyleSheet.create({
   controlButtonBorder: {
+    ...CENTER,
     width: 70,
     height: 70,
     borderRadius: 70,
-    ...CENTER_STYLE,
   },
   controlButton: {
+    ...CENTER,
     width: 65,
     height: 65,
     borderRadius: 65,
     borderColor: "#000",
     borderWidth: 1,
-    ...CENTER_STYLE,
   },
 });

@@ -4,7 +4,6 @@ import {
   SafeAreaView,
   View,
   Image,
-  ScrollView,
   Text,
   ViewStyle,
   FlatList,
@@ -74,12 +73,12 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
   },
   header: {
+    ...BORDER_BOTTOM,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 16,
     height: 44,
-    ...BORDER_BOTTOM,
   },
   logo: {
     flex: 1,
@@ -87,9 +86,9 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   stories: {
+    ...BORDER_BOTTOM,
     height: 104,
     padding: 10,
     backgroundColor: "#fafafa",
-    ...BORDER_BOTTOM,
   },
 });
