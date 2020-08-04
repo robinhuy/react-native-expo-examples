@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, SafeAreaView, Text } from "react-native";
 import Constants from "expo-constants";
 
-export default function HelloReactNative() {
+export default function HelloWorld2() {
   return (
     // https://reactnative.dev/docs/safeareaview
     <SafeAreaView style={styles.container}>
@@ -24,6 +24,7 @@ export default function HelloReactNative() {
 // https://reactnative.dev/docs/stylesheet
 const styles = StyleSheet.create({
   container: {
+    // SafeAreaView on Android devices
     paddingTop: Constants.statusBarHeight,
   },
   heading: {

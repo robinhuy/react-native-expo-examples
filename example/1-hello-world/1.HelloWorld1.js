@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
 
-export default function HelloWorld() {
+export default function HelloWorld1() {
   return (
     // https://reactnative.dev/docs/view
     <View

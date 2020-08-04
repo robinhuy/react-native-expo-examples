@@ -35,17 +35,21 @@ Modify code in `App.js`, each example is a component.
 
 <img src="https://user-images.githubusercontent.com/12640832/87748778-0a452100-c821-11ea-8a8c-6ea7b780c60a.png" width="250" alt="Instagram Feed" />
 
-### 5. Stop Watch
-
-<img src="https://user-images.githubusercontent.com/12640832/87749278-7d02cc00-c822-11ea-9b6a-b19e83f38841.gif" width="250" alt="Stop Watch" />
-
-### 6. Rock Paper Scissors
+### 5. Rock Paper Scissors
 
 <img src="https://user-images.githubusercontent.com/12640832/89098353-e680fe00-d410-11ea-94a5-70c0e35c751b.gif" width="250" alt="Rock Paper Scissors" />
+
+### 6. Stop Watch
+
+<img src="https://user-images.githubusercontent.com/12640832/87749278-7d02cc00-c822-11ea-9b6a-b19e83f38841.gif" width="250" alt="Stop Watch" />
 
 ### 7. BMI Calculator
 
 <img src="https://user-images.githubusercontent.com/12640832/87665506-3fa22e00-c791-11ea-99c1-510bb7e059e0.gif" width="250" alt="BMI Calculator" />
+
+### 8. Worldwide News
+
+<img src="https://user-images.githubusercontent.com/12640832/89286808-07e62200-d67d-11ea-907e-acd1cd59fe01.png" width="250" alt="Worldwide News" />
 
 -----
 Last but not least: If you have time, let's try my React Native Game on Goole Play Store: [Master Mind X](https://play.google.com/store/apps/details?id=com.robinhuy.mastermindx)
