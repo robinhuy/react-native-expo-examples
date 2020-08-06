@@ -25,6 +25,7 @@ export default function Article({ item }) {
 
   return (
     <View style={styles.article}>
+      {/* Caching image for better performance: https://github.com/DylanVann/react-native-fast-image */}
       <Image source={{ uri: item.urlToImage }} style={styles.articleImage} />
 
       <View style={{ flex: 1 }}>

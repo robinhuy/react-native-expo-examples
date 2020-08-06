@@ -5,8 +5,6 @@ import {
   View,
   Text,
   FlatList,
-  Image,
-  TouchableOpacity,
   ActivityIndicator,
 } from "react-native";
 import Constants from "expo-constants";
@@ -15,7 +13,7 @@ import Article from "./Article";
 
 const PAGE_SIZE = 20;
 
-export default function WordwideNews() {
+export default function WorldwideNews() {
   const [isLoading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
@@ -40,6 +38,9 @@ export default function WordwideNews() {
     fetchData();
   }, []);
 
+  const renderArticle = ({ item }) => <Article item={item} />;
+  const renderDivider = () => <View style={styles.articleSeparator}></View>;
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -51,19 +52,19 @@ export default function WordwideNews() {
             <ActivityIndicator size="large" color="#e74c3c" />
           </View>
         ) : (
+          // Optimizing FlatList: https://reactnative.dev/docs/optimizing-flatlist-configuration
           <FlatList
             data={articles}
-            renderItem={({ item }) => <Article item={item} />}
+            renderItem={renderArticle}
             keyExtractor={(item) => item.url}
             showsVerticalScrollIndicator={false}
-            ItemSeparatorComponent={() => (
-              <View style={styles.articleSeparator}></View>
-            )}
+            ItemSeparatorComponent={renderDivider}
             ListFooterComponent={() => (
               <View style={styles.center}>
                 {hasMoreData && <ActivityIndicator color="#e74c3c" />}
               </View>
             )}
+            initialNumToRender={6}
             onEndReached={fetchData}
             onEndReachedThreshold={1}
           />
