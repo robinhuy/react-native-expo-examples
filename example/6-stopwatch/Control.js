@@ -17,7 +17,7 @@ export default function Control({
       >
         <View style={styles.controlButton}>
           <Text style={{ color: isRunning ? "#fff" : "#9d9ca2" }}>
-            {isRunning ? "Vòng" : "Đặt lại"}
+            {isRunning ? "Step" : "Reset"}
           </Text>
         </View>
       </TouchableOpacity>
@@ -31,7 +31,7 @@ export default function Control({
       >
         <View style={styles.controlButton}>
           <Text style={{ color: isRunning ? "#ea4c49" : "#37d05c" }}>
-            {isRunning ? "Dừng" : "Bắt đầu"}
+            {isRunning ? "Stop" : "Start"}
           </Text>
         </View>
       </TouchableOpacity>

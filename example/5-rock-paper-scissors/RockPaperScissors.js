@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { StyleSheet, SafeAreaView, Text, View } from "react-native";
+import React, { useState, useRef } from "react";
+import { StyleSheet, SafeAreaView, Text, View, Animated } from "react-native";
 import Constants from "expo-constants";
 import DisplayResult from "./DisplayResult";
 import Actions from "./Actions";
@@ -8,6 +8,10 @@ export default function RockPaperScissors() {
   const [userChoice, setUserChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(false);
   const [result, setResult] = useState("");
+  const [canPlay, setPlay] = useState(true);
+
+  // https://reactjs.org/docs/hooks-reference.html#useref
+  const fadeAnimation = useRef(new Animated.Value(0)).current;
 
   function play(choice) {
     // 1 = rock, 2 = paper, 3 = scissors
@@ -28,14 +32,43 @@ export default function RockPaperScissors() {
 
     setUserChoice(choice);
     setComputerChoice(randomComputerChoice);
-    setResult(resultString);
+
+    // Wait animation hide old result
+    setTimeout(() => {
+      setResult(resultString);
+    }, 300);
+
+    // Animation hide old result and show new result
+    // https://reactnative.dev/docs/animations
+    Animated.sequence([
+      Animated.timing(fadeAnimation, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true,
+      }),
+      Animated.timing(fadeAnimation, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    // Disable action when animation running
+    setPlay(false);
+    setTimeout(() => {
+      setPlay(true);
+    }, 600);
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <View style={styles.result}>
-          <Text style={styles.resultText}>{result}</Text>
+          <Animated.Text
+            style={[styles.resultText, { opacity: fadeAnimation }]}
+          >
+            {result}
+          </Animated.Text>
         </View>
 
         <View style={styles.screen}>
@@ -49,7 +82,7 @@ export default function RockPaperScissors() {
           )}
         </View>
 
-        <Actions play={play} />
+        <Actions play={play} canPlay={canPlay} />
       </View>
     </SafeAreaView>
   );

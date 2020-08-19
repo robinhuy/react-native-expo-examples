@@ -8,7 +8,7 @@ import InstagramFeed from "./example/4-instagram-feed/InstagramFeed";
 import RockPaperScissors from "./example/5-rock-paper-scissors/RockPaperScissors";
 import StopWatch from "./example/6-stopwatch/StopWatch";
 import BMICalculator from "./example/7-bmi-calculator/BMICalculator";
-import WorldwideNews from "./example/8-news/1.worldwide-news/WorldwideNews";
+import WorldwideNews from "./example/8-news/WorldwideNews";
 
 export default function App() {
   // return <HelloWorld1 />;

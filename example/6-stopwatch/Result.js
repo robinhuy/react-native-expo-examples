@@ -11,7 +11,7 @@ export default function Result({ results }) {
       {results.map((item, index) => (
         <View key={index} style={styles.resultItem}>
           <Text style={styles.resultItemText}>
-            Vòng {results.length - index}
+            Step {results.length - index}
           </Text>
 
           <Text style={styles.resultItemText}>{displayTime(item)}</Text>

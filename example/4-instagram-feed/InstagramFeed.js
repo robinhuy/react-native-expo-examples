@@ -21,6 +21,22 @@ const INSTAGRAM_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png";
 
 export default function Instagram() {
+  function renderItem({ item, index }) {
+    if (index === 0) {
+      return (
+        <>
+          <View style={styles.stories}>
+            <Stories stories={data.stories} profile={data.profile} />
+          </View>
+
+          <Article item={item} />
+        </>
+      );
+    } else {
+      return <Article item={item} />;
+    }
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="dark" />
@@ -40,21 +56,7 @@ export default function Instagram() {
       {/* https://reactnative.dev/docs/flatlist */}
       <FlatList
         data={data.articles}
-        renderItem={({ item, index }) => {
-          if (index === 0) {
-            return (
-              <>
-                <View style={styles.stories}>
-                  <Stories stories={data.stories} profile={data.profile} />
-                </View>
-
-                <Article item={item} />
-              </>
-            );
-          } else {
-            return <Article item={item} />;
-          }
-        }}
+        renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false}
       />

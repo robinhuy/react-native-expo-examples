@@ -28,6 +28,7 @@ export default function MomoLogin() {
           {/* https://docs.expo.io/guides/icons/ */}
           <FontAwesome5 name="lock" style={styles.iconLock} />
 
+          {/* https://reactnative.dev/docs/textinput */}
           <TextInput
             style={styles.inputPassword}
             secureTextEntry={true}
@@ -36,6 +37,7 @@ export default function MomoLogin() {
             placeholderTextColor="#929292"
           />
 
+          {/* https://reactnative.dev/docs/touchableopacity */}
           <TouchableOpacity style={styles.buttonLogin}>
             <Text style={styles.buttonLoginText}>ĐĂNG NHẬP</Text>
           </TouchableOpacity>

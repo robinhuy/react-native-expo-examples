@@ -2,18 +2,30 @@ import React from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-export default function Actions({ play }) {
+export default function Actions({ play, canPlay }) {
   return (
     <View style={styles.actions}>
-      <TouchableOpacity style={styles.actionButton} onPress={() => play(1)}>
+      <TouchableOpacity
+        disabled={!canPlay}
+        style={styles.actionButton}
+        onPress={() => play(1)}
+      >
         <FontAwesome5 name={"hand-rock"} size={32} color="#6a5300" />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.actionButton} onPress={() => play(2)}>
+      <TouchableOpacity
+        disabled={!canPlay}
+        style={styles.actionButton}
+        onPress={() => play(2)}
+      >
         <FontAwesome5 name="hand-paper" size={32} color="#6a5300" />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.actionButton} onPress={() => play(3)}>
+      <TouchableOpacity
+        disabled={!canPlay}
+        style={styles.actionButton}
+        onPress={() => play(3)}
+      >
         <FontAwesome5
           name="hand-scissors"
           size={32}

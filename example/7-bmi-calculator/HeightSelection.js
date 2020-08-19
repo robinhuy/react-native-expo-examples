@@ -18,6 +18,7 @@ export default function HeightSelection({ style, height, setHeight }) {
           <Text style={styles.unit}> cm</Text>
         </Text>
 
+        {/* https://github.com/react-native-community/react-native-slider */}
         <Slider
           style={{ width: "100%", height: 40 }}
           minimumValue={MIN_HEIGHT}
