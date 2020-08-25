@@ -6,6 +6,7 @@ import {
   Modal,
   SafeAreaView,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Slider from "@react-native-community/slider";

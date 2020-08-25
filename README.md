@@ -1,4 +1,4 @@
-# React Native Expo example
+# React Native Expo examples
 
 Learn React Native (Expo CLI) by easy-to-difficult examples.
 
@@ -19,6 +19,8 @@ Learn React Native (Expo CLI) by easy-to-difficult examples.
 Modify code in `App.js`, each example is a component.
 
 ## Examples preview
+
+Expo Snack: https://snack.expo.io/@robinhuy/react-native-expo-examples
 
 ### 1. Hello World
 

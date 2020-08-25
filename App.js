@@ -12,7 +12,7 @@ import BMICalculator from "./examples/8-bmi-calculator/BMICalculator";
 import WorldwideNews from "./examples/9-news/WorldwideNews";
 
 export default function App() {
-  // return <HelloWorld1 />;
+  return <HelloWorld1 />;
   // return <HelloWorld2 />;
   // return <TheLight />;
   // return <MomoLogin />;
@@ -22,5 +22,5 @@ export default function App() {
   // return <RockPaperScissors />;
   // return <StopWatch />;
   // return <BMICalculator />;
-  return <WorldwideNews />;
+  // return <WorldwideNews />;
 }
