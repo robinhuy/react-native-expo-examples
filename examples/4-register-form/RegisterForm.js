@@ -1,19 +1,15 @@
 import React from "react";
 import {
-  StyleSheet,
   SafeAreaView,
   View,
   Text,
+  TouchableOpacity,
   KeyboardAvoidingView,
-  ScrollView,
   TextInput,
-  Platform,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { FontAwesome5 } from "@expo/vector-icons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { styles } from "./styles";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function RegisterForm() {
   return (
