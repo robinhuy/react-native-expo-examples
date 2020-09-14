@@ -25,6 +25,7 @@ export default function HeightSelection({ style, height, setHeight }) {
           maximumValue={MAX_HEIGHT}
           minimumTrackTintColor="#9a5871"
           maximumTrackTintColor="#000000"
+          thumbTintColor="#fff"
           onValueChange={(value) => setHeight(Math.round(value))}
           value={height}
         />

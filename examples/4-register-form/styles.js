@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: Platform.OS === "ios" ? CONTENT_BACKGROUND : HEADER_BACKGROUND,
+    backgroundColor:
+      Platform.OS === "ios" ? CONTENT_BACKGROUND : HEADER_BACKGROUND,
   },
   header: {
     height: 60,
@@ -42,6 +43,12 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#e3e3e3",
     backgroundColor: "#fff",
+  },
+  errorContainer: {
+    marginVertical: 5,
+  },
+  errorText: {
+    color: "#ff7675",
   },
   button: {
     marginTop: 20,

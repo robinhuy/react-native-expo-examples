@@ -10,11 +10,12 @@
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-community/slider": "3.0.0",
-    "@react-navigation/native": "^5.7.2",
-    "@react-navigation/stack": "^5.8.0",
-    "expo": "^38.0.9",
+    "@react-navigation/native": "^5.7.3",
+    "@react-navigation/stack": "^5.9.0",
+    "expo": "^38.0.10",
     "expo-status-bar": "^1.0.2",
-    "moment": "^2.27.0",
+    "formik": "^2.1.5",
+    "moment": "^2.28.0",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
@@ -22,10 +23,11 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.2",
     "react-native-reanimated": "~1.9.0",
     "react-native-screens": "~2.9.0",
-    "react-native-web": "~0.11.7"
+    "react-native-web": "~0.11.7",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.0",
+    "@babel/core": "^7.11.6",
     "babel-preset-expo": "~8.1.0"
   },
   "private": true

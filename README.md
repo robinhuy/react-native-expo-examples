@@ -42,7 +42,7 @@ Learn how to use: **Expo Icons**, **TextInput**, **TouchableOpacity**
 
 ### 4. Register Form
 
-Learn how to use: **KeyboardAwareScrollView**, **Separate Style**
+Learn how to use: **KeyboardAwareScrollView**, **Formik**, **Yup**, **Separate Style**
 
 <img src="https://user-images.githubusercontent.com/12640832/91040699-dc7da400-e638-11ea-8f40-fde278b91ad2.png" width="250" alt="Register Form" />
 
