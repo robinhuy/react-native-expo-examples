@@ -17,7 +17,6 @@ export default function Article({ item }) {
       if (supported) {
         Linking.openURL(url);
       } else {
-        // https://reactnative.dev/docs/alert
         Alert.alert("Broken Link!");
       }
     });

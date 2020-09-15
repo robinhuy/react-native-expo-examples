@@ -42,7 +42,7 @@ Learn how to use: **Expo Icons**, **TextInput**, **TouchableOpacity**
 
 ### 4. Register Form
 
-Learn how to use: **KeyboardAwareScrollView**, **Formik**, **Yup**, **Separate Style**
+Learn how to use: **KeyboardAwareScrollView**, **Formik**, **Yup**, **Alert**, **Separate Style**
 
 <img src="https://user-images.githubusercontent.com/12640832/91040699-dc7da400-e638-11ea-8f40-fde278b91ad2.png" width="250" alt="Register Form" />
 
@@ -72,7 +72,7 @@ Learn how to use: **Slider**, **Modal**
 
 ### 9. Worldwide News
 
-Learn how to use: **ActivityIndicator**, **Linking**, **Alert**, **React Hook useEffect**
+Learn how to use: **ActivityIndicator**, **Linking**, **React Hook useEffect**
 
 <img src="https://user-images.githubusercontent.com/12640832/89286808-07e62200-d67d-11ea-907e-acd1cd59fe01.png" width="250" alt="Worldwide News" />
 

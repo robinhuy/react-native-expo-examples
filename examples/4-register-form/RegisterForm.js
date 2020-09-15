@@ -12,6 +12,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { Formik } from "formik";
 import { validationSchema } from "./validation";
 import { styles } from "./styles";
+import { Alert } from "react-native";
 
 const ErrorMessage = ({ errorValue }) => {
   return errorValue ? (
@@ -23,7 +24,11 @@ const ErrorMessage = ({ errorValue }) => {
 
 export default function RegisterForm() {
   function onSubmitHandler(values) {
-    console.log(values);
+    // https://reactnative.dev/docs/alert
+    Alert.alert(
+      "Register Successfully!",
+      "Form data: " + JSON.stringify(values)
+    );
   }
 
   return (
@@ -37,113 +42,121 @@ export default function RegisterForm() {
           <Text style={styles.headerText}>Register</Text>
         </View>
 
-        {/* https://formik.org/docs/overview */}
-        <Formik
-          initialValues={{
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-          }}
-          onSubmit={(values, actions) => {
-            onSubmitHandler(values, actions);
-          }}
-          validationSchema={validationSchema}
+        {/* https://github.com/APSL/react-native-keyboard-aware-scroll-view */}
+        <KeyboardAwareScrollView
+          style={styles.content}
+          showsVerticalScrollIndicator={false}
         >
-          {({
-            handleChange,
-            values,
-            errors,
-            touched,
-            handleSubmit,
-            handleBlur,
-          }) => (
-            // https://github.com/APSL/react-native-keyboard-aware-scroll-view
-            <KeyboardAwareScrollView
-              style={styles.content}
-              showsVerticalScrollIndicator={false}
-            >
-              <View style={styles.formGroup}>
-                <Text style={styles.label}>First Name</Text>
+          {/* https://formik.org/docs/overview */}
+          <Formik
+            initialValues={{
+              firstName: "",
+              lastName: "",
+              email: "",
+              password: "",
+              confirmPassword: "",
+            }}
+            onSubmit={(values, actions) => {
+              onSubmitHandler(values, actions);
+            }}
+            validationSchema={validationSchema}
+          >
+            {({
+              handleChange,
+              values,
+              errors,
+              touched,
+              handleSubmit,
+              handleBlur,
+            }) => (
+              <>
+                <View style={styles.formGroup}>
+                  <Text style={styles.label}>First Name</Text>
 
-                <TextInput
-                  style={styles.input}
-                  value={values.firstName}
-                  onChangeText={handleChange("firstName")}
-                  onBlur={handleBlur("firstName")}
-                />
+                  <TextInput
+                    style={styles.input}
+                    value={values.firstName}
+                    onChangeText={handleChange("firstName")}
+                    onBlur={handleBlur("firstName")}
+                  />
 
-                <ErrorMessage
-                  errorValue={touched.firstName && errors.firstName}
-                />
-              </View>
+                  <ErrorMessage
+                    errorValue={touched.firstName && errors.firstName}
+                  />
+                </View>
 
-              <View style={styles.formGroup}>
-                <Text style={styles.label}>Last Name</Text>
+                <View style={styles.formGroup}>
+                  <Text style={styles.label}>Last Name</Text>
 
-                <TextInput
-                  style={styles.input}
-                  value={values.lastName}
-                  onChangeText={handleChange("lastName")}
-                  onBlur={handleBlur("lastName")}
-                />
-              </View>
+                  <TextInput
+                    style={styles.input}
+                    value={values.lastName}
+                    onChangeText={handleChange("lastName")}
+                    onBlur={handleBlur("lastName")}
+                  />
 
-              <View style={styles.formGroup}>
-                <Text style={styles.label}>Email Address</Text>
+                  <ErrorMessage
+                    errorValue={touched.lastName && errors.lastName}
+                  />
+                </View>
 
-                <TextInput
-                  style={styles.input}
-                  value={values.email}
-                  onChangeText={handleChange("email")}
-                  onBlur={handleBlur("email")}
-                  autoCapitalize="none"
-                />
+                <View style={styles.formGroup}>
+                  <Text style={styles.label}>Email Address</Text>
 
-                <ErrorMessage errorValue={touched.email && errors.email} />
-              </View>
+                  <TextInput
+                    style={styles.input}
+                    value={values.email}
+                    onChangeText={handleChange("email")}
+                    onBlur={handleBlur("email")}
+                    autoCapitalize="none"
+                  />
 
-              <View style={styles.formGroup}>
-                <Text style={styles.label}>Password</Text>
+                  <ErrorMessage errorValue={touched.email && errors.email} />
+                </View>
 
-                <TextInput
-                  style={styles.input}
-                  value={values.password}
-                  onChangeText={handleChange("password")}
-                  onBlur={handleBlur("password")}
-                  autoCapitalize="none"
-                  secureTextEntry={true}
-                />
+                <View style={styles.formGroup}>
+                  <Text style={styles.label}>Password</Text>
 
-                <ErrorMessage
-                  errorValue={touched.password && errors.password}
-                />
-              </View>
+                  <TextInput
+                    style={styles.input}
+                    value={values.password}
+                    onChangeText={handleChange("password")}
+                    onBlur={handleBlur("password")}
+                    autoCapitalize="none"
+                    secureTextEntry={true}
+                  />
 
-              <View style={styles.formGroup}>
-                <Text style={styles.label}>Confirm Password</Text>
+                  <ErrorMessage
+                    errorValue={touched.password && errors.password}
+                  />
+                </View>
 
-                <TextInput
-                  style={styles.input}
-                  value={values.confirmPassword}
-                  onChangeText={handleChange("confirmPassword")}
-                  onBlur={handleBlur("confirmPassword")}
-                  autoCapitalize="none"
-                  secureTextEntry={true}
-                />
+                <View style={styles.formGroup}>
+                  <Text style={styles.label}>Confirm Password</Text>
 
-                <ErrorMessage
-                  errorValue={touched.confirmPassword && errors.confirmPassword}
-                />
-              </View>
+                  <TextInput
+                    style={styles.input}
+                    value={values.confirmPassword}
+                    onChangeText={handleChange("confirmPassword")}
+                    onBlur={handleBlur("confirmPassword")}
+                    autoCapitalize="none"
+                    secureTextEntry={true}
+                  />
 
-              <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-                <Text style={styles.buttonText}>SUBMIT</Text>
-              </TouchableOpacity>
-            </KeyboardAwareScrollView>
-          )}
-        </Formik>
+                  <ErrorMessage
+                    errorValue={
+                      touched.confirmPassword && errors.confirmPassword
+                    }
+                  />
+                </View>
+
+                <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                  <Text style={styles.buttonText}>SUBMIT</Text>
+                </TouchableOpacity>
+              </>
+            )}
+          </Formik>
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     </>
   );
