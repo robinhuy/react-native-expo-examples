@@ -1,5 +1,6 @@
 import React from "react";
-import { Platform, StatusBar, View, Text, Image } from "react-native";
+import { Platform, View, Text, Image } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -11,9 +12,8 @@ import MoveDetail from "./screens/MoveDetail";
 
 import pokemonTabIcon from "./images/pokemon-active.png";
 import moveTabIcon from "./images/move-active.png";
-const ActiveColor = "#000000";
-const InActiveColor = "#00000077";
 
+// https://reactnavigation.org/docs/stack-navigator/
 const PokemonStack = createStackNavigator();
 const MoveStack = createStackNavigator();
 const stackScreenOptions = {
@@ -39,7 +39,10 @@ function MoveStackScreen() {
   );
 }
 
+// https://reactnavigation.org/docs/bottom-tab-navigator/
 const Tab = createBottomTabNavigator();
+const ActiveColor = "#000000";
+const InActiveColor = "#00000077";
 const tabScreenOptions = ({ route }) => ({
   tabBarIcon: ({ color, size }) => {
     return (
@@ -67,14 +70,18 @@ const tabBarOptions = {
 
 export default function Pokedex() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={tabScreenOptions}
-        tabBarOptions={tabBarOptions}
-      >
-        <Tab.Screen name="Pokemons" component={PokemonStackScreen} />
-        <Tab.Screen name="Moves" component={MoveStackScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar style="light" />
+
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={tabScreenOptions}
+          tabBarOptions={tabBarOptions}
+        >
+          <Tab.Screen name="Pokemons" component={PokemonStackScreen} />
+          <Tab.Screen name="Moves" component={MoveStackScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </>
   );
 }

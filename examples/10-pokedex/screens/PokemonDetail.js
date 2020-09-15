@@ -1,37 +1,52 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   ActivityIndicator,
+  Image,
 } from "react-native";
-import { Image, Icon } from "react-native-elements";
+import { Icon } from "react-native-elements";
 import ProgressBar from "react-native-progress/Bar";
-
-import { PokemonTypeIcon } from "../constants";
+import PokemonType from "../components/PokemonType";
 
 export default function PokemonDetail({ navigation, route }) {
+  const [staProgress, setStaProgress] = useState(0);
+  const [atkProgress, setAtkProgress] = useState(0);
+  const [defProgress, setDefProgress] = useState(0);
+  const [cpProgress, setCpProgress] = useState(0);
+
   const maxSTA = 400;
   const maxATK = 400;
   const maxDEF = 400;
   const maxCP = 4000;
-console.log(route.params)
+
   const { pokemon = {} } = route.params;
   const pokemonTypes = pokemon.field_pokemon_type.split(", ");
 
   const PokemonTypeElement = pokemonTypes.map((type, index) => {
     return (
       <View style={styles.pokemonType} key={index}>
-        <Image
-          source={
-            PokemonTypeIcon[type.toLowerCase()] || PokemonTypeIcon["default"]
-          }
-        />
+        <PokemonType type={type} />
         <Text>{type.toUpperCase()}</Text>
       </View>
     );
   });
+
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
+      setStaProgress(+pokemon.sta / maxSTA);
+      setAtkProgress(+pokemon.atk / maxATK);
+      setDefProgress(+pokemon.def / maxDEF);
+      setCpProgress(+pokemon.cp / maxCP);
+    }, 800);
+
+    // https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+    return () => {
+      clearTimeout(timeOut);
+    };
+  }, []);
 
   return (
     <ScrollView>
@@ -77,7 +92,7 @@ console.log(route.params)
               <Text style={styles.pokemonStatusPoint}>{pokemon.sta}</Text>
               <View style={styles.pokemonStatusBar}>
                 <ProgressBar
-                  progress={+pokemon.sta / maxSTA}
+                  progress={staProgress}
                   height={8}
                   color="#559EDF"
                   unfilledColor="#F0F0F0"
@@ -92,7 +107,7 @@ console.log(route.params)
               <Text style={styles.pokemonStatusPoint}>{pokemon.atk}</Text>
               <View style={styles.pokemonStatusBar}>
                 <ProgressBar
-                  progress={+pokemon.atk / maxATK}
+                  progress={atkProgress}
                   height={8}
                   color="#559EDF"
                   unfilledColor="#F0F0F0"
@@ -107,7 +122,7 @@ console.log(route.params)
               <Text style={styles.pokemonStatusPoint}>{pokemon.def}</Text>
               <View style={styles.pokemonStatusBar}>
                 <ProgressBar
-                  progress={+pokemon.def / maxDEF}
+                  progress={defProgress}
                   height={8}
                   color="#559EDF"
                   unfilledColor="#F0F0F0"
@@ -122,7 +137,7 @@ console.log(route.params)
               <Text style={styles.pokemonStatusPoint}>{pokemon.cp}</Text>
               <View style={styles.pokemonStatusBar}>
                 <ProgressBar
-                  progress={+pokemon.cp / maxCP}
+                  progress={cpProgress}
                   height={8}
                   color="#559EDF"
                   unfilledColor="#F0F0F0"
@@ -165,7 +180,7 @@ const styles = StyleSheet.create({
     height: 200,
     alignSelf: "center",
     top: -130,
-    zIndex: 9999
+    resizeMode: "contain",
   },
   pokemonName: {
     marginTop: 90,

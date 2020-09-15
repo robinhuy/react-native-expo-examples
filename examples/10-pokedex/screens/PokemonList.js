@@ -3,7 +3,6 @@ import {
   StyleSheet,
   View,
   Text,
-  Image,
   FlatList,
   ActivityIndicator,
   Alert,
@@ -11,9 +10,9 @@ import {
 import { Avatar, ListItem, SearchBar } from "react-native-elements";
 
 import MainHeader from "../components/MainHeader";
+import PokemonType from "../components/PokemonType";
 
 import { FullPokemonsAPI } from "../constants";
-import { PokemonTypeIcon } from "../constants";
 
 export default function PokemonList({ navigation }) {
   const [pokemons, setPokemons] = useState([]);
@@ -23,7 +22,7 @@ export default function PokemonList({ navigation }) {
   const [nextApi, setNextApi] = useState("");
   const [search, setSearch] = useState("");
 
-  _fetchData = async (url) => {
+  fetchData = async (url) => {
     try {
       setLoadMore(true);
 
@@ -41,24 +40,19 @@ export default function PokemonList({ navigation }) {
     }
   };
 
-  _renderItem = ({ item, index }) => {
+  renderItem = ({ item, index }) => {
     const pokemonTypes = item.field_pokemon_type.split(", ");
     const PokemonTypeElement = pokemonTypes.map((type, index) => {
       return (
-        <Image
-          key={index}
-          source={
-            PokemonTypeIcon[type.toLowerCase()] || PokemonTypeIcon["default"]
-          }
-          placeholderStyle={{ backgroundColor: "transparent" }}
-          PlaceholderContent={<ActivityIndicator />}
-        />
+        <View key={index}>
+          <PokemonType type={type} />
+        </View>
       );
     });
 
     return (
       <ListItem
-        containerStyle={styles.listItem}
+        bottomDivider={true}
         onPress={() => {
           navigation.navigate("PokemonDetail", {
             pokemon: pokemons[index],
@@ -70,7 +64,7 @@ export default function PokemonList({ navigation }) {
         <ListItem.Content>
           <ListItem.Title>{item.title_1}</ListItem.Title>
 
-          <ListItem.Subtitle style={{ marginTop: 10, color: "#939393" }}>
+          <ListItem.Subtitle style={styles.listItemSubtitle}>
             #
             {item.number.length <= 3
               ? ("00" + item.number).slice(-3)
@@ -83,7 +77,7 @@ export default function PokemonList({ navigation }) {
     );
   };
 
-  _updateSearch = (search) => {
+  updateSearch = (search) => {
     if (search == "") {
       setSearch(search);
       setPokemons(listPokemons);
@@ -96,20 +90,20 @@ export default function PokemonList({ navigation }) {
     }
   };
 
-  _loadMoreItem = () => {
+  loadMoreItem = () => {
     if (nextApi) {
-      _fetchData(nextApi);
+      fetchData(nextApi);
     }
   };
 
-  _renderFooter = () => {
+  renderFooter = () => {
     if (!isLoadMore) return null;
 
     return <ActivityIndicator animating size="large" />;
   };
 
   useEffect(() => {
-    _fetchData(FullPokemonsAPI);
+    fetchData(FullPokemonsAPI);
   }, []);
 
   return (
@@ -122,30 +116,27 @@ export default function PokemonList({ navigation }) {
         containerStyle={{ backgroundColor: "transparent" }}
         lightTheme={true}
         round={true}
-        onChangeText={_updateSearch}
+        onChangeText={updateSearch}
         value={search}
       />
 
       {!isLoading ? (
         <FlatList
           data={pokemons}
-          renderItem={_renderItem}
+          renderItem={renderItem}
           keyExtractor={(item) => item.nid}
-          onEndReached={_loadMoreItem}
+          onEndReached={loadMoreItem}
           onEndReachedThreshold={0.5}
           initialNumToRender={10}
-          ListFooterComponent={_renderFooter}
+          ListFooterComponent={renderFooter}
         />
       ) : (
-        <ActivityIndicator animating size="large" />
+        <ActivityIndicator animating size="large" style={{ marginTop: 20 }} />
       )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  listItem: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#ddd",
-  },
+  listItemSubtitle: { marginTop: 10, color: "#939393" },
 });

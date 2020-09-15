@@ -20,7 +20,7 @@ export default function MoveList({ navigation }) {
   const [isLoadMore, setLoadMore] = useState(false);
   const [nextApi, setNextApi] = useState("");
 
-  _fetchData = async (url) => {
+  fetchData = async (url) => {
     try {
       setState({ isLoadMore: true });
 
@@ -38,7 +38,7 @@ export default function MoveList({ navigation }) {
     }
   };
 
-  _renderItem = ({ item, index }) => {
+  renderItem = ({ item, index }) => {
     return (
       <ListItem
         containerStyle={styles.listItem}
@@ -59,20 +59,20 @@ export default function MoveList({ navigation }) {
     );
   };
 
-  _loadMoreItem = () => {
+  loadMoreItem = () => {
     if (state.nextApi) {
-      _fetchData(state.nextApi);
+      fetchData(state.nextApi);
     }
   };
 
-  _renderFooter = () => {
+  renderFooter = () => {
     if (!state.isLoadMore) return null;
 
     return <ActivityIndicator animating size="large" />;
   };
 
   useEffect(() => {
-    _fetchData(FullMovesAPI);
+    fetchData(FullMovesAPI);
   }, []);
 
   return (
@@ -82,12 +82,12 @@ export default function MoveList({ navigation }) {
       {!isLoading ? (
         <FlatList
           data={moves}
-          renderItem={_renderItem}
+          renderItem={renderItem}
           keyExtractor={(item) => item.nid}
-          onEndReached={_loadMoreItem}
+          onEndReached={loadMoreItem}
           onEndReachedThreshold={0.5}
           initialNumToRender={10}
-          ListFooterComponent={_renderFooter}
+          ListFooterComponent={renderFooter}
         />
       ) : (
         <ActivityIndicator animating size="large" />

@@ -78,7 +78,7 @@ Learn how to use: **ActivityIndicator**, **Linking**, **React Hook useEffect**
 
 ### 10. Pokedex
 
-Learn how to use: **React Native Elements**, **React Navigation**
+Learn how to use: **React Native Elements**, **React Navigation**, **React Hook useEffect with Cleanup**
 
 ---
 
