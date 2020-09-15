@@ -18,7 +18,7 @@ Learn React Native (Expo CLI) by easy-to-difficult examples.
 
 Modify code in `App.js`, each example is a component.
 
-## Examples preview
+## Preview
 
 Expo Snack: https://snack.expo.io/@robinhuy/react-native-expo-examples
 
@@ -75,6 +75,10 @@ Learn how to use: **Slider**, **Modal**
 Learn how to use: **ActivityIndicator**, **Linking**, **React Hook useEffect**
 
 <img src="https://user-images.githubusercontent.com/12640832/89286808-07e62200-d67d-11ea-907e-acd1cd59fe01.png" width="250" alt="Worldwide News" />
+
+### 10. Pokedex
+
+Learn how to use: **React Native Elements**, **React Navigation**
 
 ---
 
