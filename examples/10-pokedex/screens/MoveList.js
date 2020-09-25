@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
   Alert,
 } from "react-native";
-import { ListItem } from "react-native-elements";
+import { ListItem, SearchBar } from "react-native-elements";
 
 import MainHeader from "../components/MainHeader";
 
@@ -15,36 +15,18 @@ import { FullMovesAPI } from "../constants";
 import { PokemonTypeIcon } from "../constants";
 
 export default function MoveList({ navigation }) {
+  const [displayMoves, setDisplayMoves] = useState([]);
   const [moves, setMoves] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  const [isLoadMore, setLoadMore] = useState(false);
-  const [nextApi, setNextApi] = useState("");
+  const [keyword, setKeyword] = useState("");
 
-  fetchData = async (url) => {
-    try {
-      setState({ isLoadMore: true });
-
-      let response = await fetch(url);
-      let responseJson = await response.json();
-
-      setState({
-        isLoading: false,
-        isLoadMore: false,
-        moves: state.moves.concat(responseJson),
-        nextApi: responseJson.next,
-      });
-    } catch (error) {
-      Alert.alert("Cannot connect to Server!");
-    }
-  };
-
-  renderItem = ({ item, index }) => {
+  const renderItem = ({ item, index }) => {
     return (
       <ListItem
         containerStyle={styles.listItem}
         onPress={() => {
           navigation.navigate("MoveDetail", {
-            move: state.moves[index],
+            move: moves[index],
           });
         }}
       >
@@ -59,19 +41,34 @@ export default function MoveList({ navigation }) {
     );
   };
 
-  loadMoreItem = () => {
-    if (state.nextApi) {
-      fetchData(state.nextApi);
+  const searchMove = (keyword) => {
+    setKeyword(keyword);
+
+    if (keyword == "") {
+      setDisplayMoves(moves);
+    } else {
+      const filteredMoves = moves.filter((move) => {
+        return move.title.toLowerCase().includes(keyword.toLowerCase());
+      });
+      setDisplayMoves(filteredMoves);
     }
   };
 
-  renderFooter = () => {
-    if (!state.isLoadMore) return null;
-
-    return <ActivityIndicator animating size="large" />;
-  };
-
   useEffect(() => {
+    const fetchData = async (url) => {
+      try {
+        const response = await fetch(url);
+        const responseJson = await response.json();
+
+        setMoves(responseJson);
+        setDisplayMoves(responseJson);
+        setKeyword("");
+        setLoading(false);
+      } catch (error) {
+        Alert.alert("Cannot connect to Server!");
+      }
+    };
+
     fetchData(FullMovesAPI);
   }, []);
 
@@ -79,15 +76,22 @@ export default function MoveList({ navigation }) {
     <View style={{ flex: 1 }}>
       <MainHeader title="Moves" isMain={true} navigation={navigation} />
 
+      <SearchBar
+        placeholder="Find Move by name ..."
+        inputContainerStyle={{ backgroundColor: "#e9e9e9" }}
+        containerStyle={{ backgroundColor: "transparent" }}
+        lightTheme={true}
+        round={true}
+        value={keyword}
+        onChangeText={searchMove}
+      />
+
       {!isLoading ? (
         <FlatList
-          data={moves}
+          data={displayMoves}
           renderItem={renderItem}
           keyExtractor={(item) => item.nid}
-          onEndReached={loadMoreItem}
-          onEndReachedThreshold={0.5}
           initialNumToRender={10}
-          ListFooterComponent={renderFooter}
         />
       ) : (
         <ActivityIndicator animating size="large" />

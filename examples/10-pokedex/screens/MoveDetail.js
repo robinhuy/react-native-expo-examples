@@ -1,28 +1,18 @@
-import React, { Component } from "react";
-import { View, Text, StyleSheet, Platform, ScrollView } from "react-native";
+import React from "react";
+import { StyleSheet, View, Text, Platform, ScrollView } from "react-native";
 import { Icon, Image } from "react-native-elements";
-import { exp } from "react-native-reanimated";
+import MainHeader from "../components/MainHeader";
 
-import { PokemonTypeIcon } from "../constants";
+import { BackgroundColor, PokemonTypeIcon } from "../constants";
 
 export default function MoveDetail({ navigation, route }) {
   const { move = {} } = route.params;
 
   return (
-    <ScrollView>
-      <View style={styles.body}>
-        <View style={styles.backButton}>
-          <Icon
-            name="keyboard-arrow-left"
-            size={40}
-            color="#fff"
-            underlayColor="transparent"
-            onPress={() => {
-              navigation.goBack();
-            }}
-          />
-        </View>
+    <View style={styles.container}>
+      <MainHeader navigation={navigation} />
 
+      <ScrollView style={{ flex: 1 }}>
         <View style={styles.content}>
           <Text style={styles.moveName}>{move.title}</Text>
 
@@ -61,29 +51,23 @@ export default function MoveDetail({ navigation, route }) {
             </View>
           </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  backButton: {
-    alignItems: "flex-start",
-    paddingTop: 40,
-    marginBottom: -40,
-  },
-  body: {
-    backgroundColor: "#559EDF",
+  container: {
+    backgroundColor: BackgroundColor,
     flex: 1,
   },
   content: {
     flex: 1,
-    marginTop: 50,
-    position: "relative",
-    backgroundColor: "white",
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
+    backgroundColor: "#fff",
+    borderRadius: 50,
     padding: 20,
+    minHeight: 500,
+    marginVertical: 30,
   },
   avatar: {
     position: "absolute",

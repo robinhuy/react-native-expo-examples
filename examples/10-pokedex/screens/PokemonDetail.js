@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -9,7 +9,9 @@ import {
 } from "react-native";
 import { Icon } from "react-native-elements";
 import ProgressBar from "react-native-progress/Bar";
+import MainHeader from "../components/MainHeader";
 import PokemonType from "../components/PokemonType";
+import { BackgroundColor } from "../constants";
 
 export default function PokemonDetail({ navigation, route }) {
   const [staProgress, setStaProgress] = useState(0);
@@ -49,20 +51,10 @@ export default function PokemonDetail({ navigation, route }) {
   }, []);
 
   return (
-    <ScrollView>
-      <View style={styles.body}>
-        <View style={styles.backButton}>
-          <Icon
-            name="keyboard-arrow-left"
-            size={40}
-            color="#fff"
-            underlayColor="transparent"
-            onPress={() => {
-              navigation.goBack();
-            }}
-          />
-        </View>
+    <View style={styles.container}>
+      <MainHeader navigation={navigation} />
 
+      <ScrollView style={{ flex: 1 }}>
         <View style={styles.content}>
           <Image
             style={styles.avatar}
@@ -149,30 +141,24 @@ export default function PokemonDetail({ navigation, route }) {
             </View>
           </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  backButton: {
-    alignItems: "flex-start",
-    paddingTop: 40,
-    marginBottom: -40,
-  },
-  body: {
-    position: "relative",
-    backgroundColor: "#559EDF",
+  container: {
+    backgroundColor: BackgroundColor,
     flex: 1,
   },
   content: {
     flex: 1,
-    marginTop: 150,
-    position: "relative",
-    backgroundColor: "white",
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
+    backgroundColor: "#fff",
+    borderRadius: 50,
     padding: 20,
+    minHeight: 500,
+    marginTop: 150,
+    marginBottom: 30,
   },
   avatar: {
     position: "absolute",

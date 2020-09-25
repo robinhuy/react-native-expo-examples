@@ -1,8 +1,7 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
-  Text,
   FlatList,
   ActivityIndicator,
   Alert,
@@ -11,36 +10,16 @@ import { Avatar, ListItem, SearchBar } from "react-native-elements";
 
 import MainHeader from "../components/MainHeader";
 import PokemonType from "../components/PokemonType";
-
+import pokeballIcon from "../images/pokeball.png";
 import { FullPokemonsAPI } from "../constants";
 
 export default function PokemonList({ navigation }) {
+  const [displayPokemons, setDisplayPokemons] = useState([]);
   const [pokemons, setPokemons] = useState([]);
-  const [listPokemons, setListPokemons] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  const [isLoadMore, setLoadMore] = useState(false);
-  const [nextApi, setNextApi] = useState("");
-  const [search, setSearch] = useState("");
+  const [keyword, setKeyword] = useState("");
 
-  fetchData = async (url) => {
-    try {
-      setLoadMore(true);
-
-      let response = await fetch(url);
-      let responseJson = await response.json();
-
-      setLoading(false);
-      setLoadMore(false);
-      setPokemons((data) => data.concat(responseJson));
-      setListPokemons(responseJson);
-      setNextApi(responseJson.next);
-      setSearch("");
-    } catch (error) {
-      Alert.alert("Cannot connect to Server!");
-    }
-  };
-
-  renderItem = ({ item, index }) => {
+  const renderItem = ({ item, index }) => {
     const pokemonTypes = item.field_pokemon_type.split(", ");
     const PokemonTypeElement = pokemonTypes.map((type, index) => {
       return (
@@ -55,11 +34,14 @@ export default function PokemonList({ navigation }) {
         bottomDivider={true}
         onPress={() => {
           navigation.navigate("PokemonDetail", {
-            pokemon: pokemons[index],
+            pokemon: displayPokemons[index],
           });
         }}
       >
-        <Avatar source={{ uri: item.uri }} size="medium" />
+        <Avatar
+          source={item.uri ? { uri: item.uri } : pokeballIcon}
+          size="medium"
+        />
 
         <ListItem.Content>
           <ListItem.Title>{item.title_1}</ListItem.Title>
@@ -77,38 +59,44 @@ export default function PokemonList({ navigation }) {
     );
   };
 
-  updateSearch = (search) => {
-    if (search == "") {
-      setSearch(search);
-      setPokemons(listPokemons);
+  const searchPokemon = (keyword) => {
+    setKeyword(keyword);
+
+    if (keyword == "") {
+      setDisplayPokemons(pokemons);
     } else {
-      let found = listPokemons.filter((x) => {
-        return x.title_1.toLowerCase().includes(search.toLowerCase());
+      const filteredPokemons = pokemons.filter((pokemon) => {
+        return pokemon.title_1.toLowerCase().includes(keyword.toLowerCase());
       });
-      setSearch(search);
-      setPokemons(found);
+      setDisplayPokemons(filteredPokemons);
     }
-  };
-
-  loadMoreItem = () => {
-    if (nextApi) {
-      fetchData(nextApi);
-    }
-  };
-
-  renderFooter = () => {
-    if (!isLoadMore) return null;
-
-    return <ActivityIndicator animating size="large" />;
   };
 
   useEffect(() => {
+    const fetchData = async (url) => {
+      try {
+        const response = await fetch(url);
+        const responseJson = await response.json();
+
+        setPokemons(responseJson);
+        setDisplayPokemons(responseJson);
+        setKeyword("");
+        setLoading(false);
+      } catch (error) {
+        Alert.alert("Cannot connect to Server!");
+      }
+    };
+
     fetchData(FullPokemonsAPI);
   }, []);
 
   return (
     <View style={{ flex: 1 }}>
-      <MainHeader title="Pokemons" isMain={true} navigation={navigation} />
+      <MainHeader
+        title="Pokemons"
+        isMain={true}
+        navigation={navigation}
+      />
 
       <SearchBar
         placeholder="Find Pokemon by name ..."
@@ -116,19 +104,16 @@ export default function PokemonList({ navigation }) {
         containerStyle={{ backgroundColor: "transparent" }}
         lightTheme={true}
         round={true}
-        onChangeText={updateSearch}
-        value={search}
+        value={keyword}
+        onChangeText={searchPokemon}
       />
 
       {!isLoading ? (
         <FlatList
-          data={pokemons}
+          data={displayPokemons}
           renderItem={renderItem}
           keyExtractor={(item) => item.nid}
-          onEndReached={loadMoreItem}
-          onEndReachedThreshold={0.5}
           initialNumToRender={10}
-          ListFooterComponent={renderFooter}
         />
       ) : (
         <ActivityIndicator animating size="large" style={{ marginTop: 20 }} />

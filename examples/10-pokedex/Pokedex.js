@@ -48,7 +48,7 @@ const tabScreenOptions = ({ route }) => ({
     return (
       <View style={{ alignItems: "center" }}>
         <Image
-          source={route.name === "Pokemon" ? pokemonTabIcon : moveTabIcon}
+          source={route.name === "Pokemons" ? pokemonTabIcon : moveTabIcon}
           style={{
             opacity: color == ActiveColor ? 1 : 0.5,
             width: size,

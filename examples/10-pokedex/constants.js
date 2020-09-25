@@ -25,4 +25,6 @@ const PokemonTypeIcon = {
   default: require("./images/type-ice.png"),
 };
 
-export { FullPokemonsAPI, FullMovesAPI, PokemonTypeIcon };
+const BackgroundColor = "#559EDF";
+
+export { FullPokemonsAPI, FullMovesAPI, PokemonTypeIcon, BackgroundColor };
