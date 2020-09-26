@@ -22,6 +22,7 @@ export default function FacebookLogin() {
     <>
       <StatusBar style="light" />
 
+      {/* https://reactnative.dev/docs/image */}
       <Image source={FacebookBannerImage} style={styles.banner} />
 
       <SafeAreaView style={styles.container}>

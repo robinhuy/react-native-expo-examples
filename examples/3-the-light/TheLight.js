@@ -23,10 +23,8 @@ export default function TheLight() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* https://reactnative.dev/docs/statusbar */}
       <StatusBar style="light" />
 
-      {/* https://reactnative.dev/docs/image */}
       <Image
         fadeDuration={0}
         source={isEnabled ? bulbOn : bulbOff}

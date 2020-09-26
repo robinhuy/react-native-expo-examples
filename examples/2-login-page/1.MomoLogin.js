@@ -9,12 +9,13 @@ import {
   TextInput,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import Constants from "expo-constants";
 import { FontAwesome5 } from "@expo/vector-icons";
+import Constants from "expo-constants";
 
 export default function MomoLogin() {
   return (
     <SafeAreaView style={styles.container}>
+      {/* https://reactnative.dev/docs/statusbar */}
       <StatusBar style="light" />
 
       <View style={styles.content}>
