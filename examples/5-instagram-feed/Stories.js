@@ -1,8 +1,9 @@
 import React from "react";
 import { FlatList } from "react-native";
 import Story from "./Story";
+import { profile, stories } from "./data";
 
-export default function Stories({ stories, profile }) {
+export default function Stories() {
   function renderItem({ item, index }) {
     if (index === 0) {
       return (

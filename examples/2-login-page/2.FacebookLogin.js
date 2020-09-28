@@ -1,17 +1,16 @@
 import React from "react";
 import {
-  TextStyle,
   StyleSheet,
   SafeAreaView,
   View,
   Text,
+  Image,
   TouchableOpacity,
   TextInput,
   Dimensions,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { Image } from "react-native";
 import FacebookBannerImage from "../../assets/login-page-images/facebook-banner.jpg";
 
 const screenWidth = Dimensions.get("window").width;

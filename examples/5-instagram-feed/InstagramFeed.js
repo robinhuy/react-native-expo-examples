@@ -10,12 +10,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import Constants from "expo-constants";
 import { Feather } from "@expo/vector-icons";
+import Constants from "expo-constants";
 import Stories from "./Stories";
 import Article from "./Article";
 
-import data from "./data";
+import { articles } from "./data";
 
 const INSTAGRAM_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png";
@@ -26,7 +26,7 @@ export default function Instagram() {
       return (
         <>
           <View style={styles.stories}>
-            <Stories stories={data.stories} profile={data.profile} />
+            <Stories />
           </View>
 
           <Article item={item} />
@@ -55,7 +55,7 @@ export default function Instagram() {
 
       {/* https://reactnative.dev/docs/flatlist */}
       <FlatList
-        data={data.articles}
+        data={articles}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false}
