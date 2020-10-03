@@ -8,9 +8,9 @@ import {
   Alert,
 } from "react-native";
 import { ListItem, SearchBar } from "react-native-elements";
+import { uniqBy } from "lodash";
 
 import MainHeader from "../components/MainHeader";
-
 import { FullMovesAPI } from "../constants";
 import { PokemonTypeIcon } from "../constants";
 
@@ -60,8 +60,11 @@ export default function MoveList({ navigation }) {
         const response = await fetch(url);
         const responseJson = await response.json();
 
-        setMoves(responseJson);
-        setDisplayMoves(responseJson);
+        // https://lodash.com/docs/4.17.15#uniqBy
+        const removeDuplicated = uniqBy(responseJson, "nid");
+
+        setMoves(removeDuplicated);
+        setDisplayMoves(removeDuplicated);
         setKeyword("");
         setLoading(false);
       } catch (error) {

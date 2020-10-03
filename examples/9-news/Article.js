@@ -8,7 +8,7 @@ import {
   Linking,
   Alert,
 } from "react-native";
-import moment from "moment";
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 export default function Article({ item }) {
   const openLink = (url) => {
@@ -35,7 +35,7 @@ export default function Article({ item }) {
         </TouchableOpacity>
 
         <Text style={styles.articlePublishedAt}>
-          {moment(item.publishedAt).fromNow()}
+          {formatDistanceToNow(new Date(item.publishedAt))}
         </Text>
       </View>
     </View>
