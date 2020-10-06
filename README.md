@@ -48,7 +48,7 @@ Learn how to use: **KeyboardAwareScrollView**, **Formik**, **Yup**, **Alert**, *
 
 ### 5. Instagram Feed
 
-Learn how to use: **FlatList**, **Separate Components**
+Learn how to use: **ScrollView**, **FlatList**, **Separate Components**
 
 <img src="https://user-images.githubusercontent.com/12640832/87748778-0a452100-c821-11ea-8a8c-6ea7b780c60a.png" width="250" alt="Instagram Feed" />
 
@@ -60,7 +60,7 @@ Learn how to use: **Animations**, **React Hook useRef**
 
 ### 7. Stop Watch
 
-Learn how to use: **ScrollView**
+Learn how to use: **Timer**
 
 <img src="https://user-images.githubusercontent.com/12640832/87749278-7d02cc00-c822-11ea-9b6a-b19e83f38841.gif" width="250" alt="Stop Watch" />
 
@@ -74,7 +74,7 @@ Learn how to use: **Slider**, **Modal**
 
 Learn how to use: **ActivityIndicator**, **Linking**, **React Hook useEffect**
 
-<img src="https://user-images.githubusercontent.com/12640832/89286808-07e62200-d67d-11ea-907e-acd1cd59fe01.png" width="250" alt="Worldwide News" />
+<img src="https://user-images.githubusercontent.com/12640832/95187431-59ce3400-07f5-11eb-9d95-c68df6740964.png" width="250" alt="Worldwide News" />
 
 ### 10. Pokedex
 

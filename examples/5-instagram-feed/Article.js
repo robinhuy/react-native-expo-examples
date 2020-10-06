@@ -55,7 +55,7 @@ export default function Article({ item }) {
       </View>
 
       <View style={styles.info}>
-        <Text style={styles.viewCount}>{item.viewCount} lượt xem</Text>
+        <Text style={styles.likeCount}>{item.likeCount} lượt thích</Text>
         <Text style={styles.date}>{item.date}</Text>
       </View>
     </View>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   info: {
     paddingHorizontal: 16,
   },
-  viewCount: {
+  likeCount: {
     color: "#262626",
     fontWeight: "bold",
     marginBottom: 8,

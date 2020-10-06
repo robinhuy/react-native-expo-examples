@@ -1,6 +1,6 @@
 export const profile = {
   avatar: require("../../assets/instagram-feed-images/avatar.png"),
-}
+};
 
 export const stories = [
   {
@@ -21,7 +21,7 @@ export const stories = [
     name: "thangflycomicsoffical",
     isSeen: true,
   },
-]
+];
 
 export const articles = [
   {
@@ -29,7 +29,7 @@ export const articles = [
     avatar: require("../../assets/instagram-feed-images/avatar1.jpg"),
     name: "5.min.craft",
     image: require("../../assets/instagram-feed-images/img1.jpg"),
-    viewCount: "685,357",
+    likeCount: "23",
     date: "1 giờ trước",
   },
   {
@@ -37,7 +37,7 @@ export const articles = [
     avatar: require("../../assets/instagram-feed-images/avatar1.jpg"),
     name: "5.min.craft",
     image: require("../../assets/instagram-feed-images/img2.jpg"),
-    viewCount: "1,356",
+    likeCount: "46",
     date: "3 giờ trước",
   },
   {
@@ -45,7 +45,7 @@ export const articles = [
     avatar: require("../../assets/instagram-feed-images/avatar3.jpg"),
     name: "thangflycomicsoffical",
     image: require("../../assets/instagram-feed-images/img3.jpg"),
-    viewCount: "322,555,432",
+    likeCount: "72",
     date: "8 giờ trước",
   },
   {
@@ -53,7 +53,7 @@ export const articles = [
     avatar: require("../../assets/instagram-feed-images/avatar2.jpg"),
     name: "teammonsterbox",
     image: require("../../assets/instagram-feed-images/img4.jpg"),
-    viewCount: "198",
+    likeCount: "19",
     date: "1 ngày trước",
   },
   {
@@ -61,7 +61,7 @@ export const articles = [
     avatar: require("../../assets/instagram-feed-images/avatar2.jpg"),
     name: "teammonsterbox",
     image: require("../../assets/instagram-feed-images/img5.jpg"),
-    viewCount: "123,357",
+    likeCount: "12",
     date: "2 ngày trước",
   },
-]
+];

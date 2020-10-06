@@ -4,7 +4,6 @@ import { displayTime } from "./util";
 
 export default function Result({ results }) {
   return (
-    // https://reactnative.dev/docs/scrollview
     <ScrollView>
       <View style={styles.resultItem} />
 

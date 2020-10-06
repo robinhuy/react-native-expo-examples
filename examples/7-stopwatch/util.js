@@ -1,10 +1,4 @@
-const addZeroBefore = (time) => {
-  if (time < 10) {
-    return "0" + time;
-  }
-
-  return "" + time;
-};
+const padToTwo = (number) => (number <= 9 ? `0${number}` : number);
 
 export const displayTime = (centisecond) => {
   let minutes = 0;
@@ -15,26 +9,20 @@ export const displayTime = (centisecond) => {
   }
 
   if (centisecond < 100) {
-    return "00:00," + addZeroBefore(centisecond);
+    return `00:00,${padToTwo(centisecond)}`;
   }
 
   let remainCentisecond = centisecond % 100;
   seconds = (centisecond - remainCentisecond) / 100;
 
   if (seconds < 60) {
-    return (
-      "00:" + addZeroBefore(seconds) + "," + addZeroBefore(remainCentisecond)
-    );
+    return `00:${padToTwo(seconds)},${padToTwo(remainCentisecond)}`;
   }
 
   let remainSecond = seconds % 60;
   minutes = (seconds - remainSecond) / 60;
 
-  return (
-    addZeroBefore(minutes) +
-    ":" +
-    addZeroBefore(remainSecond) +
-    ":" +
-    addZeroBefore(remainCentisecond)
-  );
+  return `${padToTwo(minutes)}:${padToTwo(remainSecond)}:${padToTwo(
+    remainCentisecond
+  )}`;
 };
