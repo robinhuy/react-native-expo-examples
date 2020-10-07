@@ -23,6 +23,6 @@ export default function App() {
   // return <RockPaperScissors />;
   // return <StopWatch />;
   // return <BMICalculator />;
-  // return <WorldwideNews />;
+  return <WorldwideNews />;
   return <Pokedex />;
 }

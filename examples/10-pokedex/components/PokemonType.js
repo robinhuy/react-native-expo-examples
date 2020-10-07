@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { ActivityIndicator } from "react-native";
 import { Image } from "react-native-elements";
 import { PokemonTypeIcon } from "../constants";

@@ -10,6 +10,7 @@ import {
 import Constants from "expo-constants";
 import { getNews } from "./apis";
 import Article from "./Article";
+import { uniqBy } from "lodash";
 
 const PAGE_SIZE = 20;
 
@@ -24,7 +25,10 @@ export default function WorldwideNews() {
 
     const newArticles = await getNews(page, PAGE_SIZE);
 
-    setArticles((previousNews) => previousNews.concat(newArticles));
+    setArticles((previousNews) =>
+      // https://lodash.com/docs/4.17.15#uniqBy
+      uniqBy(previousNews.concat(newArticles), "url")
+    );
     setPage(page + 1);
     setLoading(false);
 

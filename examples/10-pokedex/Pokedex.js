@@ -62,10 +62,6 @@ const tabScreenOptions = ({ route }) => ({
 const tabBarOptions = {
   activeTintColor: ActiveColor,
   inactiveTintColor: InActiveColor,
-  style: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    height: 88,
-  },
 };
 
 export default function Pokedex() {

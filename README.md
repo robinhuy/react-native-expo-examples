@@ -72,13 +72,13 @@ Learn how to use: **Slider**, **Modal**
 
 ### 9. Worldwide News
 
-Learn how to use: **ActivityIndicator**, **Linking**, **React Hook useEffect**
+Learn how to use: **ActivityIndicator**, **Linking**, **React Hook useEffect**, **Lodash**
 
 <img src="https://user-images.githubusercontent.com/12640832/95187431-59ce3400-07f5-11eb-9d95-c68df6740964.png" width="250" alt="Worldwide News" />
 
 ### 10. Pokedex
 
-Learn how to use: **React Native Elements**, **React Navigation**, **React Native Progress**, **React Hook useEffect with Cleanup**, **Lodash**
+Learn how to use: **React Native Elements**, **React Navigation**, **React Native Progress**, **React Hook useEffect with Cleanup**
 
 <img src="https://user-images.githubusercontent.com/12640832/94989309-e7174b80-059d-11eb-95c8-fb0835aa2310.png" width="250" alt="Pokedex" />
 

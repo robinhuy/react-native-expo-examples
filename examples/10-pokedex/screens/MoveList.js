@@ -59,8 +59,6 @@ export default function MoveList({ navigation }) {
       try {
         const response = await fetch(url);
         const responseJson = await response.json();
-
-        // https://lodash.com/docs/4.17.15#uniqBy
         const removeDuplicated = uniqBy(responseJson, "nid");
 
         setMoves(removeDuplicated);

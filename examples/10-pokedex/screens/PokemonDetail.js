@@ -11,6 +11,7 @@ import { Icon } from "react-native-elements";
 import ProgressBar from "react-native-progress/Bar";
 import MainHeader from "../components/MainHeader";
 import PokemonType from "../components/PokemonType";
+import PokemonStatus from "../components/PokemonStatus";
 import { BackgroundColor } from "../constants";
 
 export default function PokemonDetail({ navigation, route }) {
@@ -79,66 +80,29 @@ export default function PokemonDetail({ navigation, route }) {
           </View>
 
           <View>
-            <View style={styles.pokemonStatus}>
-              <Text style={styles.pokemonStatusName}>STA</Text>
-              <Text style={styles.pokemonStatusPoint}>{pokemon.sta}</Text>
-              <View style={styles.pokemonStatusBar}>
-                <ProgressBar
-                  progress={staProgress}
-                  height={8}
-                  color="#559EDF"
-                  unfilledColor="#F0F0F0"
-                  borderWidth={0}
-                  animated={true}
-                  width={null}
-                />
-              </View>
-            </View>
-            <View style={styles.pokemonStatus}>
-              <Text style={styles.pokemonStatusName}>ATK</Text>
-              <Text style={styles.pokemonStatusPoint}>{pokemon.atk}</Text>
-              <View style={styles.pokemonStatusBar}>
-                <ProgressBar
-                  progress={atkProgress}
-                  height={8}
-                  color="#559EDF"
-                  unfilledColor="#F0F0F0"
-                  borderWidth={0}
-                  animated={true}
-                  width={null}
-                />
-              </View>
-            </View>
-            <View style={styles.pokemonStatus}>
-              <Text style={styles.pokemonStatusName}>DEF</Text>
-              <Text style={styles.pokemonStatusPoint}>{pokemon.def}</Text>
-              <View style={styles.pokemonStatusBar}>
-                <ProgressBar
-                  progress={defProgress}
-                  height={8}
-                  color="#559EDF"
-                  unfilledColor="#F0F0F0"
-                  borderWidth={0}
-                  animated={true}
-                  width={null}
-                />
-              </View>
-            </View>
-            <View style={styles.pokemonStatus}>
-              <Text style={styles.pokemonStatusName}>CP</Text>
-              <Text style={styles.pokemonStatusPoint}>{pokemon.cp}</Text>
-              <View style={styles.pokemonStatusBar}>
-                <ProgressBar
-                  progress={cpProgress}
-                  height={8}
-                  color="#559EDF"
-                  unfilledColor="#F0F0F0"
-                  borderWidth={0}
-                  animated={true}
-                  width={null}
-                />
-              </View>
-            </View>
+            <PokemonStatus
+              title="STA"
+              value={pokemon.sta}
+              progress={staProgress}
+            />
+
+            <PokemonStatus
+              title="ATK"
+              value={pokemon.atk}
+              progress={atkProgress}
+            />
+
+            <PokemonStatus
+              title="DEF"
+              value={pokemon.def}
+              progress={defProgress}
+            />
+
+            <PokemonStatus
+              title="CP"
+              value={pokemon.cp}
+              progress={cpProgress}
+            />
           </View>
         </View>
       </ScrollView>
@@ -186,23 +150,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingLeft: 10,
     paddingRight: 10,
-  },
-  pokemonStatus: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  pokemonStatusName: {
-    color: "#1a87d9",
-    fontWeight: "bold",
-    flex: 1,
-  },
-  pokemonStatusPoint: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    flex: 1,
-  },
-  pokemonStatusBar: {
-    flex: 5,
   },
 });

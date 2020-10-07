@@ -41,10 +41,12 @@ export default function MoveDetail({ navigation, route }) {
               <Text style={styles.movePartTitle}>Power</Text>
               <Text>{move.power}</Text>
             </View>
+
             <View style={styles.movePart}>
               <Text style={styles.movePartTitle}>Cooldown</Text>
               <Text>{move.cooldown}</Text>
             </View>
+
             <View style={[styles.movePart, styles.borderRightNone]}>
               <Text style={styles.movePartTitle}>Energy</Text>
               <Text>{move.energy_gain}</Text>
@@ -91,23 +93,17 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     width: 120,
+    marginTop: 8,
+    marginBottom: 20,
+    flexDirection: "row",
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "row",
-    marginTop: 8,
-    marginBottom: 20,
-    ...Platform.select({
-      ios: {
-        shadowColor: "rgba(85,158, 223, .9)",
-        shadowOffset: { height: 0, width: 0 },
-        shadowOpacity: 0.8,
-        shadowRadius: 5,
-      },
-      android: {
-        elevation: 5,
-      },
-    }),
+    shadowColor: "rgba(85,158, 223, .9)",
+    shadowOffset: { height: 0, width: 0 },
+    shadowOpacity: 0.8,
+    shadowRadius: 5,
+    elevation: 5,
   },
   textWhite: {
     color: "white",
