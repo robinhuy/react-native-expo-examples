@@ -13,9 +13,6 @@ import Constants from "expo-constants";
 import bulbOff from "../../assets/the-light-images/bulb-off.jpg";
 import bulbOn from "../../assets/the-light-images/bulb-on.jpg";
 
-// https://reactnative.dev/docs/dimensions
-const screenHeight = Dimensions.get("window").height;
-
 export default function TheLight() {
   // https://reactjs.org/docs/hooks-reference.html#usestate
   const [isEnabled, setIsEnabled] = useState(false);
@@ -43,6 +40,9 @@ export default function TheLight() {
   );
 }
 
+// https://reactnative.dev/docs/dimensions
+const screenHeight = Dimensions.get("window").height;
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "black",
@@ -56,6 +56,6 @@ const styles = StyleSheet.create({
   },
   switch: {
     alignSelf: "center",
-    transform: Platform.OS === "ios" ? [] : [{ scale: 1.5 }],
+    transform: Platform.OS === "android" ? [{ scale: 1.5 }] : [],
   },
 });

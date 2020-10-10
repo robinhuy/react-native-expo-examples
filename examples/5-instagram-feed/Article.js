@@ -10,6 +10,9 @@ import {
 import { Feather } from "@expo/vector-icons";
 
 export default function Article({ item }) {
+  const articleImage = Image.resolveAssetSource(item.image);
+  const articleImageRatio = articleImage.width / articleImage.height;
+
   return (
     <View style={styles.article}>
       <View style={styles.header}>
@@ -30,7 +33,10 @@ export default function Article({ item }) {
         </TouchableOpacity>
       </View>
 
-      <Image source={item.image} style={styles.image} />
+      <Image
+        source={item.image}
+        style={[styles.image, { aspectRatio: articleImageRatio }]}
+      />
 
       <View style={styles.action}>
         <View style={styles.actionLeft}>
@@ -93,11 +99,7 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: null,
-    aspectRatio: 1,
     resizeMode: "contain",
-    backgroundColor: "red",
-    margin: 0,
-    padding: 0,
   },
   action: {
     ...ROW,

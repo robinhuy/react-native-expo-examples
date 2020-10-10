@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Platform } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Slider from "@react-native-community/slider";
 import { BOX, TEXT_VALUE, TEXT_LABEL } from "./style";
+import sliderThumbImage from "../../assets/bmi-calculator/slider-thumb-image.png";
 
 const MIN_HEIGHT = 50;
 const MAX_HEIGHT = 250;
@@ -20,12 +21,12 @@ export default function HeightSelection({ style, height, setHeight }) {
 
         {/* https://github.com/react-native-community/react-native-slider */}
         <Slider
-          style={{ width: "100%", height: 40 }}
+          style={styles.slider}
           minimumValue={MIN_HEIGHT}
           maximumValue={MAX_HEIGHT}
           minimumTrackTintColor="#9a5871"
           maximumTrackTintColor="#000000"
-          thumbTintColor="#fff"
+          thumbImage={Platform.OS === "android" && sliderThumbImage}
           onValueChange={(value) => setHeight(Math.round(value))}
           value={height}
         />
@@ -47,5 +48,10 @@ const styles = StyleSheet.create({
   },
   unit: {
     fontSize: 16,
+  },
+  slider: {
+    width: "100%",
+    height: 40,
+    transform: Platform.OS === "android" ? [{ scale: 1.1 }] : [],
   },
 });

@@ -36,7 +36,7 @@ Learn how to use: **StatusBar**, **Expo Icons**, **Image**, **TextInput**, **Tou
 
 ### 3. The Light
 
-Learn how to use: **Dimension**, **Switch**, **React Hook useState**
+Learn how to use: **Platform**, **Dimension**, **Switch**, **React Hook useState**
 
 <img src="https://user-images.githubusercontent.com/12640832/87749392-c3582b00-c822-11ea-8cea-7a1814907e83.gif" width="250" alt="The Light" />
 

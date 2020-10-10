@@ -7,14 +7,10 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Dimensions,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { FontAwesome5 } from "@expo/vector-icons";
 import FacebookBannerImage from "../../assets/login-page-images/facebook-banner.jpg";
-
-const screenWidth = Dimensions.get("window").width;
-const bannerHeight = (screenWidth / 75) * 46; // Image ratio is 75x46
 
 export default function FacebookLogin() {
   return (
@@ -74,7 +70,8 @@ const styles = StyleSheet.create({
   banner: {
     resizeMode: "contain",
     width: "100%",
-    height: bannerHeight,
+    height: null,
+    aspectRatio: 750 / 460, // Image ratio
   },
   container: {
     flex: 1,
