@@ -133,14 +133,13 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   pokemonName: {
-    marginTop: 90,
+    marginTop: 80,
     alignSelf: "center",
     fontSize: 30,
-    fontFamily: "Avenir",
     color: "#4f4f4f",
   },
   description: {
-    color: "#4F4F4F",
+    color: "#4f4f4f",
     textAlign: "center",
     lineHeight: 22,
     marginTop: 15,

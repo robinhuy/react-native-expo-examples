@@ -71,70 +71,21 @@ const styles = StyleSheet.create({
     minHeight: 500,
     marginVertical: 30,
   },
-  avatar: {
-    position: "absolute",
-    width: 150,
-    height: 150,
-    alignSelf: "center",
-    top: -100,
-  },
   moveName: {
     marginTop: 25,
     alignSelf: "center",
     fontSize: 40,
-    fontFamily: "Avenir",
     color: "#4f4f4f",
   },
   moveType: {
     alignItems: "center",
   },
-  moveTypes: {
-    backgroundColor: "#559EDF",
-    borderRadius: 20,
-    padding: 10,
-    width: 120,
-    marginTop: 8,
-    marginBottom: 20,
-    flexDirection: "row",
-    alignSelf: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "rgba(85,158, 223, .9)",
-    shadowOffset: { height: 0, width: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 5,
-    elevation: 5,
-  },
-  textWhite: {
-    color: "white",
-  },
   description: {
-    color: "#4F4F4F",
+    color: "#4f4f4f",
     textAlign: "center",
     lineHeight: 22,
     marginTop: 15,
     marginBottom: 35,
-  },
-  moveStatus: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  moveHP: {
-    color: "#1a87d9",
-    fontWeight: "bold",
-    flex: 1,
-  },
-  moveScore: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    flex: 1,
-  },
-  moveProgress: {
-    flex: 5,
-  },
-  moveDigital: {
-    marginBottom: 15,
   },
   moveCompare: {
     flexDirection: "row",
@@ -142,7 +93,7 @@ const styles = StyleSheet.create({
   movePart: {
     flex: 1,
     alignItems: "center",
-    borderRightColor: "#F0F0F0",
+    borderRightColor: "#f0f0f0",
     borderRightWidth: 1,
   },
   borderRightNone: {
@@ -157,6 +108,6 @@ const styles = StyleSheet.create({
   },
   hr: {
     height: 1,
-    backgroundColor: "#F0F0F0",
+    backgroundColor: "#f0f0f0",
   },
 });

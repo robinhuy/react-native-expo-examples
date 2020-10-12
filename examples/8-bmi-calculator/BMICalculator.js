@@ -117,13 +117,13 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   gender: {
-    flex: 1,
+    flex: 1/3,
   },
   height: {
-    flex: 1,
+    flex: 1/3,
   },
   weightAndAge: {
-    flex: 1,
+    flex: 1/3,
   },
   calculateButton: {
     ...BUTTON,

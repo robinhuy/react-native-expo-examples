@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
   },
   display: {
-    flex: 3,
+    flex: 3/5,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -82,5 +82,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
   },
-  result: { flex: 2 },
+  result: { flex: 2/5 },
 });
