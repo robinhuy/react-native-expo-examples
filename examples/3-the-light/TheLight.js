@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
   },
   switch: {
     alignSelf: "center",
+    // https://reactnative.dev/docs/transforms
+    // https://reactnative.dev/docs/platform-specific-code
     transform: Platform.OS === "android" ? [{ scale: 1.5 }] : [],
   },
 });

@@ -64,4 +64,5 @@ const styles = StyleSheet.create({
   },
 });
 
+// https://reactjs.org/docs/react-api.html#reactmemo
 export default React.memo(GenderSelection);

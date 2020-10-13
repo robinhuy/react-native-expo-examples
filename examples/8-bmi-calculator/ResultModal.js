@@ -19,7 +19,7 @@ import {
   BUTTON,
 } from "./style";
 
-export default function ResultModal({
+function ResultModal({
   modalVisible,
   setModalVisible,
   bmiPoint,
@@ -107,3 +107,5 @@ const styles = StyleSheet.create({
     ...BUTTON_TEXT,
   },
 });
+
+export default React.memo(ResultModal);
