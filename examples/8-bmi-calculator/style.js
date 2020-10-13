@@ -1,5 +1,10 @@
 import { ViewStyle, TextStyle, Platform } from "react-native";
 
+export const BG_COLOR = "#323344";
+export const HIGHLIGHT_BG_COLOR = "#24263b";
+export const MALE_COLOR = "#51caef";
+export const FEMALE_COLOR = "#f15123";
+
 export const TEXT: TextStyle = {
   color: "#fff",
   textAlign: "center",
@@ -32,14 +37,13 @@ export const CENTER: ViewStyle = {
 
 export const BOX: ViewStyle = {
   flex: 1,
-  backgroundColor: "#323344",
+  backgroundColor: BG_COLOR,
   padding: 15,
   borderRadius: 10,
 };
 
 export const BUTTON: ViewStyle = {
   ...CENTER,
-  marginHorizontal: 15,
   height: 60,
   borderRadius: 5,
   backgroundColor: "#e83d66",

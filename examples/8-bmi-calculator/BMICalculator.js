@@ -16,8 +16,6 @@ import HeightSelection from "./HeightSelection";
 import WeightAndAgeSelection from "./WeightAndAgeSelection";
 import ResultModal from "./ResultModal";
 
-const BMI_ADULT_TABLE = [];
-
 export default function BMICalculator() {
   const [gender, setGender] = useState("male");
   const [height, setHeight] = useState(150);
@@ -54,25 +52,25 @@ export default function BMICalculator() {
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
 
-      <View style={styles.content}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>BMI CALCULATOR</Text>
-        </View>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>BMI CALCULATOR</Text>
+      </View>
 
+      <View style={styles.content}>
         <GenderSelection
-          style={styles.gender}
+          style={styles.section}
           gender={gender}
           setGender={setGender}
         />
 
         <HeightSelection
-          style={styles.height}
+          style={styles.section}
           height={height}
           setHeight={setHeight}
         />
 
         <WeightAndAgeSelection
-          style={styles.weightAndAge}
+          style={styles.section}
           weight={weight}
           setWeight={setWeight}
           age={age}
@@ -103,11 +101,12 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
   },
   header: {
     ...CENTER,
     height: 70,
-    marginBottom: 15,
     borderBottomWidth: 5,
     borderBottomColor: "#16192e",
   },
@@ -116,19 +115,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "500",
   },
-  gender: {
-    flex: 1/3,
-  },
-  height: {
-    flex: 1/3,
-  },
-  weightAndAge: {
-    flex: 1/3,
+  section: {
+    flex: 1 / 3,
+    marginVertical: 5,
   },
   calculateButton: {
     ...BUTTON,
-    marginTop: 10,
-    marginBottom: Platform.OS === 'ios' ? 0 : 15,
+    marginTop: 15,
+    marginBottom: Platform.OS === "ios" ? 0 : 10,
   },
   calculateButtonText: {
     ...BUTTON_TEXT,

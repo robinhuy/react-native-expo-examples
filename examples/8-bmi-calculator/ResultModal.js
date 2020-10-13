@@ -30,29 +30,33 @@ export default function ResultModal({
     // https://reactnative.dev/docs/modal
     <Modal animationType="slide" transparent={true} visible={modalVisible}>
       <SafeAreaView style={styles.container}>
-        <Text style={styles.headerText}>Your Result</Text>
-
         <View style={styles.content}>
-          <Text
-            style={[
-              styles.bmiStatusText,
-              { color: bmiStatus === "NORMAL" ? "#7ac79d" : "#f5ac40" },
-            ]}
+          <Text style={styles.headerText}>Your Result</Text>
+
+          <View style={styles.contentBox}>
+            <Text
+              style={[
+                styles.bmiStatusText,
+                { color: bmiStatus === "NORMAL" ? "#7ac79d" : "#f5ac40" },
+              ]}
+            >
+              {bmiStatus}
+            </Text>
+
+            <Text style={styles.bmiPointText}>{bmiPoint}</Text>
+
+            <Text style={styles.bmiInterpretationText}>
+              {bmiInterpretation}
+            </Text>
+          </View>
+
+          <TouchableOpacity
+            style={styles.recalculateButton}
+            onPress={() => setModalVisible(false)}
           >
-            {bmiStatus}
-          </Text>
-
-          <Text style={styles.bmiPointText}>{bmiPoint}</Text>
-
-          <Text style={styles.bmiInterpretationText}>{bmiInterpretation}</Text>
+            <Text style={styles.recalculateButtonText}>RE-CALCULATE</Text>
+          </TouchableOpacity>
         </View>
-
-        <TouchableOpacity
-          style={styles.recalculateButton}
-          onPress={() => setModalVisible(false)}
-        >
-          <Text style={styles.recalculateButtonText}>RE-CALCULATE</Text>
-        </TouchableOpacity>
       </SafeAreaView>
     </Modal>
   );
@@ -63,17 +67,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#1d2236",
   },
+  content: {
+    flex: 1,
+    padding: 15,
+  },
   headerText: {
     fontSize: 40,
     fontWeight: "bold",
     color: "#fff",
-    marginLeft: 15,
     marginBottom: 10,
   },
-  content: {
+  contentBox: {
     ...BOX,
     justifyContent: "space-evenly",
-    margin: 15,
+    marginVertical: 15,
   },
   bmiStatusText: {
     ...TEXT,

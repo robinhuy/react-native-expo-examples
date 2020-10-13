@@ -60,7 +60,7 @@ Learn how to use: **Animations**, **React Hook useRef**
 
 ### 7. Stop Watch
 
-Learn how to use: **Timer**
+Learn how to use: **Timer**, **React Memo**
 
 <img src="https://user-images.githubusercontent.com/12640832/87749278-7d02cc00-c822-11ea-9b6a-b19e83f38841.gif" width="250" alt="Stop Watch" />
 

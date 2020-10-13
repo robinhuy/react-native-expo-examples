@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, ScrollView, View } from "react-native";
 import { displayTime } from "./util";
 
-export default function Result({ results }) {
+function Result({ results }) {
   return (
     <ScrollView>
       <View style={styles.resultItem} />
@@ -32,3 +32,6 @@ const styles = StyleSheet.create({
   },
   resultItemText: { color: "#fff" },
 });
+
+// https://reactjs.org/docs/react-api.html#reactmemo
+export default React.memo(Result);

@@ -8,7 +8,7 @@ import sliderThumbImage from "../../assets/bmi-calculator/slider-thumb-image.png
 const MIN_HEIGHT = 50;
 const MAX_HEIGHT = 250;
 
-export default function HeightSelection({ style, height, setHeight }) {
+function HeightSelection({ style, height, setHeight }) {
   return (
     <View style={style}>
       <View style={styles.heightSelection}>
@@ -38,7 +38,7 @@ export default function HeightSelection({ style, height, setHeight }) {
 const styles = StyleSheet.create({
   heightSelection: {
     ...BOX,
-    margin: 15,
+    marginVertical: 10,
   },
   label: {
     ...TEXT_LABEL,
@@ -55,3 +55,5 @@ const styles = StyleSheet.create({
     transform: Platform.OS === "android" ? [{ scale: 1.1 }] : [],
   },
 });
+
+export default React.memo(HeightSelection);

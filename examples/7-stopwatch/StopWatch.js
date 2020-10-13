@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { StyleSheet, SafeAreaView, Text, View, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
@@ -12,6 +12,19 @@ export default function StopWatch() {
   const [timer, setTimer] = useState(null);
   const [results, setResults] = useState([]);
 
+  const handleLeftButtonPress = () => {
+    if (isRunning) {
+      setResults((previousResults) => {
+        const newResults = [...previousResults];
+        newResults.unshift(time);
+        return newResults;
+      });
+    } else {
+      setResults([]);
+      setTime(0);
+    }
+  };
+
   const handleRightButtonPress = () => {
     if (isRunning) {
       clearInterval(timer);
@@ -23,18 +36,6 @@ export default function StopWatch() {
     }
 
     setRunning((previousState) => !previousState);
-  };
-
-  const handleLeftButtonPress = () => {
-    if (isRunning) {
-      setResults((previousResults) => {
-        previousResults.unshift(time);
-        return previousResults;
-      });
-    } else {
-      setResults([]);
-      setTime(0);
-    }
   };
 
   return (
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight,
   },
   display: {
-    flex: 3/5,
+    flex: 3 / 5,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -82,5 +83,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
   },
-  result: { flex: 2/5 },
+  result: { flex: 2 / 5 },
 });

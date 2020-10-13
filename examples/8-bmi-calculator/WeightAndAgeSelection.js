@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { BOX, ROW, CENTER, TEXT_LABEL, TEXT_VALUE } from "./style";
 
@@ -13,13 +8,7 @@ const MAX_WEIGHT = 150;
 const MIN_AGE = 1;
 const MAX_AGE = 150;
 
-export default function WeightAndAgeSelection({
-  style,
-  weight,
-  setWeight,
-  age,
-  setAge,
-}) {
+function WeightAndAgeSelection({ style, weight, setWeight, age, setAge }) {
   const [timer, setTimer] = useState(null);
 
   function decreaseWeight() {
@@ -149,11 +138,12 @@ export default function WeightAndAgeSelection({
 const styles = StyleSheet.create({
   weightAndAgeSelection: {
     ...ROW,
+    marginHorizontal: -10,
   },
   weightAndAgeBox: {
     ...CENTER,
     ...BOX,
-    margin: 15,
+    marginHorizontal: 10,
   },
   label: {
     ...TEXT_LABEL,
@@ -174,3 +164,5 @@ const styles = StyleSheet.create({
     ...CENTER,
   },
 });
+
+export default React.memo(WeightAndAgeSelection);
