@@ -25,10 +25,12 @@ export default function WorldwideNews() {
 
     const newArticles = await getNews(page, PAGE_SIZE);
 
-    setArticles((previousNews) =>
+    setArticles((articles) => {
+      const allArticles = articles.concat(newArticles);
+
       // https://lodash.com/docs/4.17.15#uniqBy
-      uniqBy(previousNews.concat(newArticles), "url")
-    );
+      return uniqBy(allArticles, "url");
+    });
     setPage(page + 1);
     setLoading(false);
 
@@ -44,6 +46,7 @@ export default function WorldwideNews() {
 
   const renderArticle = ({ item }) => <Article item={item} />;
   const renderDivider = () => <View style={styles.articleSeparator}></View>;
+  const keyExtractor = (item) => item.url;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -60,7 +63,7 @@ export default function WorldwideNews() {
           <FlatList
             data={articles}
             renderItem={renderArticle}
-            keyExtractor={(item) => item.url}
+            keyExtractor={keyExtractor}
             showsVerticalScrollIndicator={false}
             ItemSeparatorComponent={renderDivider}
             ListFooterComponent={() => (

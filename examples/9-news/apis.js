@@ -6,5 +6,7 @@ export async function getNews(page = 1, pageSize = 20) {
     `https://newsapi.org/v2/top-headlines?language=en&page=${page}&pageSize=${pageSize}&apiKey=${API_KEY}`
   );
   const jsonData = await response.json();
-  return jsonData.articles || [];
+  const articles =
+    jsonData.articles.filter((article) => article.urlToImage) || [];
+  return articles;
 }

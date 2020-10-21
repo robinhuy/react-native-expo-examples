@@ -8,7 +8,7 @@ import {
   Linking,
   Alert,
 } from "react-native";
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 export default function Article({ item }) {
   const openLink = (url) => {
@@ -22,6 +22,8 @@ export default function Article({ item }) {
     });
   };
 
+  const publishedFromNow = formatDistanceToNow(new Date(item.publishedAt));
+
   return (
     <View style={styles.article}>
       {/* Caching image for better performance: https://github.com/DylanVann/react-native-fast-image */}
@@ -34,9 +36,7 @@ export default function Article({ item }) {
           </Text>
         </TouchableOpacity>
 
-        <Text style={styles.articlePublishedAt}>
-          {formatDistanceToNow(new Date(item.publishedAt))}
-        </Text>
+        <Text style={styles.articlePublishedAt}>{publishedFromNow}</Text>
       </View>
     </View>
   );
