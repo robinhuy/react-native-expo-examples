@@ -11,7 +11,9 @@ import {
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 export default function Article({ item }) {
-  const openLink = (url) => {
+  const openLink = () => {
+    const url = item.url;
+
     // https://reactnative.dev/docs/linking
     Linking.canOpenURL(url).then((supported) => {
       if (supported) {
@@ -30,7 +32,7 @@ export default function Article({ item }) {
       <Image source={{ uri: item.urlToImage }} style={styles.articleImage} />
 
       <View style={{ flex: 1 }}>
-        <TouchableOpacity onPress={() => openLink(item.url)}>
+        <TouchableOpacity onPress={openLink}>
           <Text style={styles.articleTitle} numberOfLines={3}>
             {item.title}
           </Text>

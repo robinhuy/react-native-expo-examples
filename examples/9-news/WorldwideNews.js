@@ -8,11 +8,12 @@ import {
   ActivityIndicator,
 } from "react-native";
 import Constants from "expo-constants";
+import { uniqBy } from "lodash";
 import { getNews } from "./apis";
 import Article from "./Article";
-import { uniqBy } from "lodash";
 
 const PAGE_SIZE = 20;
+const PRIMARY_COLOR = "#e74c3c";
 
 export default function WorldwideNews() {
   const [isLoading, setLoading] = useState(true);
@@ -46,6 +47,11 @@ export default function WorldwideNews() {
 
   const renderArticle = ({ item }) => <Article item={item} />;
   const renderDivider = () => <View style={styles.articleSeparator}></View>;
+  const renderFooter = () => (
+    <View style={styles.center}>
+      {hasMoreData && <ActivityIndicator color={PRIMARY_COLOR} />}
+    </View>
+  );
   const keyExtractor = (item) => item.url;
 
   return (
@@ -56,7 +62,7 @@ export default function WorldwideNews() {
         {isLoading ? (
           <View style={styles.center}>
             {/* https://reactnative.dev/docs/activityindicator */}
-            <ActivityIndicator size="large" color="#e74c3c" />
+            <ActivityIndicator size="large" color={PRIMARY_COLOR} />
           </View>
         ) : (
           // Optimizing FlatList: https://reactnative.dev/docs/optimizing-flatlist-configuration
@@ -66,11 +72,7 @@ export default function WorldwideNews() {
             keyExtractor={keyExtractor}
             showsVerticalScrollIndicator={false}
             ItemSeparatorComponent={renderDivider}
-            ListFooterComponent={() => (
-              <View style={styles.center}>
-                {hasMoreData && <ActivityIndicator color="#e74c3c" />}
-              </View>
-            )}
+            ListFooterComponent={renderFooter}
             initialNumToRender={6}
             onEndReached={fetchData}
             onEndReachedThreshold={1}
@@ -99,7 +101,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     lineHeight: 50,
-    color: "#e74c3c",
+    color: PRIMARY_COLOR,
   },
   articleSeparator: {
     borderBottomWidth: 1,
