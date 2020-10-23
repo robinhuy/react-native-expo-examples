@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList, ScrollView } from "react-native";
 import Story from "./Story";
-import { profile, stories } from "./data";
+import { profile, stories } from "../data";
 
 export default function Stories() {
   return (

@@ -1,30 +1,18 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Modal,
-  SafeAreaView,
-  TouchableOpacity,
-  Platform,
-} from "react-native";
+import { StyleSheet, View, Text, Modal, SafeAreaView } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import Slider from "@react-native-community/slider";
-import {
-  BOX,
-  TEXT_VALUE,
-  TEXT_LABEL,
-  TEXT,
-  BUTTON_TEXT,
-  BUTTON,
-} from "./style";
+import Button from "./Button";
+import { BOX, TEXT } from "../style";
+
+const GOOD_STATUS_COLOR = "#7ac79d";
+const BAD_STATUS_COLOR = "#f5ac40";
 
 function ResultModal({
   modalVisible,
-  setModalVisible,
   bmiPoint,
   bmiStatus,
   bmiInterpretation,
+  onModalConfirm,
 }) {
   return (
     // https://reactnative.dev/docs/modal
@@ -37,7 +25,12 @@ function ResultModal({
             <Text
               style={[
                 styles.bmiStatusText,
-                { color: bmiStatus === "NORMAL" ? "#7ac79d" : "#f5ac40" },
+                {
+                  color:
+                    bmiStatus === "NORMAL"
+                      ? GOOD_STATUS_COLOR
+                      : BAD_STATUS_COLOR,
+                },
               ]}
             >
               {bmiStatus}
@@ -50,12 +43,7 @@ function ResultModal({
             </Text>
           </View>
 
-          <TouchableOpacity
-            style={styles.recalculateButton}
-            onPress={() => setModalVisible(false)}
-          >
-            <Text style={styles.recalculateButtonText}>RE-CALCULATE</Text>
-          </TouchableOpacity>
+          <Button title="RE-CALCULATE" onPress={onModalConfirm} />
         </View>
       </SafeAreaView>
     </Modal>
@@ -84,7 +72,7 @@ const styles = StyleSheet.create({
   },
   bmiStatusText: {
     ...TEXT,
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: "bold",
   },
   bmiPointText: {
@@ -97,14 +85,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 30,
     fontWeight: "500",
-  },
-  recalculateButton: {
-    ...BUTTON,
-    marginTop: 10,
-    marginBottom: Platform.OS === "ios" ? 0 : 15,
-  },
-  recalculateButtonText: {
-    ...BUTTON_TEXT,
   },
 });
 

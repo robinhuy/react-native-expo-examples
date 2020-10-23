@@ -1,32 +1,32 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  Modal,
-  Platform,
-} from "react-native";
+import { StyleSheet, SafeAreaView, View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
-import { CENTER, TEXT, BUTTON, BUTTON_TEXT } from "./style";
-import GenderSelection from "./GenderSelection";
-import HeightSelection from "./HeightSelection";
-import WeightAndAgeSelection from "./WeightAndAgeSelection";
-import ResultModal from "./ResultModal";
+import GenderSelection from "./components/GenderSelection";
+import HeightSelection from "./components/HeightSelection";
+import UnitSelection from "./components/UnitSelection";
+import Button from "./components/Button";
+import ResultModal from "./components/ResultModal";
+import { ROW, CENTER, TEXT } from "./style";
+import {
+  DEFAULT_VALUE,
+  MAX_AGE,
+  MAX_WEIGHT,
+  MIN_AGE,
+  MIN_WEIGHT,
+} from "./const";
 
 export default function BMICalculator() {
-  const [gender, setGender] = useState("male");
-  const [height, setHeight] = useState(150);
-  const [weight, setWeight] = useState(50);
-  const [age, setAge] = useState(20);
+  const [gender, setGender] = useState(DEFAULT_VALUE.gender);
+  const [height, setHeight] = useState(DEFAULT_VALUE.height);
+  const [weight, setWeight] = useState(DEFAULT_VALUE.weight);
+  const [age, setAge] = useState(DEFAULT_VALUE.age);
   const [bmiPoint, setBmiPoint] = useState(0);
   const [bmiStatus, setBmiStatus] = useState("NORMAL");
   const [bmiInterpretation, setBmiInterpretation] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
-  function calculate() {
+  const calculate = () => {
     const point = weight / (height / 100) ** 2;
 
     if (point < 18.5) {
@@ -46,7 +46,15 @@ export default function BMICalculator() {
 
     setBmiPoint(point.toFixed(2));
     setModalVisible(true);
-  }
+  };
+
+  const reset = () => {
+    setGender(DEFAULT_VALUE.gender);
+    setHeight(DEFAULT_VALUE.height);
+    setWeight(DEFAULT_VALUE.weight);
+    setAge(DEFAULT_VALUE.age);
+    setModalVisible(false);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -57,11 +65,24 @@ export default function BMICalculator() {
       </View>
 
       <View style={styles.content}>
-        <GenderSelection
-          style={styles.section}
-          gender={gender}
-          setGender={setGender}
-        />
+        <View style={styles.section}>
+          <View style={styles.genderSelection}>
+            <GenderSelection
+              label="MALE"
+              iconName="mars"
+              iconColor="#51caef"
+              isActive={gender === "male"}
+              setActive={() => setGender("male")}
+            />
+            <GenderSelection
+              label="FEMALE"
+              iconName="venus"
+              iconColor="#f15123"
+              isActive={gender === "female"}
+              setActive={() => setGender("female")}
+            />
+          </View>
+        </View>
 
         <HeightSelection
           style={styles.section}
@@ -69,24 +90,33 @@ export default function BMICalculator() {
           setHeight={setHeight}
         />
 
-        <WeightAndAgeSelection
-          style={styles.section}
-          weight={weight}
-          setWeight={setWeight}
-          age={age}
-          setAge={setAge}
-        />
+        <View style={styles.section}>
+          <View style={styles.weightAndAgeSelection}>
+            <UnitSelection
+              label="WEIGHT"
+              value={weight}
+              minValue={MIN_WEIGHT}
+              maxValue={MAX_WEIGHT}
+              setValue={setWeight}
+            />
+            <UnitSelection
+              label="AGE"
+              value={age}
+              minValue={MIN_AGE}
+              maxValue={MAX_AGE}
+              setValue={setAge}
+            />
+          </View>
+        </View>
 
-        <TouchableOpacity style={styles.calculateButton} onPress={calculate}>
-          <Text style={styles.calculateButtonText}>CALCULATE</Text>
-        </TouchableOpacity>
+        <Button title="CALCULATE" onPress={calculate} />
 
         <ResultModal
           modalVisible={modalVisible}
-          setModalVisible={setModalVisible}
           bmiPoint={bmiPoint}
           bmiStatus={bmiStatus}
           bmiInterpretation={bmiInterpretation}
+          onModalConfirm={reset}
         />
       </View>
     </SafeAreaView>
@@ -119,12 +149,12 @@ const styles = StyleSheet.create({
     flex: 1 / 3,
     marginVertical: 5,
   },
-  calculateButton: {
-    ...BUTTON,
-    marginTop: 15,
-    marginBottom: Platform.OS === "ios" ? 0 : 10,
+  genderSelection: {
+    ...ROW,
+    marginHorizontal: -10,
   },
-  calculateButtonText: {
-    ...BUTTON_TEXT,
+  weightAndAgeSelection: {
+    ...ROW,
+    marginHorizontal: -10,
   },
 });

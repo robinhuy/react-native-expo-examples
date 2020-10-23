@@ -2,8 +2,6 @@ import { ViewStyle, TextStyle, Platform } from "react-native";
 
 export const BG_COLOR = "#323344";
 export const HIGHLIGHT_BG_COLOR = "#24263b";
-export const MALE_COLOR = "#51caef";
-export const FEMALE_COLOR = "#f15123";
 
 export const TEXT: TextStyle = {
   color: "#fff",
@@ -40,17 +38,4 @@ export const BOX: ViewStyle = {
   backgroundColor: BG_COLOR,
   padding: 15,
   borderRadius: 10,
-};
-
-export const BUTTON: ViewStyle = {
-  ...CENTER,
-  height: 60,
-  borderRadius: 5,
-  backgroundColor: "#e83d66",
-};
-
-export const BUTTON_TEXT: TextStyle = {
-  ...TEXT,
-  fontSize: 24,
-  fontWeight: "bold",
 };

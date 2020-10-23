@@ -12,8 +12,8 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { Feather } from "@expo/vector-icons";
 import Constants from "expo-constants";
-import Stories from "./Stories";
-import Article from "./Article";
+import Stories from "./components/Stories";
+import Article from "./components/Article";
 
 import { articles } from "./data";
 
