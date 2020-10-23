@@ -21,21 +21,13 @@ const INSTAGRAM_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png";
 
 export default function Instagram() {
-  function renderItem({ item, index }) {
-    if (index === 0) {
-      return (
-        <>
-          <View style={styles.stories}>
-            <Stories />
-          </View>
-
-          <Article item={item} />
-        </>
-      );
-    } else {
-      return <Article item={item} />;
-    }
-  }
+  const renderItem = ({ item }) => <Article item={item} />;
+  const renderHeader = () => (
+    <View style={styles.stories}>
+      <Stories />
+    </View>
+  );
+  const keyExtractor = (item) => item.id.toString();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -57,7 +49,8 @@ export default function Instagram() {
       <FlatList
         data={articles}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
+        ListHeaderComponent={renderHeader}
+        keyExtractor={keyExtractor}
         showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>

@@ -19,7 +19,7 @@ export default function App() {
   // return <FacebookLogin />;
   // return <TheLight />;
   // return <RegisterForm />;
-  // return <InstagramFeed />;
+  return <InstagramFeed />;
   // return <RockPaperScissors />;
   // return <StopWatch />;
   // return <BMICalculator />;
