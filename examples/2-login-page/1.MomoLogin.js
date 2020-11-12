@@ -32,6 +32,7 @@ export default function MomoLogin() {
           {/* https://reactnative.dev/docs/textinput */}
           <TextInput
             style={styles.inputPassword}
+            keyboardType="numeric"
             secureTextEntry={true}
             autoFocus={true}
             placeholder="Nhập mật khẩu"

@@ -11,6 +11,7 @@ import StopWatch from "./examples/7-stopwatch/StopWatch";
 import BMICalculator from "./examples/8-bmi-calculator/BMICalculator";
 import WorldwideNews from "./examples/9-news/WorldwideNews";
 import Pokedex from "./examples/10-pokedex/Pokedex";
+import FaceRecognition from "./examples/7-scan-qr-code/ScanQrCode";
 
 export default function App() {
   // return <HelloWorld1 />;
@@ -24,5 +25,6 @@ export default function App() {
   // return <StopWatch />;
   // return <BMICalculator />;
   // return <WorldwideNews />;
+  return <FaceRecognition />;
   return <Pokedex />;
 }
