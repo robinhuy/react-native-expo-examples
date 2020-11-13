@@ -7,11 +7,11 @@ import TheLight from "./examples/3-the-light/TheLight";
 import RegisterForm from "./examples/4-register-form/RegisterForm";
 import InstagramFeed from "./examples/5-instagram-feed/InstagramFeed";
 import RockPaperScissors from "./examples/6-rock-paper-scissors/RockPaperScissors";
-import StopWatch from "./examples/7-stopwatch/StopWatch";
-import BMICalculator from "./examples/8-bmi-calculator/BMICalculator";
-import WorldwideNews from "./examples/9-news/WorldwideNews";
-import Pokedex from "./examples/10-pokedex/Pokedex";
-import FaceRecognition from "./examples/7-scan-qr-code/ScanQrCode";
+import ScanQrCode from "./examples/7-scan-qr-code/ScanQrCode";
+import StopWatch from "./examples/8-stopwatch/StopWatch";
+import BMICalculator from "./examples/9-bmi-calculator/BMICalculator";
+import WorldwideNews from "./examples/10-news/WorldwideNews";
+import Pokedex from "./examples/11-pokedex/Pokedex";
 
 export default function App() {
   // return <HelloWorld1 />;
@@ -22,9 +22,9 @@ export default function App() {
   // return <RegisterForm />;
   // return <InstagramFeed />;
   // return <RockPaperScissors />;
+  // return <ScanQrCode />;
   // return <StopWatch />;
   // return <BMICalculator />;
   // return <WorldwideNews />;
-  return <FaceRecognition />;
   return <Pokedex />;
 }

@@ -58,25 +58,31 @@ Learn how to use: **Animations**, **React Hook useRef**
 
 <img src="https://user-images.githubusercontent.com/12640832/89098353-e680fe00-d410-11ea-94a5-70c0e35c751b.gif" width="250" alt="Rock Paper Scissors" />
 
-### 7. Stop Watch
+### 7. Scan QR Code
+
+Learn how to use: **React Native Animatable**, **Expo Barcode Scanner**
+
+<img src="https://user-images.githubusercontent.com/12640832/99055849-453b4380-25cc-11eb-845e-8f5f8040d319.png" width="250" alt="Scan QR Code" />
+
+### 8. Stop Watch
 
 Learn how to use: **Timer**, **React Memo**
 
 <img src="https://user-images.githubusercontent.com/12640832/87749278-7d02cc00-c822-11ea-9b6a-b19e83f38841.gif" width="250" alt="Stop Watch" />
 
-### 8. BMI Calculator
+### 9. BMI Calculator
 
 Learn how to use: **Slider**, **Modal**
 
 <img src="https://user-images.githubusercontent.com/12640832/87665506-3fa22e00-c791-11ea-99c1-510bb7e059e0.gif" width="250" alt="BMI Calculator" />
 
-### 9. Worldwide News
+### 10. Worldwide News
 
 Learn how to use: **ActivityIndicator**, **Linking**, **React Hook useEffect**, **Lodash**
 
 <img src="https://user-images.githubusercontent.com/12640832/95187431-59ce3400-07f5-11eb-9d95-c68df6740964.png" width="250" alt="Worldwide News" />
 
-### 10. Pokedex
+### 11. Pokedex
 
 Learn how to use: **React Native Elements**, **React Navigation**, **React Native Progress**, **React Hook useEffect with Cleanup**
 

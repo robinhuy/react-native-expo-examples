@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -12,49 +12,60 @@ import ScannerView from "./ScannerView";
 
 export default function ScanQrCode() {
   const [hasPermission, setHasPermission] = useState(null);
-  const [scanned, setScanned] = useState(false);
+  const [scanned, setScanned] = useState(null);
 
-  useEffect(() => {
-    (async () => {
-      const { status } = await BarCodeScanner.requestPermissionsAsync();
-      setHasPermission(status === "granted");
-    })();
-  }, []);
+  const startScan = () => {
+    setScanned(false);
+
+    if (!hasPermission) {
+      (async () => {
+        const { status } = await BarCodeScanner.requestPermissionsAsync();
+        setHasPermission(status === "granted");
+      })();
+    }
+  };
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     alert(`Scanned QR code with data: "${data}"`);
   };
 
-  if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
-
   return (
     <SafeAreaView style={styles.container}>
-      <BarCodeScanner
-        style={StyleSheet.absoluteFillObject}
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-      />
+      {!scanned && hasPermission && (
+        <>
+          {/* https://docs.expo.io/versions/latest/sdk/bar-code-scanner/ */}
+          <BarCodeScanner
+            style={StyleSheet.absoluteFillObject}
+            onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+            barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
+          />
 
-      <View style={styles.scannerView}>
-        <ScannerView scanned={scanned} />
-      </View>
-
-      {scanned && (
-        <View style={styles.buttonWrapper}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => setScanned(false)}
-          >
-            <Text style={styles.buttonText}>Tap to Scan Again</Text>
-          </TouchableOpacity>
-        </View>
+          <View style={styles.helpTextWrapper}>
+            <Text style={styles.helpText}>Find QR Code to scan</Text>
+          </View>
+        </>
       )}
+
+      <View style={styles.content}>
+        {scanned !== null && hasPermission === null && (
+          <Text>Requesting for camera permission</Text>
+        )}
+
+        {scanned !== null && hasPermission === false && (
+          <Text>No access to camera</Text>
+        )}
+
+        {scanned !== null && hasPermission && <ScannerView scanned={scanned} />}
+
+        {(scanned === null || scanned === true) && (
+          <TouchableOpacity style={styles.button} onPress={startScan}>
+            <Text style={styles.buttonText}>
+              {scanned === null ? "Scan now" : "Scan again"}
+            </Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </SafeAreaView>
   );
 }
@@ -64,15 +75,22 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: Constants.statusBarHeight,
   },
-  scannerView: {
+  content: {
     ...StyleSheet.absoluteFillObject,
     justifyContent: "center",
     alignItems: "center",
   },
-  buttonWrapper: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: "center",
+  helpTextWrapper: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 15,
     alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.6)",
+  },
+  helpText: {
+    color: "#fff",
   },
   button: {
     paddingVertical: 15,

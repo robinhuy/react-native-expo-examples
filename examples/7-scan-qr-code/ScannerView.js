@@ -4,6 +4,7 @@ import * as Animatable from "react-native-animatable";
 
 export default function ScannerView({ scanned }) {
   return (
+    // https://github.com/oblador/react-native-animatable
     <Animatable.View
       style={styles.scannerView}
       animation={scanned ? "fadeOut" : "pulse"}
