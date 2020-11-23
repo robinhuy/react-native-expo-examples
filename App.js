@@ -10,8 +10,9 @@ import RockPaperScissors from "./examples/6-rock-paper-scissors/RockPaperScissor
 import ScanQrCode from "./examples/7-scan-qr-code/ScanQrCode";
 import StopWatch from "./examples/8-stopwatch/StopWatch";
 import BMICalculator from "./examples/9-bmi-calculator/BMICalculator";
-import WorldwideNews from "./examples/10-news/WorldwideNews";
-import Pokedex from "./examples/11-pokedex/Pokedex";
+import MusicPlayer from "./examples/10-music-player/MusicPlayer";
+import WorldwideNews from "./examples/11-news/WorldwideNews";
+import Pokedex from "./examples/12-pokedex/Pokedex";
 
 export default function App() {
   // return <HelloWorld1 />;
@@ -25,6 +26,7 @@ export default function App() {
   // return <ScanQrCode />;
   // return <StopWatch />;
   // return <BMICalculator />;
+  // return <MusicPlayer />;
   // return <WorldwideNews />;
   return <Pokedex />;
 }
