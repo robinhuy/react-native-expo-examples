@@ -6,8 +6,8 @@ import {
   Text,
   View,
   Image,
+  TouchableOpacity,
 } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Modal from "react-native-modal";
 import Slider from "@react-native-community/slider";
@@ -22,6 +22,7 @@ export default function PlayerModal({
   closeModal,
   playingSong,
   isPlaying,
+  isLoading,
   currentSongIndex,
   currentPosition,
   updatePosition,
@@ -29,6 +30,7 @@ export default function PlayerModal({
   changeSong,
 }) {
   return (
+    // https://github.com/react-native-modal/react-native-modal
     <Modal
       isVisible={isModalVisible}
       hasBackdrop={false}
@@ -86,10 +88,13 @@ export default function PlayerModal({
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={pauseOrResumeSong}>
+            <TouchableOpacity onPress={pauseOrResumeSong} disabled={isLoading}>
               <FontAwesome5
                 name={isPlaying ? "pause-circle" : "play-circle"}
-                style={styles.primaryControlIcon}
+                style={[
+                  styles.primaryControlIcon,
+                  { opacity: isLoading ? 0.5 : 1 },
+                ]}
               />
             </TouchableOpacity>
 

@@ -1,20 +1,38 @@
 export const PLAY_LIST = [
   {
     sourceUri:
-      "https://vnno-vn-6-tf-mp3-320s1-zmp3.zadn.vn/7bbcdcd2689581cbd884/6772445211451950207?authen=exp=1606132622~acl=/7bbcdcd2689581cbd884/*~hmac=d90ac470e6b1ce7cd855aa28ba1acf22",
+      "https://github.com/robinhuy/robinhuy/blob/master/musics/hoa-hai-duong.mp3?raw=true",
     name: "Hoa Hải Đường",
     coverImage:
-      "https://photo-resize-zmp3.zadn.vn/w256_r1x1_jpeg/cover/a/8/6/2/a8626a5671f5a01250a074c4c8140cae.jpg",
+      "https://user-images.githubusercontent.com/12640832/100078185-d4224880-2e75-11eb-8cc0-e09b3dce7c7a.jpg",
     singer: "Jack",
     duration: 229632,
   },
   {
     sourceUri:
-      "https://mp3-s1-zmp3.zadn.vn/a99d7e39707d9923c06c/4010664117678771468?authen=exp=1606275337~acl=/a99d7e39707d9923c06c/*~hmac=1cfca3f199fac9580d105e24ea44b98d",
-    name: "Kiss The Rain",
+      "https://github.com/robinhuy/robinhuy/blob/master/musics/ai-mang-co-don-di.mp3?raw=true",
+    name: "Ai Mang Cô Đơn Đi",
     coverImage:
-      "https://photo-resize-zmp3.zadn.vn/w480_r1x1_jpeg/covers/6/c/6cfcdb698d0cdd1413f53f044fb74006_1331627984.jpg",
-    singer: "Yiruma",
-    duration: 258742,
+      "https://user-images.githubusercontent.com/12640832/100081249-637d2b00-2e79-11eb-924b-0b4cdd4e1f9a.jpg",
+    singer: "K-ICM, APJ",
+    duration: 221231,
+  },
+  {
+    sourceUri:
+      "https://github.com/robinhuy/robinhuy/blob/master/musics/bong-hoa-dep-nhat.mp3?raw=true",
+    name: "Bông Hoa Đẹp Nhất",
+    coverImage:
+      "https://user-images.githubusercontent.com/12640832/100080805-d76b0380-2e78-11eb-9aad-648e5cd1749e.jpg",
+    singer: "Quân A.P",
+    duration: 315312,
+  },
+  {
+    sourceUri:
+      "https://github.com/robinhuy/robinhuy/blob/master/musics/thien-dang.mp3?raw=true",
+    name: "Thiên Đàng",
+    coverImage:
+      "https://user-images.githubusercontent.com/12640832/100080888-f10c4b00-2e78-11eb-931c-74272c77cad4.jpg",
+    singer: "Wowy, JoliPoli",
+    duration: 232200,
   },
 ];

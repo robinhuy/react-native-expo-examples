@@ -6,39 +6,44 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  Alert,
+  FlatList,
 } from "react-native";
+import { Audio } from "expo-av";
 import Constants from "expo-constants";
 import PlayerModal from "./PlayerModal";
-import { Audio } from "expo-av";
-import { FlatList } from "react-native-gesture-handler";
 import { displayTime } from "./util";
 import { styles } from "./MusicPlayer.style";
 import { PLAY_LIST } from "./listSong";
 
 export default function MusicPlayer() {
   const [isModalVisible, setModalVisible] = useState(false);
-  const [soundObject, setSoundObject] = useState(new Audio.Sound());
   const [playingSong, setPlayingSong] = useState({});
   const [isPlaying, setPlaying] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [currentPosition, setcurrentPosition] = useState(0);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
+
+  // https://docs.expo.io/versions/latest/sdk/av
+  const [soundObject, setSoundObject] = useState(new Audio.Sound());
 
   useEffect(() => {
     if (isPlaying) {
       const interval = setInterval(async () => {
         const status = await soundObject.getStatusAsync();
-        setcurrentPosition(status.positionMillis);
-        if (
-          Math.ceil(status.positionMillis / 1000) ===
-          Math.ceil(status.durationMillis / 1000)
-        ) {
+
+        setcurrentPosition(status.positionMillis || 0);
+
+        if (status.positionMillis === 0 && status.isLoaded) {
+          setLoading(false);
+        }
+
+        if (status.positionMillis >= status.durationMillis - 500) {
           await soundObject.setPositionAsync(status.durationMillis);
           setcurrentPosition(status.durationMillis);
           setPlaying(false);
           clearInterval(interval);
         }
-      }, 500);
+      }, 1000);
 
       return () => {
         clearInterval(interval);
@@ -74,6 +79,7 @@ export default function MusicPlayer() {
 
   const playSong = async (song, index) => {
     setModalVisible(true);
+    setLoading(true);
     setPlayingSong(song);
     setcurrentPosition(0);
     setCurrentSongIndex(index);
@@ -84,7 +90,7 @@ export default function MusicPlayer() {
       await soundObject.playAsync();
       setPlaying(true);
     } catch (error) {
-      Alert.alert("Cannot play this music!");
+      console.log(error);
     }
   };
 
@@ -124,6 +130,8 @@ export default function MusicPlayer() {
 
   const stopMusic = () => {
     setModalVisible(false);
+    setPlaying(false);
+    soundObject.unloadAsync();
   };
 
   return (
@@ -141,6 +149,7 @@ export default function MusicPlayer() {
         closeModal={stopMusic}
         playingSong={playingSong}
         isPlaying={isPlaying}
+        isLoading={isLoading}
         currentSongIndex={currentSongIndex}
         currentPosition={currentPosition}
         updatePosition={updatePosition}
