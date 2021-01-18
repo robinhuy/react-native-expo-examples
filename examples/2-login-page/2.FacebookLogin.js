@@ -9,7 +9,6 @@ import {
   TextInput,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { FontAwesome5 } from "@expo/vector-icons";
 import FacebookBannerImage from "../../assets/login-page-images/facebook-banner.jpg";
 
 export default function FacebookLogin() {
@@ -51,7 +50,7 @@ export default function FacebookLogin() {
         <View style={styles.footer}>
           <View style={styles.divider}>
             <View style={styles.dividerLine} />
-            <Text style={styles.footerText}>HOẶC</Text>
+            <Text style={styles.dividerText}>HOẶC</Text>
             <View style={styles.dividerLine} />
           </View>
 
@@ -134,7 +133,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: "#cbccd0",
   },
-  footerText: {
+  dividerText: {
     width: 50,
     textAlign: "center",
   },

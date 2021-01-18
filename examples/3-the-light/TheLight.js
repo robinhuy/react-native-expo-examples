@@ -31,7 +31,7 @@ export default function TheLight() {
       {/* https://reactnative.dev/docs/switch */}
       <Switch
         trackColor={{ false: "#fff", true: "#52d964" }}
-        thumbColor={isEnabled ? "#fff" : "#fff"}
+        thumbColor={"#fff"}
         onValueChange={toggleSwitch}
         value={isEnabled}
         style={styles.switch}

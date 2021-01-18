@@ -15,7 +15,7 @@ import Constants from "expo-constants";
 export default function MomoLogin() {
   return (
     <SafeAreaView style={styles.container}>
-      {/* https://reactnative.dev/docs/statusbar */}
+      {/* https://docs.expo.io/versions/latest/sdk/status-bar */}
       <StatusBar style="light" />
 
       <View style={styles.content}>
@@ -26,7 +26,7 @@ export default function MomoLogin() {
         </View>
 
         <View style={styles.form}>
-          {/* https://docs.expo.io/guides/icons/ */}
+          {/* https://docs.expo.io/guides/icons */}
           <FontAwesome5 name="lock" style={styles.iconLock} />
 
           {/* https://reactnative.dev/docs/textinput */}
