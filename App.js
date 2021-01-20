@@ -3,7 +3,8 @@ import HelloWorld1 from "./examples/1-hello-world/1.HelloWorld1";
 import HelloWorld2 from "./examples/1-hello-world/2.HelloWorld2";
 import MomoLogin from "./examples/2-login-page/1.MomoLogin";
 import FacebookLogin from "./examples/2-login-page/2.FacebookLogin";
-import TheLight from "./examples/3-the-light/TheLight";
+import TheLight from "./examples/3-the-light/1.TheLight";
+import TrafficLight from "./examples/3-the-light/2.TrafficLight";
 import RegisterForm from "./examples/4-register-form/RegisterForm";
 import InstagramFeed from "./examples/5-instagram-feed/InstagramFeed";
 import RockPaperScissors from "./examples/6-rock-paper-scissors/RockPaperScissors";
@@ -20,6 +21,7 @@ export default function App() {
   // return <MomoLogin />;
   // return <FacebookLogin />;
   // return <TheLight />;
+  // return <TrafficLight />;
   // return <RegisterForm />;
   // return <InstagramFeed />;
   // return <RockPaperScissors />;

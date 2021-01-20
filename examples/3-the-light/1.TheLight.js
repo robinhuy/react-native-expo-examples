@@ -3,7 +3,6 @@ import {
   Dimensions,
   StyleSheet,
   SafeAreaView,
-  Text,
   Image,
   Switch,
   Platform,
@@ -45,12 +44,13 @@ const screenHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "black",
     paddingTop: Constants.statusBarHeight,
   },
   image: {
     maxWidth: "100%",
-    maxHeight: screenHeight - 180,
+    maxHeight: screenHeight - Constants.statusBarHeight - 150,
     resizeMode: "contain",
     marginBottom: 20,
   },
