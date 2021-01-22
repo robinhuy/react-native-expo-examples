@@ -10,7 +10,7 @@ import { Avatar, ListItem, SearchBar } from "react-native-elements";
 
 import MainHeader from "../components/MainHeader";
 import PokemonType from "../components/PokemonType";
-import pokeballIcon from "../images/pokeball.png";
+import pokeballIcon from "../../../assets/pokedex/pokeball.png";
 import { FullPokemonsAPI } from "../constants";
 
 export default function PokemonList({ navigation }) {

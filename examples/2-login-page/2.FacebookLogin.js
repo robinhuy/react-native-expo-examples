@@ -9,7 +9,7 @@ import {
   TextInput,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import FacebookBannerImage from "../../assets/login-page-images/facebook-banner.jpg";
+import FacebookBannerImage from "../../assets/login-page/facebook-banner.jpg";
 
 export default function FacebookLogin() {
   return (

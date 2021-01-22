@@ -6,13 +6,13 @@ Learn React Native (Expo CLI) by easy-to-difficult examples.
 
 - Setting up the development environment: https://reactnative.dev/docs/environment-setup.
 
-- Install dependencies: `npm install`.
+- Install dependencies: `yarn install` (or `npm install`).
 
-- Run on Android: `npm run android`.
+- Run on Android: `yarn android` (or `npm run android`).
 
-- Run on iOS: `npm run ios`.
+- Run on iOS: `yarn ios` (or `npm run ios`).
 
-- Run on Web (beta): `npm run web`.
+- Run on both Android & iOS: `yarn mobile` (or `npm run mobile`).
 
 ## Change example
 

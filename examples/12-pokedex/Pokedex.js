@@ -10,8 +10,8 @@ import MoveList from "./screens/MoveList";
 import PokemonDetail from "./screens/PokemonDetail";
 import MoveDetail from "./screens/MoveDetail";
 
-import pokemonTabIcon from "./images/pokemon-active.png";
-import moveTabIcon from "./images/move-active.png";
+import pokemonTabIcon from "../../assets/pokedex/pokemon-active.png";
+import moveTabIcon from "../../assets/pokedex/move-active.png";
 
 // https://reactnavigation.org/docs/stack-navigator/
 const PokemonStack = createStackNavigator();

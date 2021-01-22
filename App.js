@@ -19,7 +19,7 @@ export default function App() {
   // return <HelloWorld1 />;
   // return <HelloWorld2 />;
   // return <MomoLogin />;
-  // return <FacebookLogin />;
+  return <FacebookLogin />;
   // return <TheLight />;
   // return <TrafficLight />;
   // return <RegisterForm />;

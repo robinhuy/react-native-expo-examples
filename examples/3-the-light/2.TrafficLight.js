@@ -10,10 +10,10 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
-import trafficLight from "../../assets/the-light-images/traffic-light.png";
-import trafficLightGreen from "../../assets/the-light-images/traffic-light-green.png";
-import trafficLightYellow from "../../assets/the-light-images/traffic-light-yellow.png";
-import trafficLightRed from "../../assets/the-light-images/traffic-light-red.png";
+import trafficLight from "../../assets/the-light/traffic-light.png";
+import trafficLightGreen from "../../assets/the-light/traffic-light-green.png";
+import trafficLightYellow from "../../assets/the-light/traffic-light-yellow.png";
+import trafficLightRed from "../../assets/the-light/traffic-light-red.png";
 
 export default function TrafficLight() {
   const [color, setColor] = useState("");
@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   button: {
-    backgroundColor: "red",
     width: 80,
     paddingVertical: 8,
     borderRadius: 4,

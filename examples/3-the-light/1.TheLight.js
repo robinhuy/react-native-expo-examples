@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
-import bulbOff from "../../assets/the-light-images/bulb-off.jpg";
-import bulbOn from "../../assets/the-light-images/bulb-on.jpg";
+import bulbOff from "../../assets/the-light/bulb-off.jpg";
+import bulbOn from "../../assets/the-light/bulb-on.jpg";
 
 export default function TheLight() {
   // https://reactjs.org/docs/hooks-reference.html#usestate
