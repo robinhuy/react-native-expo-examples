@@ -28,11 +28,11 @@ Learn how to use: **StyleSheet**, **Text**, **View**, **SafeAreaView**
 
 <img src="https://user-images.githubusercontent.com/12640832/89098241-e7fdf680-d40f-11ea-8521-a27052809509.png" width="250" alt="Hello World 1" /> <img src="https://user-images.githubusercontent.com/12640832/89098278-33b0a000-d410-11ea-8472-5fe9a9bf38a5.png" width="250" alt="Hello World 2" />
 
-### 2. Login Page
+### 2. Login Screen
 
 Learn how to use: **StatusBar**, **Expo Icons**, **Image**, **TextInput**, **TouchableOpacity**
 
-<img src="https://user-images.githubusercontent.com/12640832/94335654-33471680-0007-11eb-8c5e-ef04bd211907.png" width="250" alt="Momo Login Page" /> <img src="https://user-images.githubusercontent.com/12640832/87783634-14861000-c85f-11ea-92cb-ff99ee1f46da.png" width="250" alt="Facebook Login Page" />
+<img src="https://user-images.githubusercontent.com/12640832/94335654-33471680-0007-11eb-8c5e-ef04bd211907.png" width="250" alt="Momo Login Screen" /> <img src="https://user-images.githubusercontent.com/12640832/87783634-14861000-c85f-11ea-92cb-ff99ee1f46da.png" width="250" alt="Facebook Login Screen" />
 
 ### 3. The Light
 
@@ -42,13 +42,13 @@ Learn how to use: **Transform**, **Platform**, **Dimension**, **Switch**, **Touc
 
 ### 4. Register Form
 
-Learn how to use: **KeyboardAwareScrollView**, **Formik**, **Yup**, **Alert**, **Separate Style**
+Learn how to use: **KeyboardAwareScrollView**, **Formik**, **Yup**, **Alert**, **Separate Style**, **Separate Components**
 
 <img src="https://user-images.githubusercontent.com/12640832/91040699-dc7da400-e638-11ea-8f40-fde278b91ad2.png" width="250" alt="Register Form" />
 
 ### 5. Instagram Feed
 
-Learn how to use: **ScrollView**, **FlatList**, **Separate Components**
+Learn how to use: **ScrollView**, **FlatList**
 
 <img src="https://user-images.githubusercontent.com/12640832/87748778-0a452100-c821-11ea-8a8c-6ea7b780c60a.png" width="250" alt="Instagram Feed" />
 

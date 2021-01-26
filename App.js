@@ -1,8 +1,8 @@
 import React from "react";
 import HelloWorld1 from "./examples/1-hello-world/1.HelloWorld1";
 import HelloWorld2 from "./examples/1-hello-world/2.HelloWorld2";
-import MomoLogin from "./examples/2-login-page/1.MomoLogin";
-import FacebookLogin from "./examples/2-login-page/2.FacebookLogin";
+import MomoLogin from "./examples/2-login-screen/1.MomoLogin";
+import FacebookLogin from "./examples/2-login-screen/2.FacebookLogin";
 import TheLight from "./examples/3-the-light/1.TheLight";
 import TrafficLight from "./examples/3-the-light/2.TrafficLight";
 import RegisterForm from "./examples/4-register-form/RegisterForm";
@@ -19,7 +19,7 @@ export default function App() {
   // return <HelloWorld1 />;
   // return <HelloWorld2 />;
   // return <MomoLogin />;
-  return <FacebookLogin />;
+  // return <FacebookLogin />;
   // return <TheLight />;
   // return <TrafficLight />;
   // return <RegisterForm />;
