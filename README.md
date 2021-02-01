@@ -50,7 +50,7 @@ Learn how to use: **KeyboardAwareScrollView**, **Formik**, **Yup**, **Alert**, *
 
 Learn how to use: **ScrollView**, **FlatList**
 
-<img src="https://user-images.githubusercontent.com/12640832/87748778-0a452100-c821-11ea-8a8c-6ea7b780c60a.png" width="250" alt="Instagram Feed" />
+<img src="https://user-images.githubusercontent.com/12640832/106414178-939b0880-647e-11eb-9947-d902b76c8ec0.png" width="250" alt="Instagram Feed" />
 
 ### 6. Rock Paper Scissors
 

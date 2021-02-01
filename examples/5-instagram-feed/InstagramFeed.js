@@ -3,22 +3,15 @@ import {
   StyleSheet,
   SafeAreaView,
   View,
-  Image,
-  Text,
   ViewStyle,
   FlatList,
-  TouchableOpacity,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { Feather } from "@expo/vector-icons";
 import Constants from "expo-constants";
+import Header from "./components/Header";
 import Stories from "./components/Stories";
 import Article from "./components/Article";
-
 import { articles } from "./data";
-
-const INSTAGRAM_LOGO =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png";
 
 export default function Instagram() {
   const renderItem = ({ item }) => <Article item={item} />;
@@ -34,15 +27,7 @@ export default function Instagram() {
       <StatusBar style="dark" />
 
       <View style={styles.header}>
-        <TouchableOpacity>
-          <Feather name="camera" size={24} />
-        </TouchableOpacity>
-
-        <Image source={{ uri: INSTAGRAM_LOGO }} style={styles.logo} />
-
-        <TouchableOpacity>
-          <Feather name="send" size={24} />
-        </TouchableOpacity>
+        <Header />
       </View>
 
       {/* https://reactnative.dev/docs/flatlist */}
@@ -75,15 +60,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     height: 44,
   },
-  logo: {
-    flex: 1,
-    height: 30,
-    resizeMode: "contain",
-  },
   stories: {
     ...BORDER_BOTTOM,
     height: 104,
-    padding: 10,
+    paddingVertical: 10,
+    paddingLeft: 8,
     backgroundColor: "#fafafa",
   },
 });

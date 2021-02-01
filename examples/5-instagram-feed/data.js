@@ -21,6 +21,12 @@ export const stories = [
     name: "thangflycomicsoffical",
     isSeen: true,
   },
+  {
+    id: 4,
+    avatar: require("../../assets/instagram-feed/avatar4.jpg"),
+    name: "other__perspectives",
+    isSeen: true,
+  },
 ];
 
 export const articles = [
