@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle, Platform } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import Constants from "expo-constants";
 
 const HEADER_BACKGROUND = "#3498db";

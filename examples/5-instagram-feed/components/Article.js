@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  ViewStyle,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 export default function Article({ item }) {
@@ -68,7 +61,7 @@ export default function Article({ item }) {
   );
 }
 
-const ROW: ViewStyle = { flexDirection: "row", alignItems: "center" };
+const ROW = { flexDirection: "row", alignItems: "center" };
 
 const styles = StyleSheet.create({
   article: {

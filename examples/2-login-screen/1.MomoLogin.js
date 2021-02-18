@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  TextStyle,
   StyleSheet,
   SafeAreaView,
   View,
@@ -59,7 +58,7 @@ export default function MomoLogin() {
   );
 }
 
-const TEXT: TextStyle = {
+const TEXT = {
   color: "#fff",
   textAlign: "center",
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, ViewStyle, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import * as Animatable from "react-native-animatable";
 
 export default function ScannerView({ scanned }) {
@@ -18,7 +18,7 @@ export default function ScannerView({ scanned }) {
   );
 }
 
-const BORDER: ViewStyle = {
+const BORDER = {
   position: "absolute",
   borderColor: "#fff",
   width: 55,

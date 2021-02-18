@@ -5,13 +5,13 @@ import DisplayResult from "./DisplayResult";
 import Actions from "./Actions";
 
 export default function RockPaperScissors() {
-  const [userChoice, setUserChoice] = useState(null);
-  const [computerChoice, setComputerChoice] = useState(false);
+  const [userChoice, setUserChoice] = useState(0);
+  const [computerChoice, setComputerChoice] = useState(0);
   const [result, setResult] = useState("");
   const [canPlay, setPlay] = useState(true);
 
   // https://reactjs.org/docs/hooks-reference.html#useref
-  const fadeAnimation = useRef(new Animated.Value(0)).current;
+  const fadeAnimation = useRef(new Animated.Value(1)).current;
 
   function play(choice) {
     // 1 = rock, 2 = paper, 3 = scissors

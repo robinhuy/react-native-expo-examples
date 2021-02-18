@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  View,
-  ViewStyle,
-  FlatList,
-} from "react-native";
+import { StyleSheet, SafeAreaView, View, FlatList } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
 import Header from "./components/Header";
@@ -42,7 +36,7 @@ export default function Instagram() {
   );
 }
 
-const BORDER_BOTTOM: ViewStyle = {
+const BORDER_BOTTOM = {
   borderBottomWidth: 1,
   borderBottomColor: "#dbdbdb",
 };
