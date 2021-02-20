@@ -11,12 +11,13 @@ import Constants from "expo-constants";
 import ScannerView from "./ScannerView";
 
 export default function ScanQrCode() {
-  const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(null);
-
+  const [hasPermission, setHasPermission] = useState(null);
+  
   const startScan = () => {
     setScanned(false);
 
+    // Request camera permission
     if (!hasPermission) {
       (async () => {
         const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -25,7 +26,7 @@ export default function ScanQrCode() {
     }
   };
 
-  const handleBarCodeScanned = ({ type, data }) => {
+  const handleBarCodeScanned = ({ data }) => {
     setScanned(true);
     alert(`Scanned QR code with data: "${data}"`);
   };
@@ -33,7 +34,7 @@ export default function ScanQrCode() {
   return (
     <SafeAreaView style={styles.container}>
       {!scanned && hasPermission && (
-        <>
+        <View style={{ flex: 1 }}>
           {/* https://docs.expo.io/versions/latest/sdk/bar-code-scanner/ */}
           <BarCodeScanner
             style={StyleSheet.absoluteFillObject}
@@ -44,21 +45,23 @@ export default function ScanQrCode() {
           <View style={styles.helpTextWrapper}>
             <Text style={styles.helpText}>Find QR Code to scan</Text>
           </View>
-        </>
+        </View>
       )}
 
       <View style={styles.content}>
         {scanned !== null && hasPermission === null && (
-          <Text>Requesting for camera permission</Text>
+          <Text style={styles.helpText}>Requesting for camera permission</Text>
         )}
 
         {scanned !== null && hasPermission === false && (
-          <Text>No access to camera</Text>
+          <Text style={styles.helpText}>No access to camera</Text>
         )}
 
-        {scanned !== null && hasPermission && <ScannerView scanned={scanned} />}
+        {scanned === false && hasPermission && (
+          <ScannerView scanned={scanned} />
+        )}
 
-        {(scanned === null || scanned === true) && (
+        {(scanned !== false) && (
           <TouchableOpacity style={styles.button} onPress={startScan}>
             <Text style={styles.buttonText}>
               {scanned === null ? "Scan now" : "Scan again"}
