@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState, useCallback } from "react";
 import { StyleSheet, SafeAreaView, Text, View, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
@@ -12,20 +12,16 @@ export default function StopWatch() {
   const [timer, setTimer] = useState(null);
   const [results, setResults] = useState([]);
 
-  const handleLeftButtonPress = () => {
+  const handleLeftButtonPress = useCallback(() => {
     if (isRunning) {
-      setResults((previousResults) => {
-        const newResults = [...previousResults];
-        newResults.unshift(time);
-        return newResults;
-      });
+      setResults((previousResults) => [time, ...previousResults]);
     } else {
       setResults([]);
       setTime(0);
     }
-  };
+  }, [isRunning]);
 
-  const handleRightButtonPress = () => {
+  const handleRightButtonPress = useCallback(() => {
     if (isRunning) {
       clearInterval(timer);
     } else {
@@ -36,7 +32,7 @@ export default function StopWatch() {
     }
 
     setRunning((previousState) => !previousState);
-  };
+  }, [isRunning]);
 
   return (
     <SafeAreaView style={styles.container}>

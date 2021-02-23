@@ -38,7 +38,7 @@ export default function ScanQrCode() {
           {/* https://docs.expo.io/versions/latest/sdk/bar-code-scanner/ */}
           <BarCodeScanner
             style={StyleSheet.absoluteFillObject}
-            onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+            onBarCodeScanned={handleBarCodeScanned}
             barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
           />
 

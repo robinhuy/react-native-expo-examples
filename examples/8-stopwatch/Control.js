@@ -1,11 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-export default function Control({
-  isRunning,
-  handleLeftButtonPress,
-  handleRightButtonPress,
-}) {
+function Control({ isRunning, handleLeftButtonPress, handleRightButtonPress }) {
   return (
     <>
       <TouchableOpacity
@@ -60,3 +56,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
 });
+
+export default React.memo(Control);
