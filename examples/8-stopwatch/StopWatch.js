@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { StyleSheet, SafeAreaView, Text, View, Platform } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
@@ -9,8 +9,8 @@ import { displayTime } from "./util";
 export default function StopWatch() {
   const [time, setTime] = useState(0);
   const [isRunning, setRunning] = useState(false);
-  const [timer, setTimer] = useState(null);
   const [results, setResults] = useState([]);
+  const timer = useRef(null);
 
   const handleLeftButtonPress = useCallback(() => {
     if (isRunning) {
@@ -22,13 +22,14 @@ export default function StopWatch() {
   }, [isRunning]);
 
   const handleRightButtonPress = useCallback(() => {
-    if (isRunning) {
-      clearInterval(timer);
-    } else {
+    if (!isRunning) {
       const interval = setInterval(() => {
         setTime((previousTime) => previousTime + 1);
       }, 10);
-      setTimer(interval);
+
+      timer.current = interval;
+    } else {
+      clearInterval(timer.current);
     }
 
     setRunning((previousState) => !previousState);
