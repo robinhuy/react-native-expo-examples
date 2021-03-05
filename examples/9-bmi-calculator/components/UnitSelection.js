@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { BOX, ROW, CENTER, TEXT_LABEL, TEXT_VALUE } from "../style";
 
 function UnitSelection({ label, value, minValue, maxValue, setValue }) {
-  const [timer, setTimer] = useState(null);
+  const timer = useRef(null);
 
   const decreaseValue = () => {
     setValue((value) => {
@@ -27,7 +27,7 @@ function UnitSelection({ label, value, minValue, maxValue, setValue }) {
   };
 
   function fastChangeValue(isIncrease) {
-    const timer = setInterval(() => {
+    const interval = setInterval(() => {
       if (isIncrease) {
         increaseValue();
       } else {
@@ -35,12 +35,7 @@ function UnitSelection({ label, value, minValue, maxValue, setValue }) {
       }
     }, 50);
 
-    setTimer(timer);
-  }
-
-  function clearTimer() {
-    clearInterval(timer);
-    setTimer(null);
+    timer.current = interval
   }
 
   return (
@@ -54,7 +49,7 @@ function UnitSelection({ label, value, minValue, maxValue, setValue }) {
           style={styles.button}
           onPress={decreaseValue}
           onLongPress={() => fastChangeValue(false)}
-          onPressOut={clearTimer}
+          onPressOut={() => clearInterval(timer.current)}
         >
           <FontAwesome5 name="minus" size={20} color="#fff" />
         </TouchableOpacity>
@@ -63,7 +58,7 @@ function UnitSelection({ label, value, minValue, maxValue, setValue }) {
           style={styles.button}
           onPress={increaseValue}
           onLongPress={() => fastChangeValue(true)}
-          onPressOut={clearTimer}
+          onPressOut={() => clearInterval(timer.current)}
         >
           <FontAwesome5 name="plus" size={20} color="#fff" />
         </TouchableOpacity>

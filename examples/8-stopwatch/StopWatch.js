@@ -12,6 +12,7 @@ export default function StopWatch() {
   const [results, setResults] = useState([]);
   const timer = useRef(null);
 
+  // https://reactjs.org/docs/hooks-reference.html#usecallback
   const handleLeftButtonPress = useCallback(() => {
     if (isRunning) {
       setResults((previousResults) => [time, ...previousResults]);
