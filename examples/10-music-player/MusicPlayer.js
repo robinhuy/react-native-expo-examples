@@ -18,38 +18,11 @@ import { PLAY_LIST } from "./listSong";
 export default function MusicPlayer() {
   const [isModalVisible, setModalVisible] = useState(false);
   const [playingSong, setPlayingSong] = useState({});
+  const [isBuffering, setBuffering] = useState(false);
   const [isPlaying, setPlaying] = useState(false);
-  const [isLoading, setLoading] = useState(false);
   const [currentPosition, setcurrentPosition] = useState(0);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
-
-  // https://docs.expo.io/versions/latest/sdk/av
-  const [soundObject, setSoundObject] = useState(new Audio.Sound());
-
-  useEffect(() => {
-    if (isPlaying) {
-      const interval = setInterval(async () => {
-        const status = await soundObject.getStatusAsync();
-
-        setcurrentPosition(status.positionMillis || 0);
-
-        if (status.positionMillis === 0 && status.isLoaded) {
-          setLoading(false);
-        }
-
-        if (status.positionMillis >= status.durationMillis - 500) {
-          await soundObject.setPositionAsync(status.durationMillis);
-          setcurrentPosition(status.durationMillis);
-          setPlaying(false);
-          clearInterval(interval);
-        }
-      }, 1000);
-
-      return () => {
-        clearInterval(interval);
-      };
-    }
-  }, [isPlaying]);
+  const [playbackObject, setPlaybackObject] = useState(null);
 
   const renderHeader = () => (
     <View style={styles.header}>
@@ -79,16 +52,43 @@ export default function MusicPlayer() {
 
   const playSong = async (song, index) => {
     setModalVisible(true);
-    setLoading(true);
+    setBuffering(true);
+    setPlaying(false);
     setPlayingSong(song);
     setcurrentPosition(0);
     setCurrentSongIndex(index);
 
     try {
-      await soundObject.unloadAsync();
-      await soundObject.loadAsync({ uri: song.sourceUri });
-      await soundObject.playAsync();
-      setPlaying(true);
+      if (playbackObject) await playbackObject.unloadAsync();
+
+      const { sound } = await Audio.Sound.createAsync(
+        { uri: song.sourceUri },
+        { shouldPlay: true }
+      );
+      sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate);
+      setPlaybackObject(sound);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onPlaybackStatusUpdate = (playbackStatus) => {
+    if (!playbackStatus.isLoaded) {
+      if (playbackStatus.error) {
+        alert(
+          `Encountered a fatal error during playback: ${playbackStatus.error}`
+        );
+      }
+    } else {
+      setBuffering(playbackStatus.isBuffering);
+      setPlaying(playbackStatus.isPlaying);
+    }
+  };
+
+  const updatePosition = async (position) => {
+    try {
+      await playbackObject.setPositionAsync(position);
+      setcurrentPosition(position);
     } catch (error) {
       console.log(error);
     }
@@ -97,42 +97,50 @@ export default function MusicPlayer() {
   const pauseOrResumeSong = async () => {
     if (isPlaying) {
       setPlaying(false);
-      soundObject.pauseAsync();
+      playbackObject.pauseAsync();
     } else {
       if (currentPosition === playingSong.duration) {
         setcurrentPosition(0);
-        await soundObject.replayAsync();
+        await playbackObject.replayAsync();
       } else {
-        await soundObject.playAsync();
+        await playbackObject.playAsync();
       }
-
-      setPlaying(true);
     }
   };
 
   const changeSong = (index) => {
-    setPlaying(false);
-
     if (index < 0) index = PLAY_LIST.length - 1;
     else if (index == PLAY_LIST.length) index = 0;
 
     playSong(PLAY_LIST[index], index);
   };
 
-  const updatePosition = async (position) => {
-    try {
-      await soundObject.setPositionAsync(position);
-      setcurrentPosition(position);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const stopMusic = () => {
+  const stopPlaySong = () => {
     setModalVisible(false);
     setPlaying(false);
-    soundObject.unloadAsync();
+    playbackObject.unloadAsync();
   };
+
+  // https://reactjs.org/docs/hooks-effect.html
+  useEffect(() => {
+    // Run time slider
+    if (isPlaying && !isBuffering) {
+      const interval = setInterval(async () => {
+        const status = await playbackObject.getStatusAsync();
+        setcurrentPosition(status.positionMillis || 0);
+
+        // Stop sound if positionMillis equals durationMillis or less than 1 second
+        if (status.positionMillis >= status.durationMillis - 900) {
+          await playbackObject.setPositionAsync(status.durationMillis);
+          setcurrentPosition(status.durationMillis);
+          setPlaying(false);
+          clearInterval(interval);
+        }
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isPlaying, isBuffering]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -146,12 +154,13 @@ export default function MusicPlayer() {
 
       <PlayerModal
         isModalVisible={isModalVisible}
-        closeModal={stopMusic}
+        closeModal={stopPlaySong}
         playingSong={playingSong}
         isPlaying={isPlaying}
-        isLoading={isLoading}
+        isBuffering={isBuffering}
         currentSongIndex={currentSongIndex}
         currentPosition={currentPosition}
+        setcurrentPosition={setcurrentPosition}
         updatePosition={updatePosition}
         pauseOrResumeSong={pauseOrResumeSong}
         changeSong={changeSong}

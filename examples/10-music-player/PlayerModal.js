@@ -22,9 +22,10 @@ export default function PlayerModal({
   closeModal,
   playingSong,
   isPlaying,
-  isLoading,
+  isBuffering,
   currentSongIndex,
   currentPosition,
+  setcurrentPosition,
   updatePosition,
   pauseOrResumeSong,
   changeSong,
@@ -75,7 +76,8 @@ export default function PlayerModal({
                   ? sliderThumbImageIOS
                   : sliderThumbImageAndroid
               }
-              onValueChange={updatePosition}
+              onValueChange={setcurrentPosition}
+              onSlidingComplete={updatePosition}
               value={currentPosition}
             />
           </View>
@@ -88,12 +90,12 @@ export default function PlayerModal({
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={pauseOrResumeSong} disabled={isLoading}>
+            <TouchableOpacity onPress={pauseOrResumeSong} disabled={isBuffering}>
               <FontAwesome5
                 name={isPlaying ? "pause-circle" : "play-circle"}
                 style={[
                   styles.primaryControlIcon,
-                  { opacity: isLoading ? 0.5 : 1 },
+                  { opacity: isBuffering ? 0.5 : 1 },
                 ]}
               />
             </TouchableOpacity>

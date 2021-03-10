@@ -78,13 +78,13 @@ Learn how to use: **Slider**, **Modal**
 
 ### 10. Music Player
 
-Learn how to use: **Expo AV**, **React Native Modal**
+Learn how to use: **Expo AV**, **React Native Modal**, **React Hook useEffect**,
 
 <img src="https://user-images.githubusercontent.com/12640832/100084320-33d02200-2e7d-11eb-81a0-466de5906a4c.png" width="250" alt="Music Player 1" /> <img src="https://user-images.githubusercontent.com/12640832/100084415-53ffe100-2e7d-11eb-92b9-737e60f75d46.png" width="250" alt="Music Player 2" />
 
 ### 11. Worldwide News
 
-Learn how to use: **ActivityIndicator**, **Linking**, **React Hook useEffect**, **Lodash**
+Learn how to use: **Connect JSON API**, **ActivityIndicator**, **Linking**, **Lodash**
 
 <img src="https://user-images.githubusercontent.com/12640832/95187431-59ce3400-07f5-11eb-9d95-c68df6740964.png" width="250" alt="Worldwide News" />
 

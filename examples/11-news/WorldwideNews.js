@@ -40,7 +40,6 @@ export default function WorldwideNews() {
     }
   };
 
-  // https://reactjs.org/docs/hooks-effect.html
   useEffect(() => {
     fetchData();
   }, []);
