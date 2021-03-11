@@ -26,10 +26,13 @@ export default function PlayerModal({
   currentSongIndex,
   currentPosition,
   setcurrentPosition,
+  setRewinding,
   updatePosition,
   pauseOrResumeSong,
   changeSong,
 }) {
+  const opacity = isBuffering ? 0.5 : 1;
+
   return (
     // https://github.com/react-native-modal/react-native-modal
     <Modal
@@ -77,8 +80,10 @@ export default function PlayerModal({
                   : sliderThumbImageAndroid
               }
               onValueChange={setcurrentPosition}
+              onSlidingStart={() => setRewinding(true)}
               onSlidingComplete={updatePosition}
               value={currentPosition}
+              disabled={isBuffering}
             />
           </View>
 
@@ -89,7 +94,7 @@ export default function PlayerModal({
             >
               <FontAwesome5
                 name="backward"
-                style={styles.secondaryControlIcon}
+                style={[styles.secondaryControlIcon, { opacity }]}
               />
             </TouchableOpacity>
 
@@ -99,10 +104,7 @@ export default function PlayerModal({
             >
               <FontAwesome5
                 name={isPlaying ? "pause-circle" : "play-circle"}
-                style={[
-                  styles.primaryControlIcon,
-                  { opacity: isBuffering ? 0.5 : 1 },
-                ]}
+                style={[styles.primaryControlIcon, { opacity }]}
               />
             </TouchableOpacity>
 
@@ -112,7 +114,7 @@ export default function PlayerModal({
             >
               <FontAwesome5
                 name="forward"
-                style={styles.secondaryControlIcon}
+                style={[styles.secondaryControlIcon, { opacity }]}
               />
             </TouchableOpacity>
           </View>

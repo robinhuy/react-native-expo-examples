@@ -20,6 +20,7 @@ export default function MusicPlayer() {
   const [playingSong, setPlayingSong] = useState({});
   const [isBuffering, setBuffering] = useState(false);
   const [isPlaying, setPlaying] = useState(false);
+  const [isRewinding, setRewinding] = useState(false);
   const [currentPosition, setcurrentPosition] = useState(0);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [playbackObject, setPlaybackObject] = useState(null);
@@ -92,6 +93,7 @@ export default function MusicPlayer() {
   const updatePosition = async (position) => {
     await playbackObject.setPositionAsync(position);
     setcurrentPosition(position);
+    setRewinding(false);
   };
 
   const pauseOrResumeSong = async () => {
@@ -127,7 +129,9 @@ export default function MusicPlayer() {
     if (isPlaying && !isBuffering) {
       const interval = setInterval(async () => {
         const status = await playbackObject.getStatusAsync();
-        setcurrentPosition(status.positionMillis || 0);
+
+        // Don't update position when user rewinding
+        if (!isRewinding) setcurrentPosition(status.positionMillis || 0);
 
         // Stop sound if positionMillis equals durationMillis or less than 1 second
         if (status.positionMillis >= status.durationMillis - 900) {
@@ -140,7 +144,7 @@ export default function MusicPlayer() {
 
       return () => clearInterval(interval);
     }
-  }, [isPlaying, isBuffering]);
+  }, [isPlaying, isBuffering, isRewinding]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -161,6 +165,7 @@ export default function MusicPlayer() {
         currentSongIndex={currentSongIndex}
         currentPosition={currentPosition}
         setcurrentPosition={setcurrentPosition}
+        setRewinding={setRewinding}
         updatePosition={updatePosition}
         pauseOrResumeSong={pauseOrResumeSong}
         changeSong={changeSong}
