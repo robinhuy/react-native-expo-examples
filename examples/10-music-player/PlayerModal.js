@@ -83,14 +83,20 @@ export default function PlayerModal({
           </View>
 
           <View style={styles.controls}>
-            <TouchableOpacity onPress={() => changeSong(currentSongIndex - 1)}>
+            <TouchableOpacity
+              onPress={() => changeSong(currentSongIndex - 1)}
+              disabled={isBuffering}
+            >
               <FontAwesome5
                 name="backward"
                 style={styles.secondaryControlIcon}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={pauseOrResumeSong} disabled={isBuffering}>
+            <TouchableOpacity
+              onPress={pauseOrResumeSong}
+              disabled={isBuffering}
+            >
               <FontAwesome5
                 name={isPlaying ? "pause-circle" : "play-circle"}
                 style={[
@@ -100,7 +106,10 @@ export default function PlayerModal({
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => changeSong(currentSongIndex + 1)}>
+            <TouchableOpacity
+              onPress={() => changeSong(currentSongIndex + 1)}
+              disabled={isBuffering}
+            >
               <FontAwesome5
                 name="forward"
                 style={styles.secondaryControlIcon}

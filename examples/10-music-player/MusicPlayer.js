@@ -54,13 +54,17 @@ export default function MusicPlayer() {
     setModalVisible(true);
     setBuffering(true);
     setPlaying(false);
-    setPlayingSong(song);
     setcurrentPosition(0);
     setCurrentSongIndex(index);
+    setPlayingSong(song);
 
     try {
-      if (playbackObject) await playbackObject.unloadAsync();
+      // Unload playback when change sound
+      if (playbackObject !== null) {
+        await playbackObject.unloadAsync();
+      }
 
+      // Play new sound
       const { sound } = await Audio.Sound.createAsync(
         { uri: song.sourceUri },
         { shouldPlay: true }
@@ -68,7 +72,7 @@ export default function MusicPlayer() {
       sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate);
       setPlaybackObject(sound);
     } catch (error) {
-      console.log(error);
+      alert("Can't play this song!");
     }
   };
 
@@ -86,12 +90,8 @@ export default function MusicPlayer() {
   };
 
   const updatePosition = async (position) => {
-    try {
-      await playbackObject.setPositionAsync(position);
-      setcurrentPosition(position);
-    } catch (error) {
-      console.log(error);
-    }
+    await playbackObject.setPositionAsync(position);
+    setcurrentPosition(position);
   };
 
   const pauseOrResumeSong = async () => {
