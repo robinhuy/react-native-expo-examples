@@ -13,11 +13,17 @@ import { EXAMPLE_LIST } from "./example-list";
 export default function App() {
   const [exampleIndex, setExampleIndex] = useState(null);
 
-  // Go back to Example List when user press Hardware Back Button
+  // Handle when user press Hardware Back Button
   useEffect(() => {
     const backAction = () => {
-      if (exampleIndex !== null) setExampleIndex(null);
-      else BackHandler.exitApp();
+      // Go back to Example List
+      if (exampleIndex !== null) {
+        setExampleIndex(null);
+      } 
+      // Exit app if user currently in Example List
+      else {
+        BackHandler.exitApp();
+      }
 
       return true;
     };
@@ -29,7 +35,7 @@ export default function App() {
     );
 
     return () => backHandler.remove();
-  }, []);
+  }, [exampleIndex]);
 
   if (exampleIndex !== null) return EXAMPLE_LIST[exampleIndex].component;
 
