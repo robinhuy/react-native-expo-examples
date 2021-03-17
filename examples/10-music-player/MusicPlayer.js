@@ -77,16 +77,19 @@ export default function MusicPlayer() {
     }
   };
 
-  const onPlaybackStatusUpdate = (playbackStatus) => {
-    if (!playbackStatus.isLoaded) {
-      if (playbackStatus.error) {
-        alert(
-          `Encountered a fatal error during playback: ${playbackStatus.error}`
-        );
+  const onPlaybackStatusUpdate = ({
+    isLoaded,
+    isBuffering,
+    isPlaying,
+    error,
+  }) => {
+    if (!isLoaded) {
+      if (error) {
+        alert(`Encountered a fatal error during playback: ${error}`);
       }
     } else {
-      setBuffering(playbackStatus.isBuffering);
-      setPlaying(playbackStatus.isPlaying);
+      setBuffering(isBuffering);
+      setPlaying(isPlaying);
     }
   };
 
@@ -128,15 +131,18 @@ export default function MusicPlayer() {
     // Run time slider
     if (isPlaying && !isBuffering) {
       const interval = setInterval(async () => {
-        const status = await playbackObject.getStatusAsync();
+        const {
+          positionMillis,
+          durationMillis,
+        } = await playbackObject.getStatusAsync();
 
         // Don't update position when user rewinding
-        if (!isRewinding) setcurrentPosition(status.positionMillis || 0);
+        if (!isRewinding) setcurrentPosition(positionMillis || 0);
 
         // Stop sound if positionMillis equals durationMillis or less than 1 second
-        if (status.positionMillis >= status.durationMillis - 900) {
-          await playbackObject.setPositionAsync(status.durationMillis);
-          setcurrentPosition(status.durationMillis);
+        if (positionMillis >= durationMillis - 900) {
+          await playbackObject.setPositionAsync(durationMillis);
+          setcurrentPosition(durationMillis);
           setPlaying(false);
           clearInterval(interval);
         }

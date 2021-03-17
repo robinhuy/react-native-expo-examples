@@ -1,34 +1,71 @@
-import React from "react";
-import HelloWorld1 from "./examples/1-hello-world/1.HelloWorld1";
-import HelloWorld2 from "./examples/1-hello-world/2.HelloWorld2";
-import MomoLogin from "./examples/2-login-screen/1.MomoLogin";
-import FacebookLogin from "./examples/2-login-screen/2.FacebookLogin";
-import TheLight from "./examples/3-the-light/1.TheLight";
-import TrafficLight from "./examples/3-the-light/2.TrafficLight";
-import RegisterForm from "./examples/4-register-form/RegisterForm";
-import InstagramFeed from "./examples/5-instagram-feed/InstagramFeed";
-import RockPaperScissors from "./examples/6-rock-paper-scissors/RockPaperScissors";
-import ScanQrCode from "./examples/7-scan-qr-code/ScanQrCode";
-import StopWatch from "./examples/8-stopwatch/StopWatch";
-import BMICalculator from "./examples/9-bmi-calculator/BMICalculator";
-import MusicPlayer from "./examples/10-music-player/MusicPlayer";
-import WorldwideNews from "./examples/11-news/WorldwideNews";
-import Pokedex from "./examples/12-pokedex/Pokedex";
+import React, { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  View,
+  BackHandler,
+} from "react-native";
+import { Text, ListItem } from "react-native-elements";
+import Constants from "expo-constants";
+import { EXAMPLE_LIST } from "./example-list";
 
 export default function App() {
-  // return <HelloWorld1 />;
-  // return <HelloWorld2 />;
-  // return <MomoLogin />;
-  // return <FacebookLogin />;
-  // return <TheLight />;
-  // return <TrafficLight />;
-  // return <RegisterForm />;
-  // return <InstagramFeed />;
-  // return <RockPaperScissors />;
-  // return <ScanQrCode />;
-  // return <StopWatch />;
-  // return <BMICalculator />;
-  // return <MusicPlayer />;
-  // return <WorldwideNews />;
-  return <Pokedex />;
+  const [exampleIndex, setExampleIndex] = useState(null);
+
+  // Go back to Example List when user press Hardware Back Button
+  useEffect(() => {
+    const backAction = () => {
+      if (exampleIndex !== null) setExampleIndex(null);
+      else BackHandler.exitApp();
+
+      return true;
+    };
+
+    // https://reactnative.dev/docs/backhandler
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, []);
+
+  if (exampleIndex !== null) return EXAMPLE_LIST[exampleIndex].component;
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text h4 style={styles.heading}>
+        React Native Expo Examples
+      </Text>
+
+      <ScrollView>
+        {EXAMPLE_LIST.map((l, i) => (
+          <ListItem key={i} bottomDivider onPress={() => setExampleIndex(i)}>
+            <View>
+              <Text>Level {l.level}</Text>
+            </View>
+
+            <ListItem.Content>
+              <ListItem.Title style={styles.title}>{l.name}</ListItem.Title>
+            </ListItem.Content>
+          </ListItem>
+        ))}
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: Constants.statusBarHeight,
+  },
+  heading: {
+    textAlign: "center",
+    padding: 12,
+  },
+  title: {
+    fontWeight: "bold",
+  },
+});

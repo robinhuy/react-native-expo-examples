@@ -14,13 +14,11 @@ Learn React Native (Expo CLI) by easy-to-difficult examples.
 
 - Run on both Android & iOS: `yarn mobile` (or `npm run mobile`).
 
-## Change example
-
-Modify code in `App.js`, each example is a component.
-
 ## Preview
 
-Expo Snack: https://snack.expo.io/@robinhuy/react-native-expo-examples
+Using Expo Client App (Expo Go) and scan this QR code: 
+
+<img src="https://user-images.githubusercontent.com/12640832/111438246-999b2f00-8736-11eb-8be3-509e5db3f48b.png" alt="React Native Expo Examples" />
 
 ### 1. Hello World
 
