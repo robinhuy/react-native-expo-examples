@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -19,36 +19,48 @@ export default function WorldwideNews() {
   const [isLoading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
-  const [hasMoreData, setMoreData] = useState(true);
-
-  const fetchData = async () => {
-    if (!hasMoreData) return;
-
-    const newArticles = await getNews(page, PAGE_SIZE);
-
-    setArticles((articles) => {
-      const allArticles = articles.concat(newArticles);
-
-      // https://lodash.com/docs/4.17.15#uniqBy
-      return uniqBy(allArticles, "url");
-    });
-    setPage(page + 1);
-    setLoading(false);
-
-    if (newArticles.length < PAGE_SIZE) {
-      setMoreData(false);
-    }
-  };
+  const [refreshing, setRefreshing] = useState(false);
+  const hasMoreData = useRef(true);
 
   useEffect(() => {
+    const fetchData = async () => {
+      if (!hasMoreData.current) return;
+
+      const newArticles = await getNews(page, PAGE_SIZE);
+
+      if (newArticles.length < PAGE_SIZE) {
+        hasMoreData.current = false;
+      }
+
+      setArticles((articles) => {
+        // Combine and filter article has no image
+        const allArticles = articles.concat(
+          newArticles.filter((article) => article.urlToImage)
+        );
+
+        // Remove duplicate articles
+        // https://lodash.com/docs/4.17.15#uniqBy
+        return uniqBy(allArticles, "url");
+      });
+      setLoading(false);
+      setRefreshing(false);
+    };
+
     fetchData();
-  }, []);
+  }, [page]);
+
+  const refreshData = () => {
+    setPage(1);
+    setRefreshing(true);
+    setArticles([]);
+    hasMoreData.current = true;
+  };
 
   const renderArticle = ({ item }) => <Article item={item} />;
   const renderDivider = () => <View style={styles.articleSeparator}></View>;
   const renderFooter = () => (
     <View style={styles.center}>
-      {hasMoreData && <ActivityIndicator color={PRIMARY_COLOR} />}
+      {hasMoreData.current && <ActivityIndicator color={PRIMARY_COLOR} />}
     </View>
   );
   const keyExtractor = (item) => item.url;
@@ -73,8 +85,10 @@ export default function WorldwideNews() {
             ItemSeparatorComponent={renderDivider}
             ListFooterComponent={renderFooter}
             initialNumToRender={6}
-            onEndReached={fetchData}
+            onEndReached={() => setPage((page) => page + 1)}
             onEndReachedThreshold={1}
+            onRefresh={refreshData}
+            refreshing={refreshing}
           />
         )}
       </View>
