@@ -20,7 +20,7 @@ export default function StopWatch() {
       setResults([]);
       setTime(0);
     }
-  }, [isRunning]);
+  }, [isRunning, time]);
 
   const handleRightButtonPress = useCallback(() => {
     if (!isRunning) {

@@ -3,6 +3,7 @@ import { StyleSheet, Text, ScrollView, View } from "react-native";
 import { displayTime } from "./util";
 
 function Result({ results }) {
+  // console.log(results);
   return (
     <ScrollView>
       <View style={styles.resultItem} />
