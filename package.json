@@ -8,16 +8,16 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-native-community/masked-view": "0.1.10",
+    "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/slider": "3.0.3",
     "@react-navigation/bottom-tabs": "^5.11.11",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.5",
-    "date-fns": "^2.22.1",
+    "date-fns": "^2.25.0",
     "expo": "^41.0.0",
     "expo-av": "~9.1.2",
     "expo-barcode-scanner": "~10.1.2",
-    "expo-status-bar": "~1.0.4",
+    "expo-status-bar": "^1.1.0",
     "formik": "^2.2.9",
     "lodash": "^4.17.21",
     "react": "16.13.1",
@@ -32,11 +32,11 @@
     "react-native-reanimated": "~2.1.0",
     "react-native-screens": "~3.0.0",
     "react-native-web": "^0.17.1",
-    "yup": "^0.32.9"
+    "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "babel-preset-expo": "8.3.0"
+    "@babel/core": "^7.15.8",
+    "babel-preset-expo": "^8.5.1"
   },
   "private": true
 }

@@ -1,7 +1,7 @@
 const FullPokemonsAPI =
-  "https://gamepress.gg/sites/default/files/aggregatedjson/pokemon-data-full-en-PoGO.json";
+  "https://robinhuy.github.io/static-apis/pokemon-data-full-en-PoGO.json";
 const FullMovesAPI =
-  "https://gamepress.gg/sites/default/files/aggregatedjson/move-data-full-PoGO.json";
+  "https://robinhuy.github.io/static-apis/move-data-full-PoGO.json";
 
 const PokemonTypeIcon = {
   bug: require("../../assets/pokedex/type-bug.png"),

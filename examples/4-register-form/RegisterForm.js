@@ -16,6 +16,7 @@ import FormField from "./FormField";
 
 export default function RegisterForm() {
   function onSubmitHandler(values) {
+    console.log(values)
     // https://reactnative.dev/docs/alert
     Alert.alert(
       "Register Successfully!",
@@ -122,7 +123,6 @@ export default function RegisterForm() {
                 />
 
                 <TouchableOpacity
-                  disabled={!isFormValid(isValid, touched)}
                   onPress={handleSubmit}
                 >
                   <View
