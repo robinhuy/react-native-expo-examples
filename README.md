@@ -2,6 +2,8 @@
 
 Learn React Native (Expo CLI) by easy-to-difficult examples.
 
+_For more advance examples, see [React Native TypeScript examples](https://github.com/robinhuy/react-native-typescript-examples)_
+
 ## Run project in development
 
 - Setting up the development environment: https://reactnative.dev/docs/environment-setup.
