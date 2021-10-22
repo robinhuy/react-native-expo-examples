@@ -68,8 +68,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 50,
     padding: 20,
-    minHeight: 500,
+    minHeight: 480,
     marginVertical: 30,
+    marginHorizontal: 15,
   },
   moveName: {
     marginTop: 25,

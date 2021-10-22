@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   StyleSheet,
   View,
@@ -13,6 +13,8 @@ import { uniqBy } from "lodash";
 import MainHeader from "../components/MainHeader";
 import { FullMovesAPI } from "../constants";
 import { PokemonTypeIcon } from "../constants";
+
+import { debounce } from "lodash";
 
 export default function MoveList({ navigation }) {
   const [displayMoves, setDisplayMoves] = useState([]);
@@ -41,17 +43,23 @@ export default function MoveList({ navigation }) {
     );
   };
 
-  const searchMove = (keyword) => {
-    setKeyword(keyword);
+  const searchMove = useCallback(
+    debounce((keyword) => {
+      if (keyword == "") {
+        setDisplayMoves(moves);
+      } else {
+        const filteredMoves = moves.filter((move) => {
+          return move.title.toLowerCase().includes(keyword.toLowerCase());
+        });
+        setDisplayMoves(filteredMoves);
+      }
+    }, 1000),
+    [moves]
+  );
 
-    if (keyword == "") {
-      setDisplayMoves(moves);
-    } else {
-      const filteredMoves = moves.filter((move) => {
-        return move.title.toLowerCase().includes(keyword.toLowerCase());
-      });
-      setDisplayMoves(filteredMoves);
-    }
+  const inputSearchMove = (keyword) => {
+    setKeyword(keyword);
+    searchMove(keyword);
   };
 
   useEffect(() => {
@@ -84,7 +92,7 @@ export default function MoveList({ navigation }) {
         lightTheme={true}
         round={true}
         value={keyword}
-        onChangeText={searchMove}
+        onChangeText={inputSearchMove}
       />
 
       {!isLoading ? (

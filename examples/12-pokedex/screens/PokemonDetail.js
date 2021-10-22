@@ -8,11 +8,10 @@ import {
   Image,
 } from "react-native";
 import { Icon } from "react-native-elements";
-import ProgressBar from "react-native-progress/Bar";
+import { BackgroundColor } from "../constants";
 import MainHeader from "../components/MainHeader";
 import PokemonType from "../components/PokemonType";
 import PokemonStatus from "../components/PokemonStatus";
-import { BackgroundColor } from "../constants";
 
 export default function PokemonDetail({ navigation, route }) {
   const [staProgress, setStaProgress] = useState(0);
@@ -120,20 +119,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 50,
     padding: 20,
-    minHeight: 500,
-    marginTop: 150,
+    minHeight: 480,
+    marginTop: 120,
     marginBottom: 30,
+    marginHorizontal: 15,
   },
   avatar: {
     position: "absolute",
     width: 200,
     height: 200,
     alignSelf: "center",
-    top: -130,
+    top: -120,
     resizeMode: "contain",
   },
   pokemonName: {
-    marginTop: 80,
+    marginTop: 90,
     alignSelf: "center",
     fontSize: 30,
     color: "#4f4f4f",

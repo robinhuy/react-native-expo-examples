@@ -8,6 +8,7 @@ export default function PokemonStatus({ title, value, progress }) {
       <Text style={styles.pokemonStatusName}>{title}</Text>
       <Text style={styles.pokemonStatusPoint}>{value}</Text>
       <View style={styles.pokemonStatusBar}>
+        {/* https://github.com/oblador/react-native-progress */}
         <ProgressBar
           progress={progress}
           height={8}

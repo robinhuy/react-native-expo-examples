@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   StyleSheet,
   View,
@@ -12,6 +12,8 @@ import MainHeader from "../components/MainHeader";
 import PokemonType from "../components/PokemonType";
 import pokeballIcon from "../../../assets/pokedex/pokeball.png";
 import { FullPokemonsAPI } from "../constants";
+
+import { debounce } from "lodash";
 
 export default function PokemonList({ navigation }) {
   const [displayPokemons, setDisplayPokemons] = useState([]);
@@ -59,17 +61,23 @@ export default function PokemonList({ navigation }) {
     );
   };
 
-  const searchPokemon = (keyword) => {
-    setKeyword(keyword);
+  const searchPokemon = useCallback(
+    debounce((keyword) => {
+      if (keyword == "") {
+        setDisplayPokemons(pokemons);
+      } else {
+        const filteredPokemons = pokemons.filter((pokemon) => {
+          return pokemon.title_1.toLowerCase().includes(keyword.toLowerCase());
+        });
+        setDisplayPokemons(filteredPokemons);
+      }
+    }, 1000),
+    [pokemons]
+  );
 
-    if (keyword == "") {
-      setDisplayPokemons(pokemons);
-    } else {
-      const filteredPokemons = pokemons.filter((pokemon) => {
-        return pokemon.title_1.toLowerCase().includes(keyword.toLowerCase());
-      });
-      setDisplayPokemons(filteredPokemons);
-    }
+  const inputSearchPokemon = (keyword) => {
+    setKeyword(keyword);
+    searchPokemon(keyword);
   };
 
   useEffect(() => {
@@ -92,11 +100,7 @@ export default function PokemonList({ navigation }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <MainHeader
-        title="Pokemons"
-        isMain={true}
-        navigation={navigation}
-      />
+      <MainHeader title="Pokemons" isMain={true} navigation={navigation} />
 
       <SearchBar
         placeholder="Find Pokemon by name ..."
@@ -105,7 +109,7 @@ export default function PokemonList({ navigation }) {
         lightTheme={true}
         round={true}
         value={keyword}
-        onChangeText={searchPokemon}
+        onChangeText={inputSearchPokemon}
       />
 
       {!isLoading ? (
