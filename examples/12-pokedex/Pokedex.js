@@ -44,6 +44,10 @@ const Tab = createBottomTabNavigator();
 const ActiveColor = "#000000";
 const InActiveColor = "#00000077";
 const tabScreenOptions = ({ route }) => ({
+
+  headerShown: false,
+  tabBarActiveTintColor: ActiveColor,
+  tabBarInactiveTintColor: InActiveColor,
   tabBarIcon: ({ color, size }) => {
     return (
       <View style={{ alignItems: "center" }}>
@@ -59,10 +63,6 @@ const tabScreenOptions = ({ route }) => ({
     );
   },
 });
-const tabBarOptions = {
-  activeTintColor: ActiveColor,
-  inactiveTintColor: InActiveColor,
-};
 
 export default function Pokedex() {
   return (
@@ -72,7 +72,6 @@ export default function Pokedex() {
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={tabScreenOptions}
-          tabBarOptions={tabBarOptions}
         >
           <Tab.Screen name="Pokemons" component={PokemonStackScreen} />
           <Tab.Screen name="Moves" component={MoveStackScreen} />

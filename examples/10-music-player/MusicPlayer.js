@@ -94,9 +94,13 @@ export default function MusicPlayer() {
   };
 
   const updatePosition = async (position) => {
-    await playbackObject.setPositionAsync(position);
-    setcurrentPosition(position);
-    setRewinding(false);
+    try {
+      await playbackObject.setPositionAsync(position);
+      setcurrentPosition(position);
+      setRewinding(false);
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   const pauseOrResumeSong = async () => {

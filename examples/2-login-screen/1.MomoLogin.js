@@ -50,7 +50,7 @@ export default function MomoLogin() {
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Text style={styles.userText}>THOÁT TÀI KHOẢN</Text>
+            <Text style={styles.userText} numberOfLines={1} adjustsFontSizeToFit>THOÁT TÀI KHOẢN</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   userText: {
     ...TEXT,
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 30,
   },
   form: {
