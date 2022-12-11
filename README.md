@@ -1,6 +1,6 @@
 # React Native Expo examples
 
-Learn React Native (Expo CLI) by easy-to-difficult examples.
+Learn React Native (Expo SDK 47) by easy-to-difficult examples.
 
 _For more advance examples, see [React Native TypeScript examples](https://github.com/robinhuy/react-native-typescript-examples)_
 
@@ -16,11 +16,11 @@ _For more advance examples, see [React Native TypeScript examples](https://githu
 
 - Run on both Android & iOS: `yarn mobile` (or `npm run mobile`).
 
+- Run server: `yarn start`. Then use app **Expo Go** on your mobile and scan QR code on the terminal.
+
 ## Preview
 
-Using Expo Client App (Expo Go) and scan this QR code: 
-
-<img src="https://user-images.githubusercontent.com/12640832/111438246-999b2f00-8736-11eb-8be3-509e5db3f48b.png" alt="React Native Expo Examples" />
+Android demo app (apk): [https://expo.dev/artifacts/eas/q4yxgVzzTrPMBqUNwUV1qT.apk](https://expo.dev/artifacts/eas/q4yxgVzzTrPMBqUNwUV1qT.apk) 
 
 ### 1. Hello World
 

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MyProjectExpo",
-    "slug": "MyProjectExpo",
+    "name": "React Native Expo Examples",
+    "slug": "react-native-expo-examples",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,16 +11,29 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/f7140b82-7e0a-4bb9-9d83-22ee5363b576"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "68d14711-d70c-4b05-bd45-624c81b2a689"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "android": {
+      "package": "dev.huydq.ReactNativeExpoExamples"
+    },
+    "owner": "robinhuy"
   }
 }
