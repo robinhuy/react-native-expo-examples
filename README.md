@@ -20,23 +20,23 @@ _For more advance examples, see [React Native TypeScript examples](https://githu
 
 ## Preview
 
-Scan the following QR code with an Android device to open it in Expo Go or a development build.
+Scan the following QR code with an **Android device** to open it in Expo Go or a development build.
 
 <img src="https://qr.expo.dev/eas-update?updateId=116bed98-0501-42fa-bc0b-2f38eb954f9e&appScheme=exp&host=u.expo.dev" width="300" alt="Android demo app" />
 
-Scan the following QR code with an iOS device to open it in Expo Go or a development build.
+Scan the following QR code with an **iOS device** to open it in Expo Go or a development build.
 
 <img src="https://qr.expo.dev/eas-update?updateId=ffe390fd-6935-4eac-816e-f6856e12ac84&appScheme=exp&host=u.expo.dev" width="300" alt="iOS demo app" />
 
 ### 1. Hello World
 
-Learn how to use: **StyleSheet**, **Text**, **View**, **SafeAreaView**
+Learn how to use: [StyleSheet](https://reactnative.dev/docs/stylesheet), [Text](https://reactnative.dev/docs/text), [View](https://reactnative.dev/docs/view), [SafeAreaView](https://reactnative.dev/docs/safeareaview).
 
 <img src="https://user-images.githubusercontent.com/12640832/89098241-e7fdf680-d40f-11ea-8521-a27052809509.png" width="250" alt="Hello World 1" /> <img src="https://user-images.githubusercontent.com/12640832/89098278-33b0a000-d410-11ea-8472-5fe9a9bf38a5.png" width="250" alt="Hello World 2" />
 
 ### 2. Login Screen
 
-Learn how to use: **StatusBar**, **Expo Icons**, **Image**, **TextInput**, **TouchableOpacity**
+Learn how to use: [StatusBar](https://reactnative.dev/docs/statusbar), [Expo Icons](https://docs.expo.dev/guides/icons/), [Images](https://reactnative.dev/docs/images), [TextInput](https://reactnative.dev/docs/textinput), [TouchableOpacity](https://reactnative.dev/docs/touchableopacity).
 
 <img src="https://user-images.githubusercontent.com/12640832/94335654-33471680-0007-11eb-8c5e-ef04bd211907.png" width="250" alt="Momo Login Screen" /> <img src="https://user-images.githubusercontent.com/12640832/87783634-14861000-c85f-11ea-92cb-ff99ee1f46da.png" width="250" alt="Facebook Login Screen" />
 
