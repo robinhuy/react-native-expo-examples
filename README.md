@@ -48,7 +48,7 @@ Learn how to use: [Transform](https://reactnative.dev/docs/transforms), [Platfor
 
 ### 4. Register Form
 
-Learn how to use: **KeyboardAwareScrollView**, **Formik**, **Yup**, **Alert**, **Separate Style**, **Separate Components**
+Learn how to use: [React Native Keyboard Aware Scroll View](https://github.com/APSL/react-native-keyboard-aware-scroll-view), [Formik](https://formik.org/), [Yup](https://github.com/jquense/yup), [Alert](https://reactnative.dev/docs/alert), **Separate Style**, **Separate Components**.
 
 <img src="https://user-images.githubusercontent.com/12640832/91040699-dc7da400-e638-11ea-8f40-fde278b91ad2.png" width="250" alt="Register Form" />
 
