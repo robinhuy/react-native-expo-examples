@@ -54,7 +54,7 @@ Learn how to use: [React Native Keyboard Aware Scroll View](https://github.com/A
 
 ### 5. Instagram Feed
 
-Learn how to use: **ScrollView**, **FlatList**
+Learn how to use: [ScrollView](https://reactnative.dev/docs/scrollview), [FlatList](https://reactnative.dev/docs/flatlist).
 
 <img src="https://user-images.githubusercontent.com/12640832/106414178-939b0880-647e-11eb-9947-d902b76c8ec0.png" width="250" alt="Instagram Feed" />
 
