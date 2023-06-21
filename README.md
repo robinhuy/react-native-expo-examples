@@ -60,7 +60,7 @@ Learn how to use: [ScrollView](https://reactnative.dev/docs/scrollview), [FlatLi
 
 ### 6. Rock Paper Scissors
 
-Learn how to use: **Animations**, **React Hook useRef**
+Learn how to use: [Animations](https://reactnative.dev/docs/animations), **React Hook useRef**.
 
 <img src="https://user-images.githubusercontent.com/12640832/89098353-e680fe00-d410-11ea-94a5-70c0e35c751b.gif" width="250" alt="Rock Paper Scissors" />
 
@@ -72,7 +72,7 @@ Learn how to use: **React Native Animatable**, **Expo Barcode Scanner**
 
 ### 8. Stop Watch
 
-Learn how to use: **Timer**, **React Memo**, **useCallback**
+Learn how to use: **Timer**, **React Memo**, **React Hook useCallback**
 
 <img src="https://user-images.githubusercontent.com/12640832/87749278-7d02cc00-c822-11ea-9b6a-b19e83f38841.gif" width="250" alt="Stop Watch" />
 
