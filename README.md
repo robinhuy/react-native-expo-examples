@@ -42,7 +42,7 @@ Learn how to use: [StatusBar](https://reactnative.dev/docs/statusbar), [Expo Ico
 
 ### 3. The Light
 
-Learn how to use: [Transform](https://reactnative.dev/docs/transforms), [Platform](https://reactnative.dev/docs/platform), [Dimensions](https://reactnative.dev/docs/dimensions), [Switch](https://reactnative.dev/docs/switch), [TouchableHighlight](https://reactnative.dev/docs/touchablehighlight), [React Hook useState](https://legacy.reactjs.org/docs/hooks-state.html).
+Learn how to use: [Transform](https://reactnative.dev/docs/transforms), [Platform](https://reactnative.dev/docs/platform), [Dimensions](https://reactnative.dev/docs/dimensions), [Switch](https://reactnative.dev/docs/switch), [TouchableHighlight](https://reactnative.dev/docs/touchablehighlight), [React Hook useState](https://react.dev/reference/react/useState).
 
 <img src="https://user-images.githubusercontent.com/12640832/87749392-c3582b00-c822-11ea-8cea-7a1814907e83.gif" width="250" alt="The Light" /> <img src="https://user-images.githubusercontent.com/12640832/105162883-c3284780-5b45-11eb-82a6-1fc71ce636a7.gif" width="250" alt="Traffic Light" />
 
@@ -60,7 +60,7 @@ Learn how to use: [ScrollView](https://reactnative.dev/docs/scrollview), [FlatLi
 
 ### 6. Rock Paper Scissors
 
-Learn how to use: [Animations](https://reactnative.dev/docs/animations), **React Hook useRef**.
+Learn how to use: [Animations](https://reactnative.dev/docs/animations), [React Hook useRef](https://react.dev/reference/react/useRef).
 
 <img src="https://user-images.githubusercontent.com/12640832/89098353-e680fe00-d410-11ea-94a5-70c0e35c751b.gif" width="250" alt="Rock Paper Scissors" />
 
@@ -72,7 +72,7 @@ Learn how to use: **React Native Animatable**, **Expo Barcode Scanner**
 
 ### 8. Stop Watch
 
-Learn how to use: **Timer**, **React Memo**, **React Hook useCallback**
+Learn how to use: **Timer**, [React Memo](https://react.dev/reference/react/memo), [React Hook useCallback](https://react.dev/reference/react/useCallback).
 
 <img src="https://user-images.githubusercontent.com/12640832/87749278-7d02cc00-c822-11ea-9b6a-b19e83f38841.gif" width="250" alt="Stop Watch" />
 
@@ -84,7 +84,7 @@ Learn how to use: **Slider**, **Modal**
 
 ### 10. Music Player
 
-Learn how to use: **Expo AV**, **React Native Modal**, **React Hook useEffect**,
+Learn how to use: **Expo AV**, **React Native Modal**, [React Hook useEffect](https://react.dev/reference/react/useEffect).
 
 <img src="https://user-images.githubusercontent.com/12640832/100084320-33d02200-2e7d-11eb-81a0-466de5906a4c.png" width="250" alt="Music Player 1" /> <img src="https://user-images.githubusercontent.com/12640832/100084415-53ffe100-2e7d-11eb-92b9-737e60f75d46.png" width="250" alt="Music Player 2" />
 
@@ -102,4 +102,4 @@ Learn how to use: **React Native Elements**, **React Navigation**, **React Nativ
 
 ---
 
-Last but not least: If you have time, let's try my React Native Game on Goole Play Store: [Master Mind X](https://play.google.com/store/apps/details?id=com.robinhuy.mastermindx)
+Last but not least: If you have time, let's try my React Native Game on Goole Play Store: [Master Mind X](https://play.google.com/store/apps/details?id=com.robinhuy.mastermindx).
