@@ -66,7 +66,7 @@ Learn how to use: [Animations](https://reactnative.dev/docs/animations), [React 
 
 ### 7. Scan QR Code
 
-Learn how to use: **React Native Animatable**, **Expo Barcode Scanner**
+Learn how to use: **React Native Animatable**, **Expo Barcode Scanner**.
 
 <img src="https://user-images.githubusercontent.com/12640832/99055849-453b4380-25cc-11eb-845e-8f5f8040d319.png" width="250" alt="Scan QR Code" />
 
@@ -78,7 +78,7 @@ Learn how to use: **Timer**, [React Memo](https://react.dev/reference/react/memo
 
 ### 9. BMI Calculator
 
-Learn how to use: **Slider**, **Modal**
+Learn how to use: **Slider**, [Modal](https://reactnative.dev/docs/modal).
 
 <img src="https://user-images.githubusercontent.com/12640832/87665506-3fa22e00-c791-11ea-99c1-510bb7e059e0.gif" width="250" alt="BMI Calculator" />
 
@@ -90,13 +90,13 @@ Learn how to use: **Expo AV**, **React Native Modal**, [React Hook useEffect](ht
 
 ### 11. Worldwide News
 
-Learn how to use: **Connect JSON API**, **ActivityIndicator**, **Linking**, **Lodash**
+Learn how to use: **Connect JSON API**, [ActivityIndicator](https://reactnative.dev/docs/activityindicator), [Linking](https://reactnative.dev/docs/linking), **Lodash**.
 
 <img src="https://user-images.githubusercontent.com/12640832/95187431-59ce3400-07f5-11eb-9d95-c68df6740964.png" width="250" alt="Worldwide News" />
 
 ### 12. Pokedex
 
-Learn how to use: **React Native Elements**, **React Navigation**, **React Native Progress**, **React Hook useEffect with Cleanup**
+Learn how to use: **React Native Elements**, **React Navigation**, **React Native Progress**, **React Hook useEffect with Cleanup**.
 
 <img src="https://user-images.githubusercontent.com/12640832/94989309-e7174b80-059d-11eb-95c8-fb0835aa2310.png" width="250" alt="Pokedex" />
 
