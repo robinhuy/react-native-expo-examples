@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, View, Text, Modal, SafeAreaView } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
 import Button from "./Button";
 import { BOX, TEXT } from "../style";
 

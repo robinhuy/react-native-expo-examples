@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, View, Text, Platform } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
 import Slider from "@react-native-community/slider";
 import sliderThumbImage from "../../../assets/bmi-calculator/slider-thumb-image.png";
 import { BOX, TEXT_VALUE, TEXT_LABEL } from "../style";

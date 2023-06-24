@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { BOX, ROW, CENTER, TEXT_LABEL, TEXT_VALUE } from "../style";
+import { BOX, CENTER, TEXT_LABEL, TEXT_VALUE } from "../style";
 
 function UnitSelection({ label, value, minValue, maxValue, setValue }) {
   const timer = useRef(null);

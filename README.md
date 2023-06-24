@@ -66,7 +66,7 @@ Learn how to use: [Animations](https://reactnative.dev/docs/animations), [React 
 
 ### 7. Scan QR Code
 
-Learn how to use: **React Native Animatable**, **Expo Barcode Scanner**.
+Learn how to use: [React Native Animatable](https://github.com/oblador/react-native-animatable), [Expo Barcode Scanner](https://docs.expo.dev/versions/latest/sdk/bar-code-scanner/).
 
 <img src="https://user-images.githubusercontent.com/12640832/99055849-453b4380-25cc-11eb-845e-8f5f8040d319.png" width="250" alt="Scan QR Code" />
 
@@ -78,7 +78,7 @@ Learn how to use: **Timer**, [React Memo](https://react.dev/reference/react/memo
 
 ### 9. BMI Calculator
 
-Learn how to use: **Slider**, [Modal](https://reactnative.dev/docs/modal).
+Learn how to use: [React Native Slider](https://github.com/callstack/react-native-slider), [Modal](https://reactnative.dev/docs/modal).
 
 <img src="https://user-images.githubusercontent.com/12640832/87665506-3fa22e00-c791-11ea-99c1-510bb7e059e0.gif" width="250" alt="BMI Calculator" />
 
