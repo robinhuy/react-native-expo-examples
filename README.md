@@ -84,7 +84,7 @@ Learn how to use: [React Native Slider](https://github.com/callstack/react-nativ
 
 ### 10. Music Player
 
-Learn how to use: **Expo AV**, **React Native Modal**, [React Hook useEffect](https://react.dev/reference/react/useEffect).
+Learn how to use: [Expo AV](https://docs.expo.dev/versions/latest/sdk/av/), [React Native Modal](https://github.com/react-native-modal/react-native-modal), [React Hook useEffect](https://react.dev/reference/react/useEffect).
 
 <img src="https://user-images.githubusercontent.com/12640832/100084320-33d02200-2e7d-11eb-81a0-466de5906a4c.png" width="250" alt="Music Player 1" /> <img src="https://user-images.githubusercontent.com/12640832/100084415-53ffe100-2e7d-11eb-92b9-737e60f75d46.png" width="250" alt="Music Player 2" />
 
