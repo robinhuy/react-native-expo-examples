@@ -90,13 +90,13 @@ Learn how to use: [Expo AV](https://docs.expo.dev/versions/latest/sdk/av/), [Rea
 
 ### 11. Worldwide News
 
-Learn how to use: **Connect JSON API**, [ActivityIndicator](https://reactnative.dev/docs/activityindicator), [Linking](https://reactnative.dev/docs/linking), **Lodash**.
+Learn how to use: **Connect JSON API**, [ActivityIndicator](https://reactnative.dev/docs/activityindicator), [Linking](https://reactnative.dev/docs/linking), [Lodash](https://lodash.com/).
 
 <img src="https://user-images.githubusercontent.com/12640832/95187431-59ce3400-07f5-11eb-9d95-c68df6740964.png" width="250" alt="Worldwide News" />
 
 ### 12. Pokedex
 
-Learn how to use: **React Native Elements**, **React Navigation**, **React Native Progress**, **React Hook useEffect with Cleanup**.
+Learn how to use: [React Native Elements](https://reactnativeelements.com/), [React Navigation](https://reactnavigation.org/), [React Native Progress](https://github.com/oblador/react-native-progress), **React Hook useEffect with Cleanup**.
 
 <img src="https://user-images.githubusercontent.com/12640832/94989309-e7174b80-059d-11eb-95c8-fb0835aa2310.png" width="250" alt="Pokedex" />
 
