@@ -1,6 +1,6 @@
 # React Native Expo examples
 
-Learn React Native (Expo SDK 47) by easy-to-difficult examples.
+Learn React Native (Expo SDK 51) by easy-to-difficult examples.
 
 _For more advance examples, see [React Native TypeScript examples](https://github.com/robinhuy/react-native-typescript-examples)_
 
@@ -8,15 +8,13 @@ _For more advance examples, see [React Native TypeScript examples](https://githu
 
 - Setting up the development environment: https://reactnative.dev/docs/environment-setup.
 
-- Install dependencies: `yarn install` (or `npm install`).
+- Install dependencies: `yarn` (or `npm install`).
 
-- Run on Android: `yarn android` (or `npm run android`).
+- To start the development server, run the following command: `yarn start` (or `npx expo start`).
 
-- Run on iOS: `yarn ios` (or `npm run ios`).
+  After running the command above, you will see a QR code in your terminal. Scan this QR code to open the app on your device.
 
-- Run on both Android & iOS: `yarn mobile` (or `npm run mobile`).
-
-- Run server: `yarn start`. Then use app **Expo Go** on your mobile and scan QR code on the terminal.
+  If you're using an Android Emulator or iOS Simulator, you can press `a` or `i` respectively to open the app.
 
 ## Preview
 
