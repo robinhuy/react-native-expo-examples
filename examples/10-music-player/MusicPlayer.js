@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  StyleSheet,
   SafeAreaView,
   View,
   Text,
@@ -9,7 +8,7 @@ import {
   FlatList,
 } from "react-native";
 import { Audio } from "expo-av";
-import Constants from "expo-constants";
+
 import PlayerModal from "./PlayerModal";
 import { displayTime } from "./util";
 import { styles } from "./MusicPlayer.style";
@@ -72,7 +71,7 @@ export default function MusicPlayer() {
       );
       sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate);
       setPlaybackObject(sound);
-    } catch (error) {
+    } catch {
       alert("Can't play this song!");
     }
   };
@@ -119,7 +118,7 @@ export default function MusicPlayer() {
 
   const changeSong = (index) => {
     if (index < 0) index = PLAY_LIST.length - 1;
-    else if (index == PLAY_LIST.length) index = 0;
+    else if (index === PLAY_LIST.length) index = 0;
 
     playSong(PLAY_LIST[index], index);
   };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -54,7 +54,7 @@ const tabScreenOptions = ({ route }) => ({
         <Image
           source={route.name === "Pokemons" ? pokemonTabIcon : moveTabIcon}
           style={{
-            opacity: color == ActiveColor ? 1 : 0.5,
+            opacity: color === ActiveColor ? 1 : 0.5,
             width: size,
             height: size,
           }}

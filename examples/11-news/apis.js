@@ -8,7 +8,7 @@ export async function getNews(page = 1, pageSize = 10) {
     );
     const jsonData = await response.json();
     return jsonData.articles || [];
-  } catch (error) {
+  } catch {
     return [];
   }
 }

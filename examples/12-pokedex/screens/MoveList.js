@@ -45,7 +45,7 @@ export default function MoveList({ navigation }) {
 
   const searchMove = useCallback(
     debounce((keyword) => {
-      if (keyword == "") {
+      if (keyword === "") {
         setDisplayMoves(moves);
       } else {
         const filteredMoves = moves.filter((move) => {
@@ -73,7 +73,7 @@ export default function MoveList({ navigation }) {
         setDisplayMoves(removeDuplicated);
         setKeyword("");
         setLoading(false);
-      } catch (error) {
+      } catch {
         Alert.alert("Cannot connect to Server!");
       }
     };

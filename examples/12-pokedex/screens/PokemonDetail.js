@@ -7,7 +7,6 @@ import {
   ActivityIndicator,
   Image,
 } from "react-native";
-import { Icon } from "react-native-elements";
 import { BackgroundColor } from "../constants";
 import MainHeader from "../components/MainHeader";
 import PokemonType from "../components/PokemonType";

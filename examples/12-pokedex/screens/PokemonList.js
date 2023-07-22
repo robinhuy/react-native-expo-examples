@@ -7,13 +7,12 @@ import {
   Alert,
 } from "react-native";
 import { Avatar, ListItem, SearchBar } from "react-native-elements";
+import { debounce } from 'lodash';
 
 import MainHeader from "../components/MainHeader";
 import PokemonType from "../components/PokemonType";
 import pokeballIcon from "../../../assets/pokedex/pokeball.png";
 import { FullPokemonsAPI } from "../constants";
-
-import { debounce } from "lodash";
 
 export default function PokemonList({ navigation }) {
   const [displayPokemons, setDisplayPokemons] = useState([]);
@@ -63,7 +62,7 @@ export default function PokemonList({ navigation }) {
 
   const searchPokemon = useCallback(
     debounce((keyword) => {
-      if (keyword == "") {
+      if (keyword === "") {
         setDisplayPokemons(pokemons);
       } else {
         const filteredPokemons = pokemons.filter((pokemon) => {

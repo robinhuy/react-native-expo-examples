@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, View, Text, Platform, ScrollView } from "react-native";
-import { Icon, Image } from "react-native-elements";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { Image } from "react-native-elements";
 import MainHeader from "../components/MainHeader";
 
 import { BackgroundColor, PokemonTypeIcon } from "../constants";
