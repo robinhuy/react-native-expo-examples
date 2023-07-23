@@ -19,7 +19,7 @@
     "@react-navigation/native": "^6.1.0",
     "@react-navigation/stack": "^6.3.8",
     "date-fns": "^2.29.3",
-    "expo": "^51.0.0",
+    "expo": "^51.0.10",
     "expo-av": "~14.0.5",
     "expo-barcode-scanner": "~13.0.1",
     "expo-router": "^3.5.15",
@@ -44,8 +44,8 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0",
-    "babel-preset-expo": "~11.0.0",
+    "@babel/core": "^7.24.7",
+    "babel-preset-expo": "^11.0.7",
     "eslint": "^8.57.0",
     "eslint-config-expo": "^7.0.0"
   }
