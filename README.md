@@ -10,7 +10,7 @@ _For more advance examples, see [React Native TypeScript examples](https://githu
 
 - Install dependencies: `yarn` (or `npm install`).
 
-- To start the development server, run the following command: `yarn start` (or `npx expo start`).
+- To start the development server, run the following command: `yarn start` (or `npm start`).
 
   After running the command above, you will see a QR code in your terminal. Scan this QR code to open the app on your device.
 

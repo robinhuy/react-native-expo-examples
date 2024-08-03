@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
 import Constants from "expo-constants";
+import { StyleSheet } from "react-native";
 import {
   PRIMARY_COLOR,
   PRIMARY_TEXT_COLOR,

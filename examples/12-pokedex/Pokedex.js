@@ -1,17 +1,17 @@
-import React from "react";
-import { View, Image } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { Image, View } from "react-native";
 
-import PokemonList from "./screens/PokemonList";
+import MoveDetail from "./screens/MoveDetail";
 import MoveList from "./screens/MoveList";
 import PokemonDetail from "./screens/PokemonDetail";
-import MoveDetail from "./screens/MoveDetail";
+import PokemonList from "./screens/PokemonList";
 
-import pokemonTabIcon from "../../assets/pokedex/pokemon-active.png";
-import moveTabIcon from "../../assets/pokedex/move-active.png";
+import moveTabIcon from "./assets/move-active.png";
+import pokemonTabIcon from "./assets/pokemon-active.png";
 
 // https://reactnavigation.org/docs/stack-navigator/
 const PokemonStack = createStackNavigator();

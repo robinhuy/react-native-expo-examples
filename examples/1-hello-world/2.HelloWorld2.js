@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, SafeAreaView, Text } from "react-native";
 import Constants from "expo-constants";
+import React from "react";
+import { SafeAreaView, StyleSheet, Text } from "react-native";
 
 export default function HelloWorld2() {
   return (

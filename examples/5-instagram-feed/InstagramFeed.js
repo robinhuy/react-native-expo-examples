@@ -1,10 +1,10 @@
-import React from "react";
-import { StyleSheet, SafeAreaView, View, FlatList } from "react-native";
-import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { FlatList, SafeAreaView, StyleSheet, View } from "react-native";
+import Article from "./components/Article";
 import Header from "./components/Header";
 import Stories from "./components/Stories";
-import Article from "./components/Article";
 import { articles } from "./data";
 
 export default function Instagram() {

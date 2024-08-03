@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import React from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Article({ item }) {
   const articleImage = Image.resolveAssetSource(item.image);
@@ -54,7 +54,7 @@ export default function Article({ item }) {
       </View>
 
       <View style={styles.info}>
-        <Text style={styles.likeCount}>{item.likeCount} lượt thích</Text>
+        <Text style={styles.likeCount}>{item.likeCount} likes</Text>
         <Text style={styles.date}>{item.date}</Text>
       </View>
     </View>

@@ -1,12 +1,12 @@
+import { FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
 import {
-  CENTER,
-  BOX,
-  TEXT_LABEL,
   BG_COLOR,
+  BOX,
+  CENTER,
   HIGHLIGHT_BG_COLOR,
+  TEXT_LABEL,
 } from "../style";
 
 function GenderSelection({ label, iconName, iconColor, isActive, setActive }) {

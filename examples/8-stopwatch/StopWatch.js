@@ -1,9 +1,10 @@
-import React, { useState, useRef, useCallback } from "react";
-import { StyleSheet, SafeAreaView, Text, View, Platform } from "react-native";
-import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
-import Result from "./Result";
+import { StatusBar } from "expo-status-bar";
+import React, { useCallback, useRef, useState } from "react";
+import { Platform, SafeAreaView, StyleSheet, Text, View } from "react-native";
+
 import Control from "./Control";
+import Result from "./Result";
 import { displayTime } from "./util";
 
 export default function StopWatch() {

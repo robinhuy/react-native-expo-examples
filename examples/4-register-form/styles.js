@@ -1,5 +1,5 @@
-import { StyleSheet, Platform } from "react-native";
 import Constants from "expo-constants";
+import { Platform, StyleSheet } from "react-native";
 
 const HEADER_BACKGROUND = "#3498db";
 const CONTENT_BACKGROUND = "#f9f9f9";

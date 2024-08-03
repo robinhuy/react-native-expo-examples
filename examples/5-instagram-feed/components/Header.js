@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, TouchableOpacity, Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import React from "react";
+import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
 const INSTAGRAM_LOGO =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png";

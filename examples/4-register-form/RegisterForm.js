@@ -1,17 +1,18 @@
+import { StatusBar } from "expo-status-bar";
+import { Formik } from "formik";
 import React from "react";
 import {
+  Alert,
   SafeAreaView,
-  View,
   Text,
   TouchableOpacity,
-  Alert,
+  View,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { Formik } from "formik";
-import { validationSchema } from "./validation";
-import { styles } from "./styles";
+
 import FormField from "./FormField";
+import { styles } from "./styles";
+import { validationSchema } from "./validation";
 
 export default function RegisterForm() {
   function onSubmitHandler(values) {

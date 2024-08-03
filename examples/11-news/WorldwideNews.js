@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  View,
-  Text,
-  FlatList,
-  ActivityIndicator,
-} from "react-native";
 import Constants from "expo-constants";
 import { uniqBy } from "lodash";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  ActivityIndicator,
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+
 import { getNews } from "./apis";
 import Article from "./Article";
 

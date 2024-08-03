@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import Constants from "expo-constants";
+import React, { useState } from "react";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import ScannerView from "./ScannerView";
 
 export default function ScanQrCode() {

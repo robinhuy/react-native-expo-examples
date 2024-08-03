@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 export default function Actions({ play, canPlay }) {
   return (

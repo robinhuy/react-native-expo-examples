@@ -1,20 +1,21 @@
+import { FontAwesome5 } from "@expo/vector-icons";
+import Slider from "@react-native-community/slider";
 import React from "react";
 import {
+  Image,
   Platform,
   SafeAreaView,
   Text,
-  View,
-  Image,
   TouchableOpacity,
+  View,
 } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
 import Modal from "react-native-modal";
-import Slider from "@react-native-community/slider";
-import sliderThumbImageAndroid from "../../assets/music-player/slider-thumb-android.png";
-import sliderThumbImageIOS from "../../assets/music-player/slider-thumb-ios.png";
-import { displayTime } from "./util";
+
+import sliderThumbImageAndroid from "./assets/slider-thumb-android.png";
+import sliderThumbImageIOS from "./assets/slider-thumb-ios.png";
 import { styles } from "./PlayerModal.style";
 import { PRIMARY_COLOR } from "./style";
+import { displayTime } from "./util";
 
 export default function PlayerModal({
   isModalVisible,

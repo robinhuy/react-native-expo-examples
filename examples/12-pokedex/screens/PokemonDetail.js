@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
   ActivityIndicator,
   Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
-import { BackgroundColor } from "../constants";
+
 import MainHeader from "../components/MainHeader";
-import PokemonType from "../components/PokemonType";
 import PokemonStatus from "../components/PokemonStatus";
+import PokemonType from "../components/PokemonType";
+import { BackgroundColor } from "../constants";
 
 export default function PokemonDetail({ navigation, route }) {
   const [staProgress, setStaProgress] = useState(0);

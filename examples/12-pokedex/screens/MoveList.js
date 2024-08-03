@@ -1,18 +1,17 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { uniqBy } from "lodash";
+import React, { useCallback, useEffect, useState } from "react";
 import {
-  StyleSheet,
-  View,
-  Image,
-  FlatList,
   ActivityIndicator,
   Alert,
+  FlatList,
+  Image,
+  StyleSheet,
+  View,
 } from "react-native";
 import { ListItem, SearchBar } from "react-native-elements";
-import { uniqBy } from "lodash";
 
 import MainHeader from "../components/MainHeader";
-import { FullMovesAPI } from "../constants";
-import { PokemonTypeIcon } from "../constants";
+import { FullMovesAPI, PokemonTypeIcon } from "../constants";
 
 import { debounce } from "lodash";
 

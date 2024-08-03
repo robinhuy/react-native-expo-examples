@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, Platform } from "react-native";
+import { Platform, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { CENTER, TEXT } from "../style";
 
 function Button({ title, onPress }) {

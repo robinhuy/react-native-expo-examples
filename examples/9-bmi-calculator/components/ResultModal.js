@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleSheet, View, Text, Modal, SafeAreaView } from "react-native";
-import Button from "./Button";
+import { Modal, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { BOX, TEXT } from "../style";
+import Button from "./Button";
 
 const GOOD_STATUS_COLOR = "#7ac79d";
 const BAD_STATUS_COLOR = "#f5ac40";

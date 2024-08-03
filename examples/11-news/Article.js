@@ -1,14 +1,14 @@
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import React from "react";
 import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  Linking,
   Alert,
+  Image,
+  Linking,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 export default function Article({ item }) {
   const openLink = () => {

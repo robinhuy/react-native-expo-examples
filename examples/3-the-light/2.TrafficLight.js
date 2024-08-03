@@ -1,19 +1,19 @@
+import Constants from "expo-constants";
+import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   Dimensions,
-  StyleSheet,
-  SafeAreaView,
-  View,
-  Text,
   Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
   TouchableHighlight,
+  View,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
-import Constants from "expo-constants";
-import trafficLight from "../../assets/the-light/traffic-light.png";
-import trafficLightGreen from "../../assets/the-light/traffic-light-green.png";
-import trafficLightYellow from "../../assets/the-light/traffic-light-yellow.png";
-import trafficLightRed from "../../assets/the-light/traffic-light-red.png";
+import trafficLightGreen from "./assets/traffic-light-green.png";
+import trafficLightRed from "./assets/traffic-light-red.png";
+import trafficLightYellow from "./assets/traffic-light-yellow.png";
+import trafficLight from "./assets/traffic-light.png";
 
 export default function TrafficLight() {
   const [color, setColor] = useState("");

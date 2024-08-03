@@ -1,17 +1,17 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { debounce } from 'lodash';
+import React, { useCallback, useEffect, useState } from "react";
 import {
-  StyleSheet,
-  View,
-  FlatList,
   ActivityIndicator,
   Alert,
+  FlatList,
+  StyleSheet,
+  View,
 } from "react-native";
 import { Avatar, ListItem, SearchBar } from "react-native-elements";
-import { debounce } from 'lodash';
 
+import pokeballIcon from "../assets/pokeball.png";
 import MainHeader from "../components/MainHeader";
 import PokemonType from "../components/PokemonType";
-import pokeballIcon from "../../../assets/pokedex/pokeball.png";
 import { FullPokemonsAPI } from "../constants";
 
 export default function PokemonList({ navigation }) {

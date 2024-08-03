@@ -1,18 +1,18 @@
+import { Audio } from "expo-av";
 import React, { useEffect, useState } from "react";
 import {
-  SafeAreaView,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
   FlatList,
+  Image,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { Audio } from "expo-av";
 
-import PlayerModal from "./PlayerModal";
-import { displayTime } from "./util";
 import { styles } from "./MusicPlayer.style";
+import PlayerModal from "./PlayerModal";
 import { PLAY_LIST } from "./listSong";
+import { displayTime } from "./util";
 
 export default function MusicPlayer() {
   const [isModalVisible, setModalVisible] = useState(false);

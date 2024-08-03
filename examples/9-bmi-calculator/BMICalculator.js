@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { StyleSheet, SafeAreaView, View, Text } from "react-native";
-import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import Button from "./components/Button";
 import GenderSelection from "./components/GenderSelection";
 import HeightSelection from "./components/HeightSelection";
-import UnitSelection from "./components/UnitSelection";
-import Button from "./components/Button";
 import ResultModal from "./components/ResultModal";
-import { ROW, CENTER, TEXT } from "./style";
+import UnitSelection from "./components/UnitSelection";
 import {
   DEFAULT_VALUE,
   MAX_AGE,
@@ -15,6 +14,7 @@ import {
   MIN_AGE,
   MIN_WEIGHT,
 } from "./const";
+import { CENTER, ROW, TEXT } from "./style";
 
 export default function BMICalculator() {
   const [gender, setGender] = useState(DEFAULT_VALUE.gender);

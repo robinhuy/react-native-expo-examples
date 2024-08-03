@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleSheet, View, Text, Platform } from "react-native";
 import Slider from "@react-native-community/slider";
-import sliderThumbImage from "../../../assets/bmi-calculator/slider-thumb-image.png";
-import { BOX, TEXT_VALUE, TEXT_LABEL } from "../style";
+import React from "react";
+import { Platform, StyleSheet, Text, View } from "react-native";
+import sliderThumbImage from "../assets/slider-thumb-image.png";
+import { BOX, TEXT_LABEL, TEXT_VALUE } from "../style";
 
 const MIN_HEIGHT = 50;
 const MAX_HEIGHT = 250;

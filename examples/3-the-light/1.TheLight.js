@@ -1,16 +1,16 @@
+import Constants from "expo-constants";
+import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   Dimensions,
-  StyleSheet,
-  SafeAreaView,
   Image,
-  Switch,
   Platform,
+  SafeAreaView,
+  StyleSheet,
+  Switch,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
-import Constants from "expo-constants";
-import bulbOff from "../../assets/the-light/bulb-off.jpg";
-import bulbOn from "../../assets/the-light/bulb-on.jpg";
+import bulbOff from "./assets/bulb-off.jpg";
+import bulbOn from "./assets/bulb-on.jpg";
 
 export default function TheLight() {
   // https://reactjs.org/docs/hooks-reference.html#usestate

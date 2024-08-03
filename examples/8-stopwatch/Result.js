@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { displayTime } from "./util";
 
 function Result({ results }) {

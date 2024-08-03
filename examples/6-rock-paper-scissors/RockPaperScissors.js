@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
-import { StyleSheet, SafeAreaView, Text, View, Animated } from "react-native";
 import Constants from "expo-constants";
-import DisplayResult from "./DisplayResult";
+import React, { useRef, useState } from "react";
+import { Animated, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import Actions from "./Actions";
+import DisplayResult from "./DisplayResult";
 
 export default function RockPaperScissors() {
   const [userChoice, setUserChoice] = useState(0);

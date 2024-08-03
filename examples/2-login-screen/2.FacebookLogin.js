@@ -1,15 +1,15 @@
+import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
-  StyleSheet,
-  SafeAreaView,
-  View,
-  Text,
   Image,
-  TouchableOpacity,
+  SafeAreaView,
+  StyleSheet,
+  Text,
   TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { StatusBar } from "expo-status-bar";
-import FacebookBannerImage from "../../assets/login-page/facebook-banner.jpg";
+import FacebookBannerImage from "./assets/facebook-banner.jpg";
 
 export default function FacebookLogin() {
   return (

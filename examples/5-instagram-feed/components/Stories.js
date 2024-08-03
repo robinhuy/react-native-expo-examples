@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import Story from "./Story";
 import { profile, stories } from "../data";
+import Story from "./Story";
 
 export default function Stories() {
   return (
