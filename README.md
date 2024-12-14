@@ -100,4 +100,6 @@ Learn how to use: [React Native Elements](https://reactnativeelements.com/), [Re
 
 ---
 
-Last but not least: If you have time, let's try my React Native Game on Goole Play Store: [Master Mind X](https://play.google.com/store/apps/details?id=com.robinhuy.mastermindx).
+## License
+
+This project is licensed under the Apache License 2.0. See the [LICENSE](./LICENSE) file for details.

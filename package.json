@@ -2,6 +2,7 @@
   "name": "react-native-expo-examples",
   "version": "1.0.0",
   "author": "Robin Huy",
+  "license": "Apache-2.0",
   "main": "expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
